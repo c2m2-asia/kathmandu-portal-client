@@ -1,0 +1,70 @@
+/**
+ *
+ * ChartInsightsPage
+ *
+ */
+
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+// import { FormattedMessage } from 'react-intl';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
+
+import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from 'utils/injectReducer';
+import ChartInsightsView from 'components/ChartInsightsView';
+import makeSelectChartInsightsPage from './selectors';
+import reducer from './reducer';
+import saga from './saga';
+// import messages from './messages';
+
+import { getChartDataAction } from './actions';
+
+export function ChartInsightsPage({ chartInsightsPage, getChartData }) {
+  useInjectReducer({ key: 'chartInsightsPage', reducer });
+  useInjectSaga({ key: 'chartInsightsPage', saga });
+
+  return (
+    <React.Fragment>
+      <Helmet>
+        <title>ChartInsightsPage</title>
+        <meta name="description" content="Description of ChartInsightsPage" />
+      </Helmet>
+      <ChartInsightsView
+        getChartData={getChartData}
+        chartData={chartInsightsPage.get('chartData')}
+      />
+    </React.Fragment>
+  );
+}
+
+ChartInsightsPage.propTypes = {
+  // dispatch: PropTypes.func.isRequired,
+  getChartData: PropTypes.func.isRequired,
+  chartInsightsPage: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = createStructuredSelector({
+  chartInsightsPage: makeSelectChartInsightsPage(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    getChartData: (researchArea, dimension) => {
+      dispatch(getChartDataAction(researchArea, dimension));
+    },
+  };
+}
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(
+  withConnect,
+  memo,
+)(ChartInsightsPage);
