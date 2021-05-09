@@ -28,10 +28,6 @@ export function ChartInsightsPage({ chartInsightsPage, getChartData }) {
 
   return (
     <React.Fragment>
-      <Helmet>
-        <title>ChartInsightsPage</title>
-        <meta name="description" content="Description of ChartInsightsPage" />
-      </Helmet>
       <ChartInsightsView
         getChartData={getChartData}
         chartData={chartInsightsPage.get('chartData')}

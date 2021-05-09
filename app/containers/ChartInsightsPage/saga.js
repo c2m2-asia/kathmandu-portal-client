@@ -8,11 +8,9 @@ import {
 import Api from './api';
 
 function* getChartData(action) {
-  console.log("saga", action);
   try {
     const response = yield call(Api.getChartData, action.payload);
-    console.log("response", response);
-    if (response.status !== 200) {
+    if (response.code !== 200) {
       yield put({
         type: GET_CHART_DATA_FAILURE,
         errorMessage: response.message,

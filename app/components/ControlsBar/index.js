@@ -100,10 +100,10 @@ function ControlsBar({
                 id: 'outlined-age-native-simple',
               }}
             >
-              <option value="impact">Impact</option>
-              <option value="need">Need</option>
-              <option value="preparedness">Preparedness</option>
-              <option value="outlook">Outlook</option>
+              <option value="Impact">Impact</option>
+              <option value="Need">Need</option>
+              <option value="Preparedness">Preparedness</option>
+              <option value="Outlook">Outlook</option>
             </Select>
           </FormControl>
           <Typography

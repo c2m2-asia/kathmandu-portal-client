@@ -16,7 +16,6 @@ import { ConnectedRouter } from 'connected-react-router';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
 import WebFont from 'webfontloader';
-import theme from './theme';
 // Import root app
 import App from 'containers/App';
 
@@ -30,6 +29,7 @@ import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import theme from './theme';
 import configureStore from './configureStore';
 
 // Import i18n messages
