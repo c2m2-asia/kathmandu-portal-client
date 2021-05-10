@@ -31,6 +31,7 @@ export function ChartInsightsPage({ chartInsightsPage, getChartData }) {
       <ChartInsightsView
         getChartData={getChartData}
         chartData={chartInsightsPage.get('chartData')}
+        loading={chartInsightsPage.get('loading')}
       />
     </React.Fragment>
   );

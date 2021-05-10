@@ -16,8 +16,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import ControlsBar from 'components/ControlsBar/Loadable';
 import CrosstabHeatMap from 'components/CrosstabHeatMap';
-import SurveyAreaSelector from './SurveyAreaSelector';
 import CrosstabTable from 'components/CrosstabTable/Loadable';
+import DimensionTable from 'components/DimensionTable/Loadable';
+import SurveyAreaSelector from './SurveyAreaSelector';
+import Skeleton from '@material-ui/lab/Skeleton';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import './styles.css';
@@ -33,19 +35,22 @@ const dimensions = {
   workforce: [
     { label: 'Sector', value: 'sector' },
     { label: 'Experience', value: 'experience' },
-    { label: 'Education level', value: 'educationLevel' },
+    { label: 'Education level', value: 'm_edu_levl' },
   ],
 };
 
-const ChartInsightsView = ({ getChartData, chartData }) => {
+const ChartInsightsView = ({ getChartData, chartData, loading }) => {
   const [surveyArea, setSurveyArea] = useState('workforce');
-  const [isShowPercentagesChecked, setIsShowPercentagesChecked] = useState(
-    true,
-  );
+  const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
   const [researchArea, setResearchArea] = useState('Impact');
-  const defaultDimension = surveyArea === 'businesses' ? 'type' : 'sector';
+  const defaultDimension = surveyArea === 'businesses' ? 'type' : 'm_edu_levl';
   const [dimension, setDimension] = useState(defaultDimension);
   const [viewType, setViewType] = useState('chart');
+
+  function randomNumber(min, max) {
+    const r = Math.random() * (max - min) + min;
+    return Math.floor(r);
+  }
 
   const dimensionLabel = dimensions[surveyArea]
     .find(a => a.value === dimension)
@@ -56,8 +61,6 @@ const ChartInsightsView = ({ getChartData, chartData }) => {
       getChartData(researchArea, dimension);
     }, 500);
   }, []);
-
-  console.log("chartData", chartData);
 
   return (
     <Fragment>
@@ -112,9 +115,9 @@ const ChartInsightsView = ({ getChartData, chartData }) => {
                 control={
                   <Checkbox
                     style={{ color: 'rgba(255,255,255,0.5)' }}
-                    checked={isShowPercentagesChecked}
+                    checked={isShowPercentage}
                     onChange={() =>
-                      setIsShowPercentagesChecked(!isShowPercentagesChecked)
+                      setIsShowPercentagesChecked(!isShowPercentage)
                     }
                     name="checkedB"
                     color="primary"
@@ -128,10 +131,42 @@ const ChartInsightsView = ({ getChartData, chartData }) => {
               />
             )}
           </div>
-          {viewType === 'chart' ? (
-            <DimensionBarChart surveyArea={surveyArea} dimension={dimension} />
-          ) : (
-            <CrosstabTable />
+          {loading && (
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              {['', '', '', ''].map(() => (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    alignSelf: 'flex-end',
+                  }}
+                >
+                  <Skeleton
+                    animation="wave"
+                    variant="rect"
+                    width="9vw"
+                    height={randomNumber(30, 220)}
+                  />
+                  <Skeleton animation="wave" variant="text" width="6vw" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          {chartData && !loading && (
+            <Fragment>
+              {viewType === 'chart' ? (
+                <DimensionBarChart
+                  surveyArea={surveyArea}
+                  dimension={dimension}
+                  chartData={chartData.univariate}
+                  isShowPercentage={isShowPercentage}
+                />
+              ) : (
+                <DimensionTable chartData={chartData.univariate} />
+              )}
+            </Fragment>
           )}
         </div>
       </div>
@@ -172,9 +207,9 @@ const ChartInsightsView = ({ getChartData, chartData }) => {
                 control={
                   <Checkbox
                     style={{ color: 'rgba(255,255,255,0.5)' }}
-                    checked={isShowPercentagesChecked}
+                    checked={isShowPercentage}
                     onChange={() =>
-                      setIsShowPercentagesChecked(!isShowPercentagesChecked)
+                      setIsShowPercentagesChecked(!isShowPercentage)
                     }
                     name="checkedB"
                     color="primary"
@@ -188,7 +223,40 @@ const ChartInsightsView = ({ getChartData, chartData }) => {
               />
             )}
           </div>
-          {viewType === 'chart' ? <CrosstabHeatMap /> : <CrosstabTable />}
+          {loading && (
+            <div
+              style={{
+                display: 'flex',
+                gap: '1rem',
+                flexDirection: 'column',
+              }}
+            >
+              {['', '', '', ''].map(() => (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: '1rem',
+                  }}
+                >
+                  <Skeleton
+                    animation="wave"
+                    variant="rect"
+                    width="50vw"
+                    height={85}
+                  />
+                  <Skeleton animation="wave" variant="text" width="6vw" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          {!loading && chartData && (
+            <Fragment>
+              {viewType === 'chart' ? <CrosstabHeatMap /> : <CrosstabTable />}
+            </Fragment>
+          )}
         </div>
       </div>
     </Fragment>
@@ -197,6 +265,8 @@ const ChartInsightsView = ({ getChartData, chartData }) => {
 
 ChartInsightsView.propTypes = {
   getChartData: PropTypes.func.isRequired,
+  chartData: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default memo(ChartInsightsView);

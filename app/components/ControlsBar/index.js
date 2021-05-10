@@ -60,7 +60,7 @@ const dimensions = {
   workforce: [
     { label: 'Sector', value: 'sector' },
     { label: 'Experience', value: 'experience' },
-    { label: 'Education level', value: 'educationLevel' },
+    { label: 'Education level', value: 'm_edu_levl' },
   ],
 };
 

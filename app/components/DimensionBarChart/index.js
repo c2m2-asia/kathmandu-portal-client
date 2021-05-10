@@ -31,20 +31,26 @@ const dimensions = {
   ],
 };
 
-const data = [
-  { label: 'Experience selling', value: '31' },
-  { label: 'Hospitality', value: '27' },
-  { label: 'Transportation', value: '21' },
-  { label: 'Entertainment', value: '11' },
-  { label: 'Management', value: '10' },
-];
+// const data = [
+//   { label: 'Experience selling', value: '31' },
+//   { label: 'Hospitality', value: '27' },
+//   { label: 'Transportation', value: '21' },
+//   { label: 'Entertainment', value: '11' },
+//   { label: 'Management', value: '10' },
+// ];
 
-const height = 320;
+const height = 400;
 const barWidth = 130;
 const margin = { top: 0, right: 0, bottom: 50, left: 0 };
 const padding = 15;
 
-function DimensionBarChart({ dimension, surveyArea }) {
+function DimensionBarChart({
+  dimension,
+  surveyArea,
+  chartData,
+  isShowPercentage,
+}) {
+  const data = chartData[Object.keys(chartData)[0]];
   const width = data.length * barWidth + data.length * padding;
 
   // const dimensionLabel = dimensions[surveyArea]
@@ -52,13 +58,15 @@ function DimensionBarChart({ dimension, surveyArea }) {
   //   .label.toLowerCase();
 
   const y = scaleLinear()
-    .domain([0, max(data, d => d.value)])
+    .domain([0, max(data, d => d.perc_of_total * 100)])
     .nice()
     .range([height - margin.bottom, margin.top]);
 
   const x = scaleBand()
     .domain(range(data.length))
     .range([0, width]);
+
+  console.log('data', data);
 
   return (
     <>
@@ -69,9 +77,9 @@ function DimensionBarChart({ dimension, surveyArea }) {
               <rect
                 fill="#82C0C6"
                 x={x(index)}
-                y={y(datum.value)}
+                y={y(datum.perc_of_total * 100)}
                 width={barWidth}
-                height={y(0) - y(datum.value)}
+                height={y(0) - y(datum.perc_of_total * 100)}
               />
               <text
                 x={x(index) + barWidth}
@@ -84,7 +92,9 @@ function DimensionBarChart({ dimension, surveyArea }) {
                   color: 'rgba(0,0,0,0.38)',
                 }}
               >
-                {datum.value}%
+                {isShowPercentage
+                  ? `${Math.round(datum.perc_of_total * 100)}%`
+                  : `${datum.total}`}
               </text>
             </g>
           ))}
@@ -92,13 +102,13 @@ function DimensionBarChart({ dimension, surveyArea }) {
             <Text
               key={uid(datum, index)}
               fill="#82C0C6"
-              x={x(index) + x.bandwidth() / 2}
-              y={height - margin.bottom + padding}
-              width={100}
+              x={x(index) + x.bandwidth() / 2 - padding / 2}
+              y={height - margin.bottom + 10}
+              width={barWidth - 20}
               style={{ fontWeight: '600', textAnchor: 'middle' }}
               verticalAnchor="start"
             >
-              {datum.label}
+              {datum.label_en}
             </Text>
           ))}
         </g>
@@ -110,6 +120,8 @@ function DimensionBarChart({ dimension, surveyArea }) {
 DimensionBarChart.propTypes = {
   surveyArea: PropTypes.string.isRequired,
   dimension: PropTypes.string.isRequired,
+  chartData: PropTypes.object.isRequired,
+  isShowPercentage: PropTypes.bool.isRequired,
 };
 
 export default memo(DimensionBarChart);

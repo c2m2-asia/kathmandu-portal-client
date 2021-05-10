@@ -125,7 +125,10 @@ const CrosstabHeatMap = () => {
 
   return (
     <Fragment>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${width + 300} ${height}`}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox={`0 0 ${width + 300} ${height}`}
+      >
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((d, index) => (
             <Fragment key={uid(d, index)}>
@@ -176,7 +179,7 @@ const CrosstabHeatMap = () => {
             <Text
               key={uid(labels, index)}
               fill="rgba(255,255,255,0.7)"
-              x={innerXScale(index) + innerPadding + yScale.bandwidth() / 2}
+              x={innerXScale(index) + innerPadding / 2 + yScale.bandwidth() / 2}
               y={innerHeight}
               verticalAnchor="start"
               textAnchor="middle"
