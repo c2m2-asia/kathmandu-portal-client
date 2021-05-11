@@ -62,6 +62,8 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
     }, 500);
   }, []);
 
+  // console.log(chartData.univariate[0].dist);
+
   return (
     <Fragment>
       <SurveyAreaSelector
@@ -160,11 +162,11 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
                 <DimensionBarChart
                   surveyArea={surveyArea}
                   dimension={dimension}
-                  chartData={chartData.univariate}
+                  chartData={chartData.univariate[0].dist}
                   isShowPercentage={isShowPercentage}
                 />
               ) : (
-                <DimensionTable chartData={chartData.univariate} />
+                <DimensionTable chartData={chartData.univariate[0].dist} />
               )}
             </Fragment>
           )}

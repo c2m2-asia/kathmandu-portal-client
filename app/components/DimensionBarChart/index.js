@@ -50,7 +50,7 @@ function DimensionBarChart({
   chartData,
   isShowPercentage,
 }) {
-  const data = chartData[Object.keys(chartData)[0]];
+  const data = chartData;
   const width = data.length * barWidth + data.length * padding;
 
   // const dimensionLabel = dimensions[surveyArea]
@@ -65,8 +65,6 @@ function DimensionBarChart({
   const x = scaleBand()
     .domain(range(data.length))
     .range([0, width]);
-
-  console.log('data', data);
 
   return (
     <>

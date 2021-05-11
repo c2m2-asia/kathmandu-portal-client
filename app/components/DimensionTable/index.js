@@ -42,7 +42,7 @@ function DimensionTable({ chartData }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   // forcefully storing because couldn't find a better way to sort :(
-  const data = JSON.parse(JSON.stringify(chartData[Object.keys(chartData)[0]]));
+  const data = JSON.parse(JSON.stringify(chartData))
 
   return (
     <TableContainer style={{ background: 'inherit' }}>
