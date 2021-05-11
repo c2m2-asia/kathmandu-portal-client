@@ -18,8 +18,9 @@ import ControlsBar from 'components/ControlsBar/Loadable';
 import CrosstabHeatMap from 'components/CrosstabHeatMap';
 import CrosstabTable from 'components/CrosstabTable/Loadable';
 import DimensionTable from 'components/DimensionTable/Loadable';
-import SurveyAreaSelector from './SurveyAreaSelector';
 import Skeleton from '@material-ui/lab/Skeleton';
+import CrosstabHeatmapContainer from 'components/CrosstabHeatmapContainer';
+import SurveyAreaSelector from './SurveyAreaSelector';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import './styles.css';
@@ -33,9 +34,10 @@ const dimensions = {
     { label: 'Sector', value: 'sector' },
   ],
   workforce: [
-    { label: 'Sector', value: 'sector' },
-    { label: 'Experience', value: 'experience' },
+    { label: 'Gender', value: 'm_gender' },
+    { label: 'Experience', value: 'm_years_of_experience' },
     { label: 'Education level', value: 'm_edu_levl' },
+    { label: 'Age', value: 'm_age' },
   ],
 };
 
@@ -43,7 +45,8 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
   const [surveyArea, setSurveyArea] = useState('workforce');
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
   const [researchArea, setResearchArea] = useState('Impact');
-  const defaultDimension = surveyArea === 'businesses' ? 'type' : 'm_edu_levl';
+  const defaultDimension =
+    surveyArea === 'businesses' ? 'type' : 'm_years_of_experience';
   const [dimension, setDimension] = useState(defaultDimension);
   const [viewType, setViewType] = useState('chart');
 
@@ -60,9 +63,7 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
     setTimeout(() => {
       getChartData(researchArea, dimension);
     }, 500);
-  }, []);
-
-  // console.log(chartData.univariate[0].dist);
+  }, [dimension]);
 
   return (
     <Fragment>
@@ -89,54 +90,75 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
           <Typography variant="h6" gutterBottom>
             Distribution of responses by {dimensionLabel}
           </Typography>
-          <Typography
-            variant="body1"
-            gutterBottom
-            style={{ color: 'rgba(255,255,255,0.45)' }}
-          >
-            Showing 322 responses
-          </Typography>
-          <div
-            style={{
-              display: 'flex',
-              gap: '1.2rem',
-              alignItems: 'center',
-              marginTop: '1.5rem',
-            }}
-          >
-            <Link style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', gap: '0.3rem' }}>
-                <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
-                <Typography variant="body2" gutterBottom>
-                  Download this data
-                </Typography>
-              </div>
-            </Link>
-            {viewType === 'chart' && (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
-                    checked={isShowPercentage}
-                    onChange={() =>
-                      setIsShowPercentagesChecked(!isShowPercentage)
-                    }
-                    name="checkedB"
-                    color="primary"
-                  />
-                }
-                label={
-                  <Typography variant="body2" gutterBottom>
-                    Show percentages?
-                  </Typography>
-                }
+          {loading && (
+            <Fragment>
+              <Skeleton
+                animation="wave"
+                variant="text"
+                width="10vw"
+                style={{ marginBottom: '2rem' }}
               />
-            )}
-          </div>
+              <Skeleton
+                animation="wave"
+                variant="text"
+                width="15vw"
+                style={{ marginBottom: '2rem' }}
+              />
+            </Fragment>
+          )}
+          {!loading && (
+            <Typography
+              variant="body1"
+              gutterBottom
+              style={{ color: 'rgba(255,255,255,0.45)' }}
+            >
+              Showing 322 responses
+            </Typography>
+          )}
+          {!loading && (
+            <div
+              style={{
+                display: 'flex',
+                gap: '1.2rem',
+                alignItems: 'center',
+                marginTop: '1.5rem',
+              }}
+            >
+              <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
+                <div style={{ display: 'flex', gap: '0.3rem' }}>
+                  <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
+                  <Typography variant="body2" gutterBottom>
+                    Download this data
+                  </Typography>
+                </div>
+              </Link>
+              {viewType === 'chart' && (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      style={{ color: 'rgba(255,255,255,0.5)' }}
+                      checked={isShowPercentage}
+                      onChange={() =>
+                        setIsShowPercentagesChecked(!isShowPercentage)
+                      }
+                      name="checkedB"
+                      color="primary"
+                    />
+                  }
+                  label={
+                    <Typography variant="body2" gutterBottom>
+                      Show percentages?
+                    </Typography>
+                  }
+                />
+              )}
+            </div>
+          )}
           {loading && (
             <div style={{ display: 'flex', gap: '1rem' }}>
-              {['', '', '', ''].map(() => (
+              {['d', 'c', 'b', 'a'].map(item => (
                 <div
+                  key={uid(item)}
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -162,112 +184,127 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
                 <DimensionBarChart
                   surveyArea={surveyArea}
                   dimension={dimension}
-                  chartData={chartData.univariate[0].dist}
+                  chartData={chartData.univariate[0].chart_data}
                   isShowPercentage={isShowPercentage}
                 />
               ) : (
-                <DimensionTable chartData={chartData.univariate[0].dist} />
+                <DimensionTable
+                  chartData={chartData.univariate[0].chart_data}
+                />
               )}
             </Fragment>
           )}
         </div>
       </div>
-      <div style={{ background: '#0B5C76' }}>
-        <div
-          className="container"
-          style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
-        >
-          <Typography variant="h6" gutterBottom>
-            If the situation persists, what will be your biggest challenge in
-            the next six months?
-          </Typography>
-          <Typography
-            variant="body1"
-            gutterBottom
-            style={{ color: 'rgba(255,255,255,0.45)' }}
-          >
-            Showing 322 responses
-          </Typography>
-          <div
-            style={{
-              display: 'flex',
-              gap: '1.2rem',
-              alignItems: 'center',
-              marginTop: '1.5rem',
-            }}
-          >
-            <Link style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', gap: '0.2rem' }}>
-                <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
-                <Typography variant="body2" gutterBottom>
-                  Download this data
-                </Typography>
-              </div>
-            </Link>
-            {viewType === 'chart' && (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
-                    checked={isShowPercentage}
-                    onChange={() =>
-                      setIsShowPercentagesChecked(!isShowPercentage)
-                    }
-                    name="checkedB"
-                    color="primary"
-                  />
-                }
-                label={
-                  <Typography variant="body2" gutterBottom>
-                    Show percentages?
-                  </Typography>
-                }
-              />
-            )}
-          </div>
-          {loading && (
-            <div
-              style={{
-                display: 'flex',
-                gap: '1rem',
-                flexDirection: 'column',
-              }}
-            >
-              {['', '', '', ''].map(() => (
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    gap: '1rem',
-                  }}
-                >
-                  <Skeleton
-                    animation="wave"
-                    variant="rect"
-                    width="50vw"
-                    height={85}
-                  />
-                  <Skeleton animation="wave" variant="text" width="6vw" />
-                </div>
-              ))}
-            </div>
-          )}
+      <CrosstabHeatmapContainer
+        chartData={chartData}
+        loading={loading}
+        viewType={viewType}
+      />
 
-          {!loading && chartData && (
-            <Fragment>
-              {viewType === 'chart' ? <CrosstabHeatMap /> : <CrosstabTable />}
-            </Fragment>
-          )}
-        </div>
-      </div>
+      {
+        //   <div style={{ background: '#0B5C76' }}>
+        //   <div
+        //     className="container"
+        //     style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
+        //   >
+        //     <Typography variant="h6" gutterBottom>
+        //       If the situation persists, what will be your biggest challenge in
+        //       the next six months?
+        //     </Typography>
+        //     <Typography
+        //       variant="body1"
+        //       gutterBottom
+        //       style={{ color: 'rgba(255,255,255,0.45)' }}
+        //     >
+        //       Showing 322 responses
+        //     </Typography>
+        //     <div
+        //       style={{
+        //         display: 'flex',
+        //         gap: '1.2rem',
+        //         alignItems: 'center',
+        //         marginTop: '1.5rem',
+        //       }}
+        //     >
+        //       <Link style={{ textDecoration: 'none' }}>
+        //         <div style={{ display: 'flex', gap: '0.2rem' }}>
+        //           <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
+        //           <Typography variant="body2" gutterBottom>
+        //             Download this data
+        //           </Typography>
+        //         </div>
+        //       </Link>
+        //       {viewType === 'chart' && (
+        //         <FormControlLabel
+        //           control={
+        //             <Checkbox
+        //               style={{ color: 'rgba(255,255,255,0.5)' }}
+        //               checked={isShowPercentage}
+        //               onChange={() =>
+        //                 setIsShowPercentagesChecked(!isShowPercentage)
+        //               }
+        //               name="checkedB"
+        //               color="primary"
+        //             />
+        //           }
+        //           label={
+        //             <Typography variant="body2" gutterBottom>
+        //               Show percentages?
+        //             </Typography>
+        //           }
+        //         />
+        //       )}
+        //     </div>
+        //     {loading && (
+        //       <div
+        //         style={{
+        //           display: 'flex',
+        //           gap: '1rem',
+        //           flexDirection: 'column',
+        //         }}
+        //       >
+        //         {['a', 'b', 'c', 'd'].map(el => (
+        //           <div
+        //             key={uid(el)}
+        //             style={{
+        //               display: 'flex',
+        //               flexDirection: 'row',
+        //               alignItems: 'center',
+        //               gap: '1rem',
+        //             }}
+        //           >
+        //             <Skeleton
+        //               animation="wave"
+        //               variant="rect"
+        //               width="50vw"
+        //               height={85}
+        //             />
+        //             <Skeleton animation="wave" variant="text" width="6vw" />
+        //           </div>
+        //         ))}
+        //       </div>
+        //     )}
+        //
+        //     {!loading && chartData && (
+        //       <Fragment>
+        //         {viewType === 'chart' ? (
+        //           <CrosstabHeatMap chartData={chartData.bivariate} />
+        //         ) : (
+        //           <CrosstabTable />
+        //         )}
+        //       </Fragment>
+        //     )}
+        //   </div>
+        // </div>
+      }
     </Fragment>
   );
 };
 
 ChartInsightsView.propTypes = {
   getChartData: PropTypes.func.isRequired,
-  chartData: PropTypes.object.isRequired,
+  chartData: PropTypes.object,
   loading: PropTypes.bool.isRequired,
 };
 

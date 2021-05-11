@@ -5,6 +5,7 @@
  */
 
 import React, { memo, useState } from 'react';
+import { uid } from 'react-uid';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
@@ -58,9 +59,10 @@ const dimensions = {
     { label: 'Sector', value: 'sector' },
   ],
   workforce: [
-    { label: 'Sector', value: 'sector' },
-    { label: 'Experience', value: 'experience' },
+    { label: 'Gender', value: 'm_gender' },
+    { label: 'Experience', value: 'm_years_of_experience' },
     { label: 'Education level', value: 'm_edu_levl' },
+    { label: 'Age', value: 'm_age' },
   ],
 };
 
@@ -128,7 +130,9 @@ function ControlsBar({
               }}
             >
               {dimensions[surveyArea].map(dim => (
-                <option value={dim.value}>{dim.label}</option>
+                <option key={uid(dim)} value={dim.value}>
+                  {dim.label}
+                </option>
               ))}
             </Select>
           </FormControl>

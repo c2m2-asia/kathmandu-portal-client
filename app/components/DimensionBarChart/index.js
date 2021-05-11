@@ -101,7 +101,7 @@ function DimensionBarChart({
               key={uid(datum, index)}
               fill="#82C0C6"
               x={x(index) + x.bandwidth() / 2 - padding / 2}
-              y={height - margin.bottom + 10}
+              y={height - margin.bottom + 15}
               width={barWidth - 20}
               style={{ fontWeight: '600', textAnchor: 'middle' }}
               verticalAnchor="start"
@@ -118,7 +118,7 @@ function DimensionBarChart({
 DimensionBarChart.propTypes = {
   surveyArea: PropTypes.string.isRequired,
   dimension: PropTypes.string.isRequired,
-  chartData: PropTypes.object.isRequired,
+  chartData: PropTypes.array.isRequired,
   isShowPercentage: PropTypes.bool.isRequired,
 };
 

@@ -6,6 +6,7 @@
 
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import { uid } from 'react-uid';
 // import styled from 'styled-components';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -42,7 +43,7 @@ function DimensionTable({ chartData }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   // forcefully storing because couldn't find a better way to sort :(
-  const data = JSON.parse(JSON.stringify(chartData))
+  const data = JSON.parse(JSON.stringify(chartData));
 
   return (
     <TableContainer style={{ background: 'inherit' }}>
@@ -70,7 +71,7 @@ function DimensionTable({ chartData }) {
             )
             .map((row, index) => (
               <TableRow
-                key={row.name}
+                key={uid(row, index)}
                 style={{ background: `${index % 2 === 0 ? '#0c495d' : ''}` }}
               >
                 <TableCell component="th" scope="row">
@@ -90,7 +91,7 @@ function DimensionTable({ chartData }) {
 }
 
 DimensionTable.propTypes = {
-  chartData: PropTypes.object.isRequired,
+  chartData: PropTypes.array.isRequired,
 };
 
 export default memo(DimensionTable);

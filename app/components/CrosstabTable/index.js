@@ -5,7 +5,8 @@
  */
 
 import React, { memo } from 'react';
-// import PropTypes from 'prop-types';
+import { uid } from 'react-uid';
+import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -15,6 +16,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
+import byOrder from 'lodash.orderby';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
@@ -37,22 +39,37 @@ const TableCell = withStyles({
   },
 })(MuiTableCell);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-function CrosstabTable() {
+function CrosstabTable({ chartData }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [orderBy, setOrderBy] = React.useState(
+    chartData.chart_data[0].dist[0].x_label_en,
+  );
+  const [tableData, setTableData] = React.useState(
+    byOrder(
+      chartData.chart_data,
+      [
+        o =>
+          o.dist.find(
+            bcd =>
+              bcd.x_label_en === chartData.chart_data[0].dist[0].x_label_en,
+          ).total,
+      ],
+      ['asc'],
+    ),
+  );
+
+  const handleHeaderClick = (event, property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+    const sorted = byOrder(
+      chartData.chart_data,
+      [o => o.dist.find(bcd => bcd.x_label_en === property).total],
+      [isAsc ? 'desc' : 'asc'],
+    );
+    setTableData(sorted);
+  };
 
   return (
     <TableContainer style={{ background: 'inherit' }}>
@@ -62,7 +79,7 @@ function CrosstabTable() {
             <TableCell />
             <TableCell
               align="center"
-              colSpan={4}
+              colSpan={chartData.chart_data[0].dist.length}
               style={{
                 padding: '0',
                 // borderBottom: '1px solid rgba(255,255,255,0.1)',
@@ -71,54 +88,44 @@ function CrosstabTable() {
               Sectors
             </TableCell>
           </TableRow>
-
           <TableRow>
-            <TableCell>Options</TableCell>
-            <TableCell align="right">
-              <TableSortLabel
-                classes={{ icon: classes.icon }}
-                active
-                direction="asc"
-                onClick={() => console.log('kera')}
-                style={{ color: 'rgba(255,255,255,0.75)' }}
+            <TableCell />
+            {chartData.chart_data[0].dist.map(sector => (
+              <TableCell
+                key={uid(sector)}
+                align="right"
+                sortDirection={orderBy === sector.x_label_en ? order : false}
               >
-                Calories
-              </TableSortLabel>
-            </TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                <TableSortLabel
+                  classes={{ icon: classes.icon }}
+                  active={sector.x_label_en === orderBy}
+                  direction={orderBy === sector.x_label_en ? order : 'asc'}
+                  onClick={e => handleHeaderClick(e, sector.x_label_en)}
+                  style={{ color: 'rgba(255,255,255,0.75)' }}
+                >
+                  {sector.x_label_en}
+                </TableSortLabel>
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
+
         <TableBody>
-          {rows.map((row, index) => (
+          {tableData.map((row, index) => (
             <TableRow
-              key={row.name}
+              key={uid(row, index)}
               style={{ background: `${index % 2 === 0 ? '#0c495d' : ''}` }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.y_label_en}
               </TableCell>
-              <TableCell align="right">
-                20%
-                <br />
-                <span style={{ opacity: '0.6' }}>{row.calories}</span>
-              </TableCell>
-              <TableCell align="right">
-                20%
-                <br />
-                <span style={{ opacity: '0.6' }}>{row.fat}</span>
-              </TableCell>
-              <TableCell align="right">
-                20%
-                <br />
-                <span style={{ opacity: '0.6' }}>{row.carbs}</span>
-              </TableCell>
-              <TableCell align="right">
-                20%
-                <br />
-                <span style={{ opacity: '0.6' }}>{row.protein}</span>
-              </TableCell>
+              {row.dist.map(ab => (
+                <TableCell key={uid(ab)} align="right">
+                  {Math.round(ab.perc_of_total * 100)}%
+                  <br />
+                  <span style={{ opacity: '0.6' }}>{ab.total}</span>
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>
@@ -127,6 +134,8 @@ function CrosstabTable() {
   );
 }
 
-CrosstabTable.propTypes = {};
+CrosstabTable.propTypes = {
+  chartData: PropTypes.object.isRequired,
+};
 
 export default memo(CrosstabTable);
