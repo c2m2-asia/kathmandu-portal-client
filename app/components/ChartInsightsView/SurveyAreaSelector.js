@@ -31,16 +31,17 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
 
   return (
     <Tabs
-      classes={{}}
+
       value={surveyArea}
       onChange={(e, value) => {
         setSurveyArea(value);
-        setDimension(value === 'businesses' ? 'type' : 'sector');
+        setDimension(value === 'businesses' ? 'type' : 'm_edu_levl');
       }}
       indicatorColor="primary"
       centered
     >
       <Tab
+        disabled
         classes={{
           wrapper: classes.wrapper,
           selected: classes.selected,

@@ -65,6 +65,9 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
     }, 500);
   }, [dimension]);
 
+  const getTotalResponses = () =>
+    chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
+
   return (
     <Fragment>
       <SurveyAreaSelector
@@ -106,13 +109,13 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
               />
             </Fragment>
           )}
-          {!loading && (
+          {!loading && chartData && (
             <Typography
               variant="body1"
               gutterBottom
               style={{ color: 'rgba(255,255,255,0.45)' }}
             >
-              Showing 322 responses
+              Showing {getTotalResponses()} responses
             </Typography>
           )}
           {!loading && (
