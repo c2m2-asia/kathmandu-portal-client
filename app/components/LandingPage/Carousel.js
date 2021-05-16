@@ -4,7 +4,8 @@
  *
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
+import { uid } from 'react-uid';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
@@ -114,7 +115,7 @@ function Carousel() {
       responsive={responsive}
     >
       {victims.map(victim => (
-        <div className="d-flex">
+        <div key={uid(victim)} className="d-flex">
           <div>
             <img
               className="victim-image"

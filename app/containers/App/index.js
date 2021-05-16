@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 import LandingPage from 'components/LandingPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import NavBar from 'components/NavBar';
+import ScrollToTopButton from 'components/ScrollToTopButton';
 import ChartInsightsPage from 'containers/ChartInsightsPage/Loadable';
 import MapInsightsView from 'components/MapInsightsView/Loadable';
 import VisualizationSelectionView from 'components/VisualizationSelectionView/Loadable';
@@ -40,6 +41,7 @@ export default function App() {
         <Route exact path="/univariate" component={UnivariateChartPage} />
         <Route component={NotFoundPage} />
       </Switch>
+      <ScrollToTopButton />
       <GlobalStyle />
     </div>
   );
