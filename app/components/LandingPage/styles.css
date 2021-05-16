@@ -1,0 +1,72 @@
+/* .hero {
+  height: calc(100vh - 70px);
+  background-image: url('../../images/rickshaw.jpg');
+  color: white;
+} */
+
+.hero {
+  color: white;
+  height: calc(100vh - 65px);
+}
+
+.blog-img {
+  height: 500px;
+  width: 500px;
+  background-image: url('../../images/rickshaw.jpg');
+}
+
+.victim-image {
+  border-radius: 25px 25px 0px 25px;
+}
+
+.places-carousel .slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;  
+}
+.places-carousel .slick-dots li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(51, 63, 87, 0.1);
+  display: inline-block;
+  transition: all 0.3s;
+  margin: 0 10px;
+  transform: scale(0.8);
+}
+
+.places-carousel .slick-slide {
+  padding: 0 10px;
+}
+
+.places-carousel .slick-dots li.slick-active {
+  transform: scale(1);
+  background-color: #0b5c76;
+  border-color: #0b5c76;
+}
+.places-carousel .slick-dots li button {
+  padding: 0;
+}
+.places-carousel .slick-dots li button:before {
+  display: none;
+}
+
+.title-shape {
+  width: 45px;
+  height: 4px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-color: #0b5c76;
+  position: relative;
+}
+.title-shape:after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  right: 13px;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+}

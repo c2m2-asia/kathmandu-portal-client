@@ -10,7 +10,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
+import LandingPage from 'components/LandingPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import NavBar from 'components/NavBar';
 import ChartInsightsPage from 'containers/ChartInsightsPage/Loadable';
@@ -26,7 +26,7 @@ export default function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={LandingPage} />
         <Route exact path="/stories" component={StoriesListView} />
         <Route exact path="/stories/:id" component={StoryDetailView} />
         <Route
