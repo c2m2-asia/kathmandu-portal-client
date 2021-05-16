@@ -5,21 +5,15 @@
  */
 
 import React, { memo, Fragment, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { uid } from 'react-uid';
-// import {textWrap} from 'd3plus-text';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-// import * as d3 from 'd3';
 import { scaleBand, scaleLinear, max, range, scaleThreshold } from 'd3';
-// import Typography from '@material-ui/core/Typography';
-import Text from 'react-svg-text';
+
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
 // const height = 700;
 const margin = { top: 0, right: 80, bottom: 65, left: 0 };
-// const colorData = [52, 16, 17, 69, 98];
 const innerRectWidth = 100;
 const innerPadding = 10;
 // const maxBarWidth = 90;
@@ -182,7 +176,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               verticalAnchor="start"
               textAnchor="middle"
               dominantBaseline="end"
-              style={{ fontWeight: '600',fontSize: '0.9rem' }}
+              style={{ fontWeight: '600', fontSize: '0.9rem' }}
             >
               {textSplitter(labels.x_label_en).map((text, i) => (
                 <tspan
@@ -192,7 +186,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                     innerPadding / 2 +
                     yScale.bandwidth() / 2
                   }
-                  y={innerHeight+10}
+                  y={innerHeight + 10}
                   dy={i === 0 ? '0em' : '1.2em'}
                 >
                   {text}
