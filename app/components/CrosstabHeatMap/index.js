@@ -176,18 +176,29 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
           ))}
 
           {chartData.chart_data[0].dist.map((labels, index) => (
-            <Text
-              key={uid(labels, index)}
-              fill="rgba(255,255,255,0.7)"
+            <text
               x={innerXScale(index) + innerPadding / 2 + yScale.bandwidth() / 2}
               y={innerHeight}
               verticalAnchor="start"
               textAnchor="middle"
-              width={100}
-              style={{ fontWeight: '600', fontSize: '0.9rem' }}
+              dominantBaseline="end"
+              style={{ fontWeight: '600',fontSize: '0.9rem' }}
             >
-              {labels.x_label_en}
-            </Text>
+              {textSplitter(labels.x_label_en).map((text, i) => (
+                <tspan
+                  key={uid(text, i)}
+                  x={
+                    innerXScale(index) +
+                    innerPadding / 2 +
+                    yScale.bandwidth() / 2
+                  }
+                  y={innerHeight+10}
+                  dy={i === 0 ? '0em' : '1.2em'}
+                >
+                  {text}
+                </tspan>
+              ))}
+            </text>
           ))}
 
           {chartData.chart_data.map((option, index) => (

@@ -7,7 +7,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 // import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -31,10 +31,6 @@ export function UnivariateChartPage({
 
   return (
     <div>
-      <Helmet>
-        <title>UnivariateChartPage</title>
-        <meta name="description" content="Description of UnivariateChartPage" />
-      </Helmet>
       <UnivariateChartView
         getUnivariateData={getUnivariateData}
         univariateData={univariateChartPage.get('univariateData')}
