@@ -27,11 +27,8 @@ import './styles.css';
 
 const dimensions = {
   businesses: [
-    { label: 'Type', value: 'type' },
-    { label: 'Employee size', value: 'employeeSize' },
-    { label: 'Operating for', value: 'operatingFor' },
-    { label: 'Area', value: 'area' },
-    { label: 'Sector', value: 'sector' },
+    { label: 'Type', value: 'm_biz_type' },
+    { label: 'Years in operation', value: 'm_biz_years_in_operation' },
   ],
   workforce: [
     { label: 'Gender', value: 'm_gender' },
@@ -44,9 +41,9 @@ const dimensions = {
 const ChartInsightsView = ({ getChartData, chartData, loading }) => {
   const [surveyArea, setSurveyArea] = useState('workforce');
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
-  const [researchArea, setResearchArea] = useState('Impact');
+  const [researchArea, setResearchArea] = useState('impact');
   const defaultDimension =
-    surveyArea === 'businesses' ? 'type' : 'm_years_of_experience';
+    surveyArea === 'businesses' ? 'm_biz_type' : 'm_years_of_experience';
   const [dimension, setDimension] = useState(defaultDimension);
   const [viewType, setViewType] = useState('chart');
 
@@ -61,9 +58,9 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      getChartData(researchArea, dimension);
+      getChartData(surveyArea, researchArea, dimension);
     }, 500);
-  }, [dimension]);
+  }, [surveyArea, researchArea, dimension]);
 
   const getTotalResponses = () =>
     chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
@@ -90,9 +87,12 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
           className="container"
           style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
         >
-          <Typography variant="h6" gutterBottom>
-            Distribution of responses by {dimensionLabel}
-          </Typography>
+          {loading && <Skeleton animation="wave" variant="text" width="45vw" />}
+          {!loading && (
+            <Typography variant="h6" gutterBottom>
+              Distribution of responses by {dimensionLabel}
+            </Typography>
+          )}
           {loading && (
             <Fragment>
               <Skeleton

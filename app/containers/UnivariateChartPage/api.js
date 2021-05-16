@@ -7,9 +7,9 @@
 import { BASE_URL } from 'utils/constants';
 import { parseJSON } from 'utils/apiHelpers';
 
-const getChartData = ({ surveyArea, researchArea, dimension }) =>
+const getUnivariateData = ({ surveyArea, researchArea }) =>
   fetch(
-    `${BASE_URL}/viz/relationships/?survey=${surveyArea}&var_group=${researchArea}&dimension=${dimension}`,
+    `${BASE_URL}/viz/distributions/?survey=${surveyArea}&var_group=${researchArea}`,
     {
       method: 'GET',
       headers: {
@@ -19,7 +19,7 @@ const getChartData = ({ surveyArea, researchArea, dimension }) =>
   ).then(parseJSON);
 
 const Api = {
-  getChartData,
+  getUnivariateData,
 };
 
 export default Api;

@@ -50,8 +50,8 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    getChartData: (researchArea, dimension) => {
-      dispatch(getChartDataAction(researchArea, dimension));
+    getChartData: (surveyArea, researchArea, dimension) => {
+      dispatch(getChartDataAction(surveyArea, researchArea, dimension));
     },
   };
 }

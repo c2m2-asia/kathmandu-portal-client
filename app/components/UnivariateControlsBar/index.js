@@ -1,6 +1,6 @@
 /**
  *
- * ControlsBar
+ * UnivariateControlsBar
  *
  */
 
@@ -50,25 +50,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const dimensions = {
-  businesses: [
-    { label: 'Type', value: 'm_biz_type' },
-    { label: 'Years in operation', value: 'm_biz_years_in_operation' },
-  ],
-  workforce: [
-    { label: 'Gender', value: 'm_gender' },
-    { label: 'Experience', value: 'm_years_of_experience' },
-    { label: 'Education level', value: 'm_edu_levl' },
-    { label: 'Age', value: 'm_age' },
-  ],
-};
-
-function ControlsBar({
+function UnivariateControlsBar({
   surveyArea,
   researchArea,
   setResearchArea,
-  dimension,
-  setDimension,
   viewType,
   setViewType,
 }) {
@@ -82,7 +67,7 @@ function ControlsBar({
             variant="body1"
             style={{ fontWeight: '600', color: '#B' }}
           >
-            Explore
+            Explore by
           </Typography>
           <FormControl variant="outlined" className={classes.formControl}>
             <Select
@@ -103,34 +88,6 @@ function ControlsBar({
               <option value="need">Need</option>
               <option value="preparedness">Preparedness</option>
               <option value="outlook">Outlook</option>
-            </Select>
-          </FormControl>
-          <Typography
-            variant="body1"
-            style={{ fontWeight: '600', color: '#B' }}
-          >
-            by
-          </Typography>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <Select
-              classes={{
-                root: classes.root,
-                icon: classes.icon,
-              }}
-              native
-              value={dimension}
-              onChange={e => setDimension(e.target.value)}
-              label="Age"
-              inputProps={{
-                name: 'age',
-                id: 'outlined-age-native-simple',
-              }}
-            >
-              {dimensions[surveyArea].map(dim => (
-                <option key={uid(dim)} value={dim.value}>
-                  {dim.label}
-                </option>
-              ))}
             </Select>
           </FormControl>
         </div>
@@ -164,14 +121,12 @@ function ControlsBar({
   );
 }
 
-ControlsBar.propTypes = {
+UnivariateControlsBar.propTypes = {
   surveyArea: PropTypes.string.isRequired,
   researchArea: PropTypes.string.isRequired,
   setResearchArea: PropTypes.func.isRequired,
-  dimension: PropTypes.string.isRequired,
-  setDimension: PropTypes.func.isRequired,
   viewType: PropTypes.string.isRequired,
   setViewType: PropTypes.func.isRequired,
 };
 
-export default memo(ControlsBar);
+export default memo(UnivariateControlsBar);

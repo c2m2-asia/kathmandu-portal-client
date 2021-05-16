@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
+function SurveyAreaSelector({ surveyArea, setSurveyArea }) {
   const classes = useStyles();
 
   return (
@@ -34,12 +34,12 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
       value={surveyArea}
       onChange={(e, value) => {
         setSurveyArea(value);
-        setDimension(value === 'businesses' ? 'm_biz_type' : 'm_edu_levl');
       }}
       indicatorColor="primary"
       centered
     >
       <Tab
+        disabled
         classes={{
           wrapper: classes.wrapper,
           selected: classes.selected,
@@ -63,7 +63,6 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
 SurveyAreaSelector.propTypes = {
   surveyArea: PropTypes.string.isRequired,
   setSurveyArea: PropTypes.func.isRequired,
-  setDimension: PropTypes.func.isRequired,
 };
 
 export default memo(SurveyAreaSelector);
