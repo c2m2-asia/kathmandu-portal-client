@@ -61,7 +61,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
 
   return (
     <Fragment>
-      <svg viewBox={`0 0 ${width + 400} ${height}`}>
+      <svg viewBox={`0 0 ${width + 600} ${height}`}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
