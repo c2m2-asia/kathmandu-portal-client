@@ -4,22 +4,13 @@
  *
  */
 
-import React, { useState, Fragment, memo } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, memo } from 'react';
 import { uid } from 'react-uid';
-import { Link } from 'react-router-dom';
-// import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import CrosstabHeatMap from 'components/CrosstabHeatMap';
-import CrosstabTable from 'components/CrosstabTable/Loadable';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-function CrosstabHeatmapSkeleton({ viewType, isShowPercentage }) {
+function CrosstabHeatmapSkeleton() {
   return (
-    <div>
+    <Fragment>
       <div style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <Skeleton animation="wave" variant="text" width="45vw" />
         <Skeleton
@@ -63,7 +54,7 @@ function CrosstabHeatmapSkeleton({ viewType, isShowPercentage }) {
           ))}
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

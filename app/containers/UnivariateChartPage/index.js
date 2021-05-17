@@ -32,6 +32,7 @@ export function UnivariateChartPage({
   return (
     <div>
       <UnivariateChartView
+        loading={univariateChartPage.get('loading')}
         getUnivariateData={getUnivariateData}
         univariateData={univariateChartPage.get('univariateData')}
       />

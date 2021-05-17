@@ -4,7 +4,7 @@
  *
  */
 
-import React, { memo } from 'react';
+import React, { Fragment, memo } from 'react';
 import { uid } from 'react-uid';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
@@ -18,7 +18,7 @@ function DimensionBarChartSkeleton() {
     return Math.floor(r);
   }
   return (
-    <div>
+    <Fragment>
       <Skeleton animation="wave" variant="text" width="45vw" />
       <Skeleton
         animation="wave"
@@ -54,7 +54,7 @@ function DimensionBarChartSkeleton() {
           </div>
         ))}
       </div>
-    </div>
+    </Fragment>
   );
 }
 

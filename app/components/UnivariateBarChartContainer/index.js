@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import DimensionTable from 'components/DimensionTable/Loadable';
 import UnivariateBarChart from 'components/UnivariateBarChart/Loadable';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
@@ -71,10 +71,14 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
           />
         )}
       </div>
-      <UnivariateBarChart
-        chartData={chartData}
-        isShowPercentage={isShowPercentage}
-      />
+      {viewType === 'chart' ? (
+        <UnivariateBarChart
+          chartData={chartData}
+          isShowPercentage={isShowPercentage}
+        />
+      ) : (
+        <DimensionTable chartData={chartData.chart_data} />
+      )}
     </div>
   );
 }
