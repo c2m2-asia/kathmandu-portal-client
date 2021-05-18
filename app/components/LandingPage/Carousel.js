@@ -136,11 +136,7 @@ function Carousel() {
             >
               {victim.title}
             </Typography>
-            <Typography
-              variant="body2"
-              gutterBottom
-              style={{ color: '#333f57' }}
-            >
+            <Typography paragraph gutterBottom style={{ color: '#333f57' }}>
               {victim.description}
             </Typography>
           </div>

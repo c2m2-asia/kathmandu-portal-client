@@ -26,38 +26,15 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 function LandingPage() {
   return (
     <Fragment>
-      <section className="hero py-5" style={{ background: '#f5f7fc' }}>
+      <section className="hero py-5" style={{ background: '#ffffff' }}>
         <div className="container" style={{ position: 'relative' }}>
           <div className="d-flex desc-container">
             <div className="w-50 project-desc" style={{ padding: '2rem' }}>
-              <Typography
-                variant="h2"
-                style={{
-                  color: 'rgba(255,255,255,0.9)',
-                  fontWeight: '600',
-                  fontSize: '4rem',
-                }}
-              >
+              <Typography variant="h1">
                 Nepal
-              </Typography>
-              <Typography
-                variant="h2"
-                style={{
-                  color: 'rgba(255,255,255,0.9)',
-                  fontWeight: '600',
-                  fontSize: '4rem',
-                }}
-              >
+                <br />
                 Tourism in
-              </Typography>
-              <Typography
-                variant="h2"
-                style={{
-                  color: 'rgba(255,255,255,0.9)',
-                  fontWeight: '600',
-                  fontSize: '4rem',
-                }}
-              >
+                <br />
                 COVID-19
               </Typography>
               <Typography
@@ -66,6 +43,8 @@ function LandingPage() {
                   color: 'rgba(255,255,255,0.75)',
                   paddingRight: '30%',
                   marginTop: '1.5rem',
+                  fontSize: '20px',
+                  letterSpacing: '.24px',
                 }}
               >
                 Helping tourism stakeholders expedite the revival of tourism and
@@ -99,6 +78,25 @@ function LandingPage() {
         </div>
       </section>
 
+      <section className="bg-white pt-5" style={{ paddingBottom: '6rem' }}>
+        <div className="container">
+          <div className="d-flex flex-column align-items-center">
+            <Typography
+              variant="h5"
+              gutterBottom
+              style={{
+                color: '#333f57',
+                textAlign: 'center',
+              }}
+            >
+              Testimonial
+            </Typography>
+            <div className="title-shape mb-5 mt-2" />
+          </div>
+          <Carousel />
+        </div>
+      </section>
+
       <section className="py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div className="d-flex flex-column align-items-center">
@@ -112,7 +110,7 @@ function LandingPage() {
             >
               From the ground
             </Typography>
-            <div className="title-shape mb-5" />
+            <div className="title-shape mb-5 mt-2" />
           </div>
           <Blog posts={stories.slice(0, 3)} />
           <div className="mt-4" style={{ textAlign: 'center' }}>
@@ -130,87 +128,65 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-5">
+      <section className="bg-white py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
-          <div className="d-flex flex-column align-items-center">
-            <Typography
-              variant="h5"
-              gutterBottom
-              style={{
-                color: '#333f57',
-                textAlign: 'center',
-              }}
-            >
-              Testimonial
-            </Typography>
-            <div className="title-shape mb-5" />
-          </div>
-          <Carousel />
-        </div>
-      </section>
-
-      <section className="py-5" style={{ background: '#f5f7fc' }}>
-        <div className="container">
-          <div style={{ margin: 'auto' }}>
-            <div className="d-flex flex-column align-items-center">
+          <div className="d-flex">
+            <div className="w-50">
+              <img src={questionnaire} width="400" />
+            </div>
+            <div className="w-50 mt-5">
               <Typography
                 variant="h5"
                 gutterBottom
                 style={{
                   color: '#333f57',
-                  textAlign: 'center',
                 }}
               >
                 Official questionnaire
               </Typography>
-              <div className="title-shape mb-5" />
-            </div>
-            <div className="d-flex">
-              <div className="w-50">
-                <img src={questionnaire} width="400" />
-              </div>
-              <div className="w-50 mt-5">
-                <Typography
-                  paragraph
-                  gutterBottom
-                  style={{
-                    color: '#333f57',
-                  }}
-                >
-                  You can download the official questionnaires that were used
-                  for gathering information from businesses and workforce.
-                </Typography>
+              <div className="title-shape mb-5 mt-2" />
+              <Typography
+                paragraph
+                gutterBottom
+                style={{
+                  color: '#333f57',
+                  fontSize: '18px',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                You can download the official questionnaires that were used for
+                gathering information from businesses and workforce.
+              </Typography>
 
-                <Link to="/stories" style={{ textDecoration: 'none' }}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    startIcon={<GetAppIcon />}
-                    size="large"
-                  >
-                    Businesses
-                  </Button>
-                </Link>
-                <Link
-                  to="/stories"
-                  style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
+              <Link to="/stories" style={{ textDecoration: 'none' }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<GetAppIcon />}
+                  size="large"
                 >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    startIcon={<GetAppIcon />}
-                    size="large"
-                  >
-                    Workforce
-                  </Button>
-                </Link>
-              </div>
+                  Businesses
+                </Button>
+              </Link>
+              <Link
+                to="/stories"
+                style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<GetAppIcon />}
+                  size="large"
+                >
+                  Workforce
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-5" style={{ background: '#f5f7fc' }}>
+      <section className="py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div style={{ maxWidth: '700px', margin: 'auto' }}>
             <div className="d-flex flex-column align-items-center">
@@ -224,7 +200,7 @@ function LandingPage() {
               >
                 About the project
               </Typography>
-              <div className="title-shape mb-5" />
+              <div className="title-shape mb-5  mt-2" />
             </div>
             <Typography
               paragraph

@@ -52,7 +52,7 @@
 }
 
 .title-shape {
-  width: 45px;
+  width: 65px;
   height: 4px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -65,7 +65,7 @@
   content: '';
   bottom: 0;
   right: 13px;
-  width: 5px;
+  width: 6px;
   height: 5px;
   background-color: #fff;
 }

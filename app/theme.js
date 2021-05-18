@@ -122,12 +122,19 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: 'Poppins',
     useNextVariants: true,
+    h1: {
+      color: 'rgba(255,255,255,0.9)',
+      fontWeight: '600',
+      fontSize: '3.53rem',
+      letterSpacing: '.94px',
+    },
     h6: {
       color: 'rgba(255,255,255,0.7)',
       fontWeight: '700',
     },
     h5: {
       fontWeight: '600',
+      letterSpacing: '.3px',
     },
     body1: {
       color: 'rgba(255,255,255,0.7)',

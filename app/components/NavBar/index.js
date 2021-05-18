@@ -51,10 +51,12 @@ const useStyles = makeStyles(theme => ({
   button: {
     color: 'white',
     textTransform: 'capitalize',
+    fontWeight: '400',
   },
   homeBtn: {
     color: '#171512',
     textTransform: 'capitalize',
+    fontWeight: '400',
   },
   buttonMobile: {
     color: 'black',
@@ -99,7 +101,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
   // const location = useLocation();
   console.log(location.pathname);
 
-  const navBg = location.pathname === '/' ? '#f5f7fc' : '#0B5C76';
+  const navBg = location.pathname === '/' ? '#ffffff' : '#0B5C76';
   const isHomePage = location.pathname === '/';
 
   return (
