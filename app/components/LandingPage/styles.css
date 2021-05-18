@@ -88,7 +88,7 @@
   background: #f5f7fc;
   bottom: 3rem;
   gap: 2rem;
-  width: calc(100% - 350px);
+  width: calc(100% - 450px);
   left: 2.5rem;
   bottom: 7rem;
   justify-content: space-around;
@@ -166,25 +166,6 @@
     width: 100% !important;
   }
 }
-
-/* @media (max-width: 800px) {
-  .desc-container {
-    flex-direction: column;
-  }
-
-  .img-container {
-    display: none;
-  }
-
-  .research-areas {
-    flex-direction: column;
-  }
-
-  .project-desc {
-    padding: 2rem;
-    width: 100% !important;
-  }
-} */
 
 @media (max-width: 480px) {
   .victim-container {

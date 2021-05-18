@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { uid } from 'react-uid';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
@@ -18,10 +18,6 @@ import CloseIcon from '@material-ui/icons/Close';
 // import messages from './messages';
 
 const menuItems = [
-  {
-    link: '/',
-    name: 'Home',
-  },
   {
     link: '/stories',
     name: 'Stories',
@@ -56,6 +52,10 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     textTransform: 'capitalize',
   },
+  homeBtn: {
+    color: '#171512',
+    textTransform: 'capitalize',
+  },
   buttonMobile: {
     color: 'black',
     textTransform: 'capitalize',
@@ -88,7 +88,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NavBar({ history, onLocaleToggle, locale }) {
+function NavBar({ history, onLocaleToggle, locale, location }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -96,34 +96,44 @@ export default function NavBar({ history, onLocaleToggle, locale }) {
     setOpen(false);
   };
 
+  // const location = useLocation();
+  console.log(location.pathname);
+
+  const navBg = location.pathname === '/' ? '#f5f7fc' : '#0B5C76';
+  const isHomePage = location.pathname === '/';
+
   return (
     <div>
       <AppBar
         position="static"
         elevation={0}
         style={{
-          borderBottom: '1px solid rgba(105,105,105,0.33)',
-          background: '#0B5C76',
+          borderBottom: `${
+            isHomePage ? 'none' : '1px solid rgba(105,105,105,0.33)'
+          }`,
+          background: navBg,
         }}
       >
         <Toolbar>
           <div className={classes.title}>
-            <Typography
-              variant="h4"
-              className={classes.projectTitle}
-              display="inline"
-              style={{ color: '#CAE9FF' }}
-            >
-              C2M2&nbsp;
-            </Typography>
-            <Typography
-              variant="h4"
-              className={classes.projectTitle}
-              display="inline"
-              style={{ color: '#FCFAF9' }}
-            >
-              KATHMANDU
-            </Typography>
+            <NavLink to="/" className={classes.noDecoration}>
+              <Typography
+                variant="h4"
+                className={classes.projectTitle}
+                display="inline"
+                style={{ color: `${isHomePage ? '#0b5c76' : '#FCFAF9'}` }}
+              >
+                C2M2&nbsp;
+              </Typography>
+              <Typography
+                variant="h4"
+                className={classes.projectTitle}
+                display="inline"
+                style={{ color: `${isHomePage ? 'rgb(64 60 54)' : '#FCFAF9'}` }}
+              >
+                KATHMANDU
+              </Typography>
+            </NavLink>
           </div>
           <Hidden mdUp>
             <IconButton
@@ -143,7 +153,11 @@ export default function NavBar({ history, onLocaleToggle, locale }) {
                   to={menuItem.link}
                   className={classes.noDecoration}
                 >
-                  <Button className={classes.button}>{menuItem.name}</Button>
+                  <Button
+                    className={isHomePage ? classes.homeBtn : classes.button}
+                  >
+                    {menuItem.name}
+                  </Button>
                 </NavLink>
               ))}
             </div>
@@ -183,3 +197,4 @@ export default function NavBar({ history, onLocaleToggle, locale }) {
     </div>
   );
 }
+export default withRouter(NavBar);

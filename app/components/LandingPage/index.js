@@ -19,6 +19,9 @@ import './styles.css';
 import Blog from 'components/blog/Blog';
 import stories from 'components/dummy_data/stories';
 import Carousel from './Carousel';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import questionnaire from 'images/questionnaire.svg';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
 function LandingPage() {
   return (
@@ -60,12 +63,12 @@ function LandingPage() {
               <Typography
                 paragraph
                 style={{
-                  color: 'rgba(255,255,255,0.7)',
+                  color: 'rgba(255,255,255,0.75)',
                   paddingRight: '30%',
                   marginTop: '1.5rem',
                 }}
               >
-                help tourism stakeholders expedite the revival of tourism and
+                Helping tourism stakeholders expedite the revival of tourism and
                 restoration of the livelihoods associated with it.
               </Typography>
             </div>
@@ -114,7 +117,12 @@ function LandingPage() {
           <Blog posts={stories.slice(0, 3)} />
           <div className="mt-4" style={{ textAlign: 'center' }}>
             <Link to="/stories" style={{ textDecoration: 'none' }}>
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                endIcon={<ArrowRightAltIcon />}
+              >
                 View all stories
               </Button>
             </Link>
@@ -142,6 +150,67 @@ function LandingPage() {
       </section>
 
       <section className="py-5" style={{ background: '#f5f7fc' }}>
+        <div className="container">
+          <div style={{ margin: 'auto' }}>
+            <div className="d-flex flex-column align-items-center">
+              <Typography
+                variant="h5"
+                gutterBottom
+                style={{
+                  color: '#333f57',
+                  textAlign: 'center',
+                }}
+              >
+                Official questionnaire
+              </Typography>
+              <div className="title-shape mb-5" />
+            </div>
+            <div className="d-flex">
+              <div className="w-50">
+                <img src={questionnaire} width="400" />
+              </div>
+              <div className="w-50 mt-5">
+                <Typography
+                  paragraph
+                  gutterBottom
+                  style={{
+                    color: '#333f57',
+                  }}
+                >
+                  You can download the official questionnaires that were used
+                  for gathering information from businesses and workforce.
+                </Typography>
+
+                <Link to="/stories" style={{ textDecoration: 'none' }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<GetAppIcon />}
+                    size="large"
+                  >
+                    Businesses
+                  </Button>
+                </Link>
+                <Link
+                  to="/stories"
+                  style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
+                >
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<GetAppIcon />}
+                    size="large"
+                  >
+                    Workforce
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div style={{ maxWidth: '700px', margin: 'auto' }}>
             <div className="d-flex flex-column align-items-center">

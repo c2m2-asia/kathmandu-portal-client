@@ -95,15 +95,7 @@ const stories = [
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
     content: content,
   },
-  {
-    title: 'Study initiated to quantify tourism loss over COVID: Centre',
-    id: 2,
-    date: 1576391600,
-    src: `dharahara.jpg`,
-    snippet:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-    content: content,
-  },
+
   {
     title:
       'Travel and tourism sector likely to lose Rs 5 lakh crore due to COVID-19 crisis: Report',
@@ -119,6 +111,15 @@ const stories = [
     id: 4,
     date: 1572281600,
     src: `map-insights.png`,
+    snippet:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+    content: content,
+  },
+  {
+    title: 'Study initiated to quantify tourism loss over COVID: Centre',
+    id: 2,
+    date: 1576391600,
+    src: `dharahara.jpg`,
     snippet:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
     content: content,
