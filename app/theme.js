@@ -126,6 +126,9 @@ const theme = createMuiTheme({
       color: 'rgba(255,255,255,0.7)',
       fontWeight: '700',
     },
+    h5: {
+      fontWeight: '600',
+    },
     body1: {
       color: 'rgba(255,255,255,0.7)',
     },

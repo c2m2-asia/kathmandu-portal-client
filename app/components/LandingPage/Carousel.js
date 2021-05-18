@@ -68,8 +68,8 @@ const responsive = [
   {
     breakpoint: 1024,
     settings: {
-      slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToShow: 2,
+      slidesToScroll: 2,
       infinite: true,
       dots: true,
     },
@@ -111,11 +111,11 @@ function Carousel() {
       slidesToShow={2}
       centerMode={false}
       centerPadding="50px"
-      autoplay
+      autoplay={false}
       responsive={responsive}
     >
       {victims.map(victim => (
-        <div key={uid(victim)} className="d-flex">
+        <div key={uid(victim)} className="d-flex pb-5 victim-container">
           <div>
             <img
               className="victim-image"

@@ -6,7 +6,6 @@
 
 .hero {
   color: white;
-  height: calc(100vh - 65px);
 }
 
 .blog-img {
@@ -23,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;  
+  width: 100%;
 }
 .places-carousel .slick-dots li {
   width: 12px;
@@ -69,4 +68,133 @@
   width: 5px;
   height: 5px;
   background-color: #fff;
+}
+
+/* Hero */
+
+.project-desc {
+  background: #0b5c76;
+  padding-left: 2.5rem;
+  border-radius: 13px 0 0 13px;
+}
+
+.research-areas {
+  border-radius: 7px;
+  color: rgb(51, 63, 87);
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  background: #f5f7fc;
+  bottom: 3rem;
+  gap: 2rem;
+  width: calc(100% - 350px);
+  left: 2.5rem;
+  bottom: 7rem;
+  justify-content: space-around;
+  position: absolute;
+}
+
+.container-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 13px 13px 0;
+}
+
+.img-div-container {
+  background-image: url('../../images/rickshaw.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.desc-container {
+  /* position: relative; */
+}
+
+@media (max-width: 1400px) {
+  .research-areas {
+    bottom: 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .research-areas {
+    position: absolute;
+    width: calc(100% - 90px);
+    bottom: 0.5rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .victim-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .victim-description {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .research-areas {
+    position: relative;
+    margin: 0 !important;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem !important;
+  }
+
+  .desc-container {
+    flex-direction: column;
+  }
+
+  .img-container {
+    display: none;
+  }
+
+  .research-areas {
+    flex-direction: column;
+  }
+
+  .project-desc {
+    padding: 2rem;
+    width: 100% !important;
+  }
+}
+
+/* @media (max-width: 800px) {
+  .desc-container {
+    flex-direction: column;
+  }
+
+  .img-container {
+    display: none;
+  }
+
+  .research-areas {
+    flex-direction: column;
+  }
+
+  .project-desc {
+    padding: 2rem;
+    width: 100% !important;
+  }
+} */
+
+@media (max-width: 480px) {
+  .victim-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .victim-description {
+    margin-left: 0 !important;
+    text-align: center;
+    margin-top: 1rem;
+  }
 }

@@ -32,7 +32,15 @@ function VisualizationSelectionView() {
             style={{ backgroundColor: '#FFFFFF' }}
           >
             <div className="insight-selection chart-selection chart-img-holder">
-              <h5 style={{ fontSize: '2rem', padding: '2rem' }}>
+              <h5
+                style={{
+                  fontSize: '2rem',
+                  padding: '2rem',
+                  color: 'ghostwhite',
+                  fontWeight: '600',
+                  lineHeight: '2.5rem',
+                }}
+              >
                 COVID-19 AND KATHMANDU’S TOURISM INDUSTRY IN CHARTS
               </h5>
             </div>
