@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // import classNames from "classnames";
 import { Button, Typography, Card, Box, withStyles } from '@material-ui/core';
 
-
 const styles = theme => ({
   img: {
     width: '100%',
@@ -61,7 +60,7 @@ function BlogCard(props) {
       )}
       <Box p={2}>
         <Typography variant="body2" color="textSecondary">
-          May 2, 2021
+          {date}
         </Typography>
         <Link to={url} className={classes.noDecoration}>
           <Typography variant="h6">

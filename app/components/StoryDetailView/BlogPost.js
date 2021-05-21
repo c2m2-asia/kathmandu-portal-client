@@ -46,7 +46,7 @@ const styles = theme => ({
 
 function BlogPost(props) {
   const shareUrl = 'http://www.kathmandulivinglabs.org/';
-  const { classes, date, title, src, content, otherArticles } = props;
+  const { classes, date, title, src, content, otherArticles, author } = props;
 
   return (
     <Box className={classes.wrapper} display="flex" justifyContent="center">
@@ -71,8 +71,8 @@ function BlogPost(props) {
                       color="textSecondary"
                       className="pt-3"
                     >
-                      By John Doe <br />
-                      May 21, 2021
+                      {author} <br />
+                      {date}
                     </Typography>
                   </div>
                   <div style={{ display: 'flex' }}>

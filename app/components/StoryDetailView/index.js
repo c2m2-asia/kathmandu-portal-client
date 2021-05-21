@@ -25,7 +25,9 @@ function StoryDetailView(props) {
       <BlogPost
         title={story.title}
         src={story.src}
-        content={stories[0].content}
+        content={story.content}
+        author={story.author}
+        date={story.date}
         otherArticles={stories}
       />
     </div>
