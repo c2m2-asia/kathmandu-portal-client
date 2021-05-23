@@ -17,50 +17,40 @@ import './styles.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import sample from 'images/sample-dp.jpg';
+import testimonial1 from 'images/testimonial-1.jpg'; // Neetam Subedi
+import testimonial2 from 'images/testimonial-2.jpg'; // Vidya Shakya
+import testimonial3 from 'images/testimonial-3.jpg'; // Ramesh Dhakal
+import testimonial4 from 'images/testimonial-4.jpg'; // Salil Shrestha
+import testimonial5 from 'images/testimonial-5.png'; // Saila Dai
 
 const victims = [
   {
-    name: 'Bishnu Sapkota',
+    name: 'Neetam Subedi',
     title: 'Handicraft shop owner',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: sample,
+    src: testimonial1,
   },
   {
-    name: 'Bishnu Sapkota',
+    name: 'Saila Dai',
     title: 'Handicraft shop owner',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: sample,
+    src: testimonial5,
   },
   {
-    name: 'Bishnu Sapkota',
+    name: 'Vidya Shakya',
     title: 'Handicraft shop owner',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: sample,
+    src: testimonial2,
   },
   {
-    name: 'Bishnu Sapkota',
+    name: 'Ramesh Dhakal',
     title: 'Handicraft shop owner',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: sample,
-  },
-  {
-    name: 'Bishnu Sapkota',
-    title: 'Handicraft shop owner',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: sample,
-  },
-  {
-    name: 'Bishnu Sapkota',
-    title: 'Handicraft shop owner',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: sample,
+    src: testimonial3,
   },
 ];
 

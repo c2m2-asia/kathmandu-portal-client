@@ -3,7 +3,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 // colors
 export const primary = '#479083';
 const secondary = '#252525';
-const black = '#343a40';
+const black = '#2a2a2a';
 const darkBlack = 'rgb(36, 40, 44)';
 const background = '#f5f5f5';
 const warningLight = 'rgba(253, 200, 69, .3)';
@@ -130,7 +130,7 @@ const theme = createMuiTheme({
     },
     h6: {
       color: 'rgba(255,255,255,0.7)',
-      fontWeight: '700',
+      fontWeight: '600',
     },
     h5: {
       fontWeight: '600',

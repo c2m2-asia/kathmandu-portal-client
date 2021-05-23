@@ -83,60 +83,62 @@ function StoriesListView() {
   // const classes = useStyles();
 
   return (
-    <div className="container py-5">
-      <Blog posts={stories} />
-      {
-        //   <div style={{ display: 'flex', gap: '4rem', flexDirection: 'column' }}>
-        //   {['Hello', 'Kera'].map((dummy, index) => (
-        //     <div style={{ display: 'flex', flexDirection: 'row', gap: '2rem' }}>
-        //       <div style={{ order: `${index % 2 === 1 ? '1' : '0'}` }}>
-        //         <img src={portersImg} style={{ width: '100%', height: 'auto' }} />
-        //       </div>
-        //       <div>
-        //         <Link
-        //           to="/stories/stories-detail"
-        //           className={classes.noDecoration}
-        //           style={{ color: 'inherit' }}
-        //         >
-        //           <Typography variant="h4" gutterBottom>
-        //             <b>Tourism sector workers lose livelihoods</b>
-        //           </Typography>
-        //         </Link>
-        //         <div
-        //           style={{ display: 'flex', flexDirection: 'row', gap: '.5rem' }}
-        //         >
-        //           <Typography variant="subtitle1" gutterBottom>
-        //             John Doe
-        //           </Typography>
-        //           <Typography variant="subtitle1" gutterBottom>
-        //             <b>&#8226;</b>
-        //           </Typography>
-        //           <Typography variant="subtitle1" gutterBottom>
-        //             March 21, 201
-        //           </Typography>
-        //         </div>
-        //         <Typography variant="subtitle1" gutterBottom>
-        //           Wise busy past both park when an ye no. Nay likely her length
-        //           sooner thrown sex lively income. The expense windows adapted
-        //           sir. Wrong widen drawn ample eat off doors money. Offending
-        //           belonging promotion provision an be oh consulted ourselves it.
-        //           Blessing welcomed ladyship she met humoured sir breeding her.
-        //           Six curiosity day assurance bed necessary.
-        //         </Typography>
-        //         <Link
-        //           to="/stories/stories-detail"
-        //           className={classes.noDecoration}
-        //           style={{ color: 'inherit' }}
-        //         >
-        //           <Typography variant="subtitle2" gutterBottom>
-        //             Continue reading <ArrowRightAltIcon />
-        //           </Typography>
-        //         </Link>
-        //       </div>
-        //     </div>
-        //   ))}
-        // </div>
-      }
+    <div className="bg-white">
+      <div className="container py-5">
+        <Blog posts={stories} />
+        {
+          //   <div style={{ display: 'flex', gap: '4rem', flexDirection: 'column' }}>
+          //   {['Hello', 'Kera'].map((dummy, index) => (
+          //     <div style={{ display: 'flex', flexDirection: 'row', gap: '2rem' }}>
+          //       <div style={{ order: `${index % 2 === 1 ? '1' : '0'}` }}>
+          //         <img src={portersImg} style={{ width: '100%', height: 'auto' }} />
+          //       </div>
+          //       <div>
+          //         <Link
+          //           to="/stories/stories-detail"
+          //           className={classes.noDecoration}
+          //           style={{ color: 'inherit' }}
+          //         >
+          //           <Typography variant="h4" gutterBottom>
+          //             <b>Tourism sector workers lose livelihoods</b>
+          //           </Typography>
+          //         </Link>
+          //         <div
+          //           style={{ display: 'flex', flexDirection: 'row', gap: '.5rem' }}
+          //         >
+          //           <Typography variant="subtitle1" gutterBottom>
+          //             John Doe
+          //           </Typography>
+          //           <Typography variant="subtitle1" gutterBottom>
+          //             <b>&#8226;</b>
+          //           </Typography>
+          //           <Typography variant="subtitle1" gutterBottom>
+          //             March 21, 201
+          //           </Typography>
+          //         </div>
+          //         <Typography variant="subtitle1" gutterBottom>
+          //           Wise busy past both park when an ye no. Nay likely her length
+          //           sooner thrown sex lively income. The expense windows adapted
+          //           sir. Wrong widen drawn ample eat off doors money. Offending
+          //           belonging promotion provision an be oh consulted ourselves it.
+          //           Blessing welcomed ladyship she met humoured sir breeding her.
+          //           Six curiosity day assurance bed necessary.
+          //         </Typography>
+          //         <Link
+          //           to="/stories/stories-detail"
+          //           className={classes.noDecoration}
+          //           style={{ color: 'inherit' }}
+          //         >
+          //           <Typography variant="subtitle2" gutterBottom>
+          //             Continue reading <ArrowRightAltIcon />
+          //           </Typography>
+          //         </Link>
+          //       </div>
+          //     </div>
+          //   ))}
+          // </div>
+        }
+      </div>
     </div>
   );
 }

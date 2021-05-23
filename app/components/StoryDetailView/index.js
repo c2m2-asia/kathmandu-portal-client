@@ -16,20 +16,22 @@ import BlogPost from './BlogPost';
 function StoryDetailView(props) {
   const story = stories.find(s => s.id === parseInt(props.match.params.id)); //eslint-disable-line
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [props.match.params.id]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [props.match.params.id]);
 
   return (
-    <div className="py-5">
-      <BlogPost
-        title={story.title}
-        src={story.src}
-        content={story.content}
-        author={story.author}
-        date={story.date}
-        otherArticles={stories}
-      />
+    <div className="bg-white">
+      <div className="py-5">
+        <BlogPost
+          title={story.title}
+          src={story.src}
+          content={story.content}
+          author={story.author}
+          date={story.date}
+          otherArticles={stories}
+        />
+      </div>
     </div>
   );
 }

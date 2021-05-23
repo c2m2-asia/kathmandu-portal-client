@@ -22,7 +22,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.easeInOut,
     }),
     cursor: 'pointer',
-    color: theme.palette.primary.main,
+    color: theme.palette.common.black,
     '&:hover': {
       color: theme.palette.secondary.dark,
     },
