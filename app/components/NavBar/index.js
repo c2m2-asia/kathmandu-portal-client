@@ -14,6 +14,7 @@ import Hidden from '@material-ui/core/Hidden';
 import { Drawer } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
@@ -101,7 +102,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
   // const location = useLocation();
   console.log(location.pathname);
 
-  const navBg = location.pathname === '/' ? '#ffffff' : '#0B5C76';
+  // const navBg = location.pathname === '/' ? '#ffffff' : '#0B5C76';
   const isHomePage = location.pathname === '/';
 
   return (
@@ -113,7 +114,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
           borderBottom: `${
             isHomePage ? 'none' : '1px solid rgba(105,105,105,0.33)'
           }`,
-          background: navBg,
+          background: '#ffffff',
         }}
       >
         <Toolbar>
@@ -123,7 +124,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
                 variant="h4"
                 className={classes.projectTitle}
                 display="inline"
-                style={{ color: `${isHomePage ? '#0b5c76' : '#FCFAF9'}` }}
+                style={{ color: primary }}
               >
                 C2M2&nbsp;
               </Typography>
@@ -131,7 +132,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
                 variant="h4"
                 className={classes.projectTitle}
                 display="inline"
-                style={{ color: `${isHomePage ? 'rgb(64 60 54)' : '#FCFAF9'}` }}
+                style={{ color: 'rgb(64 60 54)' }}
               >
                 KATHMANDU
               </Typography>
@@ -156,7 +157,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
                   className={classes.noDecoration}
                 >
                   <Button
-                    className={isHomePage ? classes.homeBtn : classes.button}
+                    className={isHomePage ? classes.homeBtn : classes.homeBtn}
                   >
                     {menuItem.name}
                   </Button>

@@ -23,16 +23,18 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
 
   const getTotalResponses = question =>
     question.chart_data.reduce((a, b) => a + b.total, 0);
+
   return (
     <div style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-      <Typography variant="h6" gutterBottom style={{ width: '50%' }}>
+      <Typography
+        variant="h6"
+        gutterBottom
+        style={{ width: '50%' }}
+        color="textPrimary"
+      >
         {chartData.ques_en}
       </Typography>
-      <Typography
-        variant="body1"
-        gutterBottom
-        style={{ color: 'rgba(255,255,255,0.45)' }}
-      >
+      <Typography variant="body1" gutterBottom color="textPrimary">
         Showing {getTotalResponses(chartData)} responses
       </Typography>
       <div
@@ -45,8 +47,8 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
       >
         <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
           <div style={{ display: 'flex', gap: '0.2rem' }}>
-            <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
-            <Typography variant="body2" gutterBottom>
+            <GetAppIcon color="primary" />
+            <Typography variant="body2" gutterBottom color="textPrimary">
               Download this data
             </Typography>
           </div>
@@ -56,7 +58,6 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
           <FormControlLabel
             control={
               <Checkbox
-                style={{ color: 'rgba(255,255,255,0.5)' }}
                 checked={isShowPercentage}
                 onChange={() => setIsShowPercentagesChecked(!isShowPercentage)}
                 name="checkedB"
@@ -64,8 +65,8 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
               />
             }
             label={
-              <Typography variant="body2" gutterBottom>
-                Show percentages?
+              <Typography variant="body2" gutterBottom color="textPrimary">
+                Show in percentages
               </Typography>
             }
           />

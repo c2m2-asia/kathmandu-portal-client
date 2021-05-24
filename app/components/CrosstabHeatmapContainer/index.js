@@ -16,7 +16,7 @@ import CrosstabHeatmapIndividualContainer from 'components/CrosstabHeatmapIndivi
 
 function CrosstabHeatmapContainer({ chartData, loading, viewType }) {
   return (
-    <div style={{ background: '#0B5C76' }}>
+    <div style={{ background: '#f5f7fc', paddingTop: '3rem' }}>
       <div className="container">
         {loading && <CrosstabHeatmapSkeleton viewType={viewType} />}
         {!loading &&

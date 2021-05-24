@@ -25,32 +25,32 @@ import testimonial5 from 'images/testimonial-5.png'; // Saila Dai
 
 const victims = [
   {
-    name: 'Neetam Subedi',
-    title: 'Handicraft shop owner',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: testimonial1,
-  },
-  {
-    name: 'Saila Dai',
-    title: 'Handicraft shop owner',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-    src: testimonial5,
-  },
-  {
     name: 'Vidya Shakya',
-    title: 'Handicraft shop owner',
+    title: 'Senior travel planner',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
+      'I love my job, I have been involved in it for 10 years...Since the lockdown, my husband and I are unemployed, we have had no income for more than a year now.',
     src: testimonial2,
   },
   {
-    name: 'Ramesh Dhakal',
-    title: 'Handicraft shop owner',
+    name: 'Saila Dai',
+    title: 'Salesman/ shop owner',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
+      'At a point during the lockdown, I thought we would die of hunger. There was no income, and the savings were dwindling rapidly.',
+    src: testimonial5,
+  },
+  {
+    name: 'Ramesh Dhakal',
+    title: 'Hotel owner, travels owner',
+    description:
+      'My energy to work more, take tourism to new heights has faded. I used to donate 5% of my income to charity now I don’t even feel like working.',
     src: testimonial3,
+  },
+  {
+    name: 'Neetam Subedi',
+    title: 'Owner/ travel consultant',
+    description:
+      'I thought everything would be back to normal by October. Contrastingly, in October, we had to face unexpected pressures - even from the government.',
+    src: testimonial1,
   },
 ];
 
@@ -116,17 +116,11 @@ function Carousel() {
             />
           </div>
           <div className="victim-description" style={{ marginLeft: '2rem' }}>
-            <Typography variant="h6" style={{ color: '#808996' }}>
-              {victim.name}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              gutterBottom
-              style={{ color: '#696969' }}
-            >
+            <Typography variant="h6">{victim.name}</Typography>
+            <Typography variant="subtitle1" gutterBottom color="textSecondary">
               {victim.title}
             </Typography>
-            <Typography paragraph gutterBottom style={{ color: '#333f57' }}>
+            <Typography paragraph gutterBottom>
               {victim.description}
             </Typography>
           </div>

@@ -9,7 +9,7 @@ import { uid } from 'react-uid';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { scaleBand, scaleLinear, max, range } from 'd3';
-
+import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import './styles.css';
@@ -67,7 +67,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
               <rect
-                fill="#82C0C6"
+                fill={primary}
                 x={x(index)}
                 y={y(datum.perc_of_total * 100)}
                 width={barWidth}
@@ -79,9 +79,9 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
                 dy="-.3em"
                 dx="-.3em"
                 style={{
-                  fontWeight: '600',
+                  fontWeight: '500',
                   textAnchor: 'end',
-                  color: 'rgba(0,0,0,0.38)',
+                  color: 'white',
                 }}
               >
                 {isShowPercentage
@@ -97,7 +97,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
               verticalAnchor="start"
               textAnchor="middle"
               dominantBaseline="end"
-              style={{ fontWeight: '600', textAnchor: 'middle' }}
+              style={{ fontWeight: '500', textAnchor: 'middle' }}
             >
               {textSplitter(datum.label_en, 13).map((text, i) => (
                 <tspan

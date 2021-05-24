@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: rgba(255,255,255,0.7);
   }
 
   body.fontLoaded {
@@ -17,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #app {
-    background-color: rgb(11, 92, 118);
+    // background-color: rgb(11, 92, 118);
     min-height: 100%;
     min-width: 100%;
   }

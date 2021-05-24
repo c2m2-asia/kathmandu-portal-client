@@ -18,6 +18,7 @@ import Tab from '@material-ui/core/Tab';
 const useStyles = makeStyles(theme => ({
   selected: {
     outline: 'none',
+    color: '#A30B37',
   },
   wrapper: {
     textTransform: 'capitalize',

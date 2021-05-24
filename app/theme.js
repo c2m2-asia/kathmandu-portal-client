@@ -1,7 +1,7 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
 // colors
-export const primary = '#479083';
+export const primary = '#A30B37';
 const secondary = '#252525';
 const black = '#2a2a2a';
 const darkBlack = 'rgb(36, 40, 44)';
@@ -123,24 +123,17 @@ const theme = createMuiTheme({
     fontFamily: 'Poppins',
     useNextVariants: true,
     h1: {
-      color: 'rgba(255,255,255,0.9)',
+      color: 'rgba(255,255,255)',
       fontWeight: '600',
       fontSize: '3.53rem',
       letterSpacing: '.94px',
     },
     h6: {
-      color: 'rgba(255,255,255,0.7)',
       fontWeight: '600',
     },
     h5: {
       fontWeight: '600',
       letterSpacing: '.3px',
-    },
-    body1: {
-      color: 'rgba(255,255,255,0.7)',
-    },
-    body2: {
-      color: 'rgba(255,255,255,0.5)',
     },
   },
 });

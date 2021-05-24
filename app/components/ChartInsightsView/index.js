@@ -73,83 +73,74 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
         viewType={viewType}
         setViewType={setViewType}
       />
-      <div style={{ background: '#0A546B' }}>
-        <div
-          className="container"
-          style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
-        >
-          {loading && <DimensionBarChartSkeleton />}
-          {!loading && chartData && (
-            <Typography variant="h6" gutterBottom>
-              Distribution of responses by {dimensionLabel}
-            </Typography>
-          )}
-          {!loading && chartData && (
-            <Typography
-              variant="body1"
-              gutterBottom
-              style={{ color: 'rgba(255,255,255,0.45)' }}
-            >
-              Showing {getTotalResponses()} responses
-            </Typography>
-          )}
-          {!loading && chartData && (
-            <div
-              style={{
-                display: 'flex',
-                gap: '1.2rem',
-                alignItems: 'center',
-                marginTop: '1.5rem',
-              }}
-            >
-              <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
-                <div style={{ display: 'flex', gap: '0.3rem' }}>
-                  <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
+      <div
+        className="container"
+        style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
+      >
+        {loading && <DimensionBarChartSkeleton />}
+        {!loading && chartData && (
+          <Typography variant="h6" gutterBottom>
+            Distribution of responses by {dimensionLabel}
+          </Typography>
+        )}
+        {!loading && chartData && (
+          <Typography variant="body1" gutterBottom>
+            Showing {getTotalResponses()} responses
+          </Typography>
+        )}
+        {!loading && chartData && (
+          <div
+            style={{
+              display: 'flex',
+              gap: '1.2rem',
+              alignItems: 'center',
+              marginTop: '1.5rem',
+            }}
+          >
+            <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
+              <div style={{ display: 'flex', gap: '0.3rem' }}>
+                <GetAppIcon color="primary" />
+                <Typography variant="body2" gutterBottom color="textPrimary">
+                  Download this data
+                </Typography>
+              </div>
+            </Link>
+            {viewType === 'chart' && (
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    checked={isShowPercentage}
+                    onChange={() =>
+                      setIsShowPercentagesChecked(!isShowPercentage)
+                    }
+                    name="checkedB"
+                  />
+                }
+                label={
                   <Typography variant="body2" gutterBottom>
-                    Download this data
+                    Show percentages?
                   </Typography>
-                </div>
-              </Link>
-              {viewType === 'chart' && (
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      style={{ color: 'rgba(255,255,255,0.5)' }}
-                      checked={isShowPercentage}
-                      onChange={() =>
-                        setIsShowPercentagesChecked(!isShowPercentage)
-                      }
-                      name="checkedB"
-                      color="primary"
-                    />
-                  }
-                  label={
-                    <Typography variant="body2" gutterBottom>
-                      Show percentages?
-                    </Typography>
-                  }
-                />
-              )}
-            </div>
-          )}
+                }
+              />
+            )}
+          </div>
+        )}
 
-          {!loading && chartData && (
-            <Fragment>
-              {viewType === 'chart' ? (
-                <DimensionBarChart
-                  surveyArea={surveyArea}
-                  dimension={dimension}
-                  chartData={chartData.univariate[0].chart_data}
-                  isShowPercentage={isShowPercentage}
-                />
-              ) : (
-                <DimensionTable
-                  chartData={chartData.univariate[0].chart_data}
-                />
-              )}
-            </Fragment>
-          )}
-        </div>
+        {!loading && chartData && (
+          <Fragment>
+            {viewType === 'chart' ? (
+              <DimensionBarChart
+                surveyArea={surveyArea}
+                dimension={dimension}
+                chartData={chartData.univariate[0].chart_data}
+                isShowPercentage={isShowPercentage}
+              />
+            ) : (
+              <DimensionTable chartData={chartData.univariate[0].chart_data} />
+            )}
+          </Fragment>
+        )}
       </div>
       <CrosstabHeatmapContainer
         chartData={chartData}

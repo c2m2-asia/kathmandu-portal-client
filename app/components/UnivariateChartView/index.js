@@ -44,18 +44,20 @@ function UnivariateChartView({ getUnivariateData, univariateData, loading }) {
         viewType={viewType}
         setViewType={setViewType}
       />
-      <div className="container">
-        {loading &&
-          ['a', 'b'].map(el => <CrosstabHeatmapSkeleton key={uid(el)} />)}
-        {!loading &&
-          univariateData &&
-          univariateData.map(chartData => (
-            <UnivariateBarChartContainer
-              key={uid(chartData)}
-              chartData={chartData}
-              viewType={viewType}
-            />
-          ))}
+      <div className="bg-white">
+        <div className="container">
+          {loading &&
+            ['a', 'b'].map(el => <CrosstabHeatmapSkeleton key={uid(el)} />)}
+          {!loading &&
+            univariateData &&
+            univariateData.map(chartData => (
+              <UnivariateBarChartContainer
+                key={uid(chartData)}
+                chartData={chartData}
+                viewType={viewType}
+              />
+            ))}
+        </div>
       </div>
     </Fragment>
   );

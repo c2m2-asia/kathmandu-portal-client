@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { uid } from 'react-uid';
 import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -32,15 +33,14 @@ function CrosstabHeatmapIndividualContainer({
     question.chart_data.reduce((a, b) => a + b.total, 0);
 
   return (
-    <div style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+    <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+      <Typography variant="body2" color="primary">
+        QUESTION
+      </Typography>
       <Typography variant="h6" gutterBottom style={{ width: '50%' }}>
         {element.ques_en}
       </Typography>
-      <Typography
-        variant="body1"
-        gutterBottom
-        style={{ color: 'rgba(255,255,255,0.45)' }}
-      >
+      <Typography variant="body1" gutterBottom color="textPrimary">
         Showing {getTotalResponses(element)} responses
       </Typography>
       <div
@@ -53,8 +53,8 @@ function CrosstabHeatmapIndividualContainer({
       >
         <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
           <div style={{ display: 'flex', gap: '0.2rem' }}>
-            <GetAppIcon style={{ color: 'rgba(255,255,255,0.5)' }} />
-            <Typography variant="body2" gutterBottom>
+            <GetAppIcon color="primary" />
+            <Typography variant="body2" gutterBottom color="textPrimary">
               Download this data
             </Typography>
           </div>
@@ -64,7 +64,6 @@ function CrosstabHeatmapIndividualContainer({
           <FormControlLabel
             control={
               <Checkbox
-                style={{ color: 'rgba(255,255,255,0.5)' }}
                 checked={isShowPercentage}
                 onChange={() => setIsShowPercentagesChecked(!isShowPercentage)}
                 name="checkedB"
@@ -72,7 +71,7 @@ function CrosstabHeatmapIndividualContainer({
               />
             }
             label={
-              <Typography variant="body2" gutterBottom>
+              <Typography variant="body2" gutterBottom color="textPrimary">
                 Show percentages?
               </Typography>
             }
@@ -118,7 +117,7 @@ function CrosstabHeatmapIndividualContainer({
       ) : (
         <CrosstabTable chartData={element} />
       )}
-    </div>
+    </Paper>
   );
 }
 

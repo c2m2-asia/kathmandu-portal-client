@@ -74,15 +74,15 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
   const getColor = scaleThreshold()
     .domain(minmax)
     .range([
-      '#CDE5E7',
-      '#9CCCD1',
-      '#8FC6CC',
-      '#82C0C6',
-      '#68B0B7',
-      '#4DA0A8',
-      '#339099',
-      '#177983',
-      '#16737D',
+      '#ffd5d7',
+      '#f6bec1',
+      '#eca8ac',
+      '#e19197',
+      '#d67b83',
+      '#ca646f',
+      '#be4c5b',
+      '#b13249',
+      '#a30b37',
     ]);
 
   const barScale = scaleLinear()
@@ -112,6 +112,11 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
 
     return lines;
   };
+
+  let allnum = [];
+  console.log(chartData.chart_data);
+  chartData.chart_data.map(a => a.dist.map(b => allnum.push(b.perc_of_total)));
+  console.log('lado', allnum);
 
   return (
     <Fragment>
@@ -152,7 +157,11 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                   <text
                     style={{
                       fontWeight: '600',
-                      color: 'rgba(0,0,0,0.38)',
+                      color: `${
+                        max(allnum) / 2 > d.perc_of_total
+                          ? 'rgba(0,0,0,0.35)'
+                          : 'rgba(255,255,255,0.7)'
+                      }`,
                       textAnchor: 'end',
                     }}
                     x={innerXScale(i) + innerRectWidth + innerPadding}
@@ -176,7 +185,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               verticalAnchor="start"
               textAnchor="middle"
               dominantBaseline="end"
-              style={{ fontWeight: '600', fontSize: '0.9rem' }}
+              style={{ fontWeight: '500', fontSize: '0.9rem' }}
             >
               {textSplitter(labels.x_label_en).map((text, i) => (
                 <tspan

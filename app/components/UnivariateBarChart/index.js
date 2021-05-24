@@ -20,6 +20,8 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
   const data = chartData.chart_data;
   const height = data.length * barHeight + (data.length + 1 * 10);
   const width = 800;
+  const innerTextColor = '#ffffff';
+  const outerTextColor = '#696969';
 
   // const dimensionLabel = dimensions[surveyArea]
   //   .find(a => a.value === dimension)
@@ -66,7 +68,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
               <rect
-                fill="#82C0C6"
+                fill="#A30B37"
                 x={x(0)}
                 y={y(index)}
                 width={x(datum.perc_of_total * 100)}
@@ -80,9 +82,9 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                   dx="-5"
                   style={{
                     fontWeight: '600',
-                    fontSize: '15px',
                     textAnchor: 'end',
-                    color: 'rgba(0,0,0,0.38)',
+                    color: 'black',
+                    fontSize: '14px',
                   }}
                   verticalAnchor="middle"
                   textAnchor="end"
@@ -96,10 +98,9 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                       dy={i === 0 ? '0em' : '1.2em'}
                       dx="-5"
                       style={{
-                        fontWeight: '600',
-                        fontSize: '15px',
+                        fontWeight: '500',
                         textAnchor: 'end',
-                        color: 'rgba(0,0,0,0.38)',
+                        color: innerTextColor,
                       }}
                     >
                       {text}
@@ -123,9 +124,9 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                   dx="5"
                   style={{
                     fontWeight: '600',
-                    fontSize: '15px',
                     textAnchor: 'start',
-                    color: 'rgba(255,255,255,0.38)',
+                    color: 'black',
+                    fontSize: '14px',
                   }}
                   verticalAnchor="middle"
                   textAnchor="start"
@@ -139,10 +140,9 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                       dy={i === 0 ? '0em' : '1.2em'}
                       dx="5"
                       style={{
-                        fontWeight: '600',
-                        fontSize: '15px',
+                        fontWeight: '500',
                         textAnchor: 'start',
-                        color: 'rgba(255,255,255,0.38)',
+                        color: outerTextColor,
                       }}
                     >
                       {text}

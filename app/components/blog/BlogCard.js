@@ -67,7 +67,7 @@ function BlogCard(props) {
             <span className={classes.title}>{title}</span>
           </Typography>
         </Link>
-        <Typography variant="body1" color="textSecondary">
+        <Typography variant="body1" color="textPrimary">
           {snippet}
           {
             //   <Link to={url} className={classes.noDecoration} tabIndex={-1}>
@@ -76,7 +76,7 @@ function BlogCard(props) {
           }
         </Typography>
         <Link to={url} className={classes.noDecoration}>
-          <Button variant="outlined" color="primary" className="mt-3">
+          <Button variant="outlined" color="primary" className="mt-3" size="small">
             Read Story{' '}
           </Button>
         </Link>
