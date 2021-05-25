@@ -68,7 +68,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
               <rect
-                fill="#A30B37"
+                fill="#2a9d8f"
                 x={x(0)}
                 y={y(index)}
                 width={x(datum.perc_of_total * 100)}

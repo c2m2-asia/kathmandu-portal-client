@@ -16,19 +16,10 @@ const stories = [
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
     content: story1,
   },
-  {
-    title: 'Never been this worried in the last thirty years',
-    id: 2,
-    date: 'May 12, 2021',
-    src: `saila.jpg`,
-    author: 'Aishworya Shrestha',
-    snippet:
-      'Saila daiLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-    content: story2,
-  },
+
   {
     title: 'Questioning life decisions has now become an everyday ordeal',
-    id: 3,
+    id: 2,
     date: 'May 12, 2021',
     src: `ramesh.jpg`,
     author: 'Aishworya Shrestha',
@@ -39,13 +30,23 @@ const stories = [
 
   {
     title: 'Thinking of leaving',
-    id: 4,
+    id: 3,
     date: 'May 12, 2021',
     src: `neetam.jpg`,
     author: 'Aishworya Shrestha',
     snippet:
       'Neetam Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
     content: story1,
+  },
+  {
+    title: 'Never been this worried in the last thirty years',
+    id: 4,
+    date: 'May 12, 2021',
+    src: `saila.jpg`,
+    author: 'Aishworya Shrestha',
+    snippet:
+      'Saila daiLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+    content: story2,
   },
   {
     title:

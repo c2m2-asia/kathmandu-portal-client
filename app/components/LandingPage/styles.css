@@ -41,8 +41,8 @@
 
 .places-carousel .slick-dots li.slick-active {
   transform: scale(1);
-  background-color: #A30B37;
-  border-color: #A30B37;
+  background-color: #2a9d8f;
+  border-color: #2a9d8f;
 }
 .places-carousel .slick-dots li button {
   padding: 0;
@@ -57,7 +57,7 @@
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
-  background-color: #A30B37;
+  background-color: #2a9d8f;
   position: relative;
 }
 .title-shape:after {
@@ -73,7 +73,7 @@
 /* Hero */
 
 .project-desc {
-  background: #A30B37;
+  background: #2a9d8f;
   padding-left: 2.5rem;
   border-radius: 13px 0 0 13px;
 }

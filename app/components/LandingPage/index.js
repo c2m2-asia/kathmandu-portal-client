@@ -89,7 +89,7 @@ function LandingPage() {
                 textAlign: 'center',
               }}
             >
-              Testimonial
+              Stories from the ground
             </Typography>
             <div className="title-shape mb-5 mt-2" />
           </div>
@@ -108,7 +108,7 @@ function LandingPage() {
                 textAlign: 'center',
               }}
             >
-              From the ground
+              Survey results
             </Typography>
             <div className="title-shape mb-5 mt-2" />
           </div>
@@ -158,7 +158,10 @@ function LandingPage() {
                 gathering information from businesses and workforce.
               </Typography>
 
-              <Link to="/stories" style={{ textDecoration: 'none' }}>
+              <a
+                href="https://raw.githubusercontent.com/c2m2-asia/share-survey-businesses/main/COVID-19%20and%20Tourism%20Businesses%20-%20A%20survey%20for%20assessing%20COVID%20impact%2C%20your%20current%20needs%20and%20future%20plans.pdf"
+                style={{ textDecoration: 'none' }}
+              >
                 <Button
                   variant="contained"
                   color="primary"
@@ -167,9 +170,9 @@ function LandingPage() {
                 >
                   Businesses
                 </Button>
-              </Link>
-              <Link
-                to="/stories"
+              </a>
+              <a
+                href="https://raw.githubusercontent.com/c2m2-asia/share-survey/main/%E0%A4%95%E0%A5%8B%E0%A4%AD%E0%A4%BF%E0%A4%A1-%E0%A5%A7%E0%A5%AF%20%E0%A4%AE%E0%A4%BE%20%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80%20%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%AF%E0%A4%9F%E0%A4%A8%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%20%E0%A4%85%E0%A4%B8%E0%A4%B0%2C%20%E0%A4%A4%E0%A5%88%E0%A4%AF%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%B0%20%E0%A4%86%E0%A4%B5%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%95%E0%A4%A4%E0%A4%BE%E0%A4%95%E0%A5%8B%20%E0%A4%B5%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%81%E0%A4%97%E0%A4%A4%20%E0%A4%A4%E0%A4%A5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%82%E0%A4%95%20%E0%A4%B8%E0%A4%82%E0%A4%95%E0%A4%B2%E0%A4%A8.pdf"
                 style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
               >
                 <Button
@@ -180,7 +183,7 @@ function LandingPage() {
                 >
                   Workforce
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

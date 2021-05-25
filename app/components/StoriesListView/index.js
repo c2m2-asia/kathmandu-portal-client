@@ -10,7 +10,7 @@ import clsx from 'clsx';
 // import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-// import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography';
 // import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 // import portersImg from 'images/porters.jpg';
 // import sampleImg from 'images/sample-img.jpg';
@@ -22,7 +22,7 @@ import { PRIMARY_COLOR } from 'utils/constants';
 // import messages from './messages';
 // import { FormattedMessage } from 'react-intl';
 
-// const useStyles = makeStyles(theme => ({
+// const useStyles = theme => ({
 //   blogContentWrapper: {
 //     marginLeft: theme.spacing(1),
 //     marginRight: theme.spacing(1),
@@ -35,109 +35,25 @@ import { PRIMARY_COLOR } from 'utils/constants';
 //   },
 //   wrapper: {
 //     minHeight: '60vh',
-//   },
-//   img: {
-//     width: '100%',
-//     height: 'auto',
-//     marginBottom: 8,
-//   },
-//   card: {
-//     boxShadow: theme.shadows[2],
+//     overflow: 'hidden',
 //   },
 //   noDecoration: {
 //     textDecoration: 'none !important',
 //   },
-//   title: {
-//     transition: theme.transitions.create(['background-color'], {
-//       duration: theme.transitions.duration.complex,
-//       easing: theme.transitions.easing.easeInOut,
-//     }),
-//     cursor: 'pointer',
-//     color: theme.palette.secondary.main,
-//     '&:hover': {
-//       color: theme.palette.secondary.dark,
-//     },
-//     '&:active': {
-//       color: theme.palette.primary.dark,
-//     },
-//   },
-//   link: {
-//     transition: theme.transitions.create(['background-color'], {
-//       duration: theme.transitions.duration.complex,
-//       easing: theme.transitions.easing.easeInOut,
-//     }),
-//     cursor: 'pointer',
-//     color: theme.palette.primary.main,
-//     '&:hover': {
-//       color: theme.palette.primary.dark,
-//     },
-//   },
-//   showFocus: {
-//     '&:focus span': {
-//       color: theme.palette.secondary.dark,
-//     },
-//   },
-// }));
+// });
 
 function StoriesListView() {
   // const classes = useStyles();
+  const pstories = stories.slice(0, 4);
+  const reports = stories.slice(4, 7);
 
   return (
     <div className="bg-white">
       <div className="container py-5">
-        <Blog posts={stories} />
-        {
-          //   <div style={{ display: 'flex', gap: '4rem', flexDirection: 'column' }}>
-          //   {['Hello', 'Kera'].map((dummy, index) => (
-          //     <div style={{ display: 'flex', flexDirection: 'row', gap: '2rem' }}>
-          //       <div style={{ order: `${index % 2 === 1 ? '1' : '0'}` }}>
-          //         <img src={portersImg} style={{ width: '100%', height: 'auto' }} />
-          //       </div>
-          //       <div>
-          //         <Link
-          //           to="/stories/stories-detail"
-          //           className={classes.noDecoration}
-          //           style={{ color: 'inherit' }}
-          //         >
-          //           <Typography variant="h4" gutterBottom>
-          //             <b>Tourism sector workers lose livelihoods</b>
-          //           </Typography>
-          //         </Link>
-          //         <div
-          //           style={{ display: 'flex', flexDirection: 'row', gap: '.5rem' }}
-          //         >
-          //           <Typography variant="subtitle1" gutterBottom>
-          //             John Doe
-          //           </Typography>
-          //           <Typography variant="subtitle1" gutterBottom>
-          //             <b>&#8226;</b>
-          //           </Typography>
-          //           <Typography variant="subtitle1" gutterBottom>
-          //             March 21, 201
-          //           </Typography>
-          //         </div>
-          //         <Typography variant="subtitle1" gutterBottom>
-          //           Wise busy past both park when an ye no. Nay likely her length
-          //           sooner thrown sex lively income. The expense windows adapted
-          //           sir. Wrong widen drawn ample eat off doors money. Offending
-          //           belonging promotion provision an be oh consulted ourselves it.
-          //           Blessing welcomed ladyship she met humoured sir breeding her.
-          //           Six curiosity day assurance bed necessary.
-          //         </Typography>
-          //         <Link
-          //           to="/stories/stories-detail"
-          //           className={classes.noDecoration}
-          //           style={{ color: 'inherit' }}
-          //         >
-          //           <Typography variant="subtitle2" gutterBottom>
-          //             Continue reading <ArrowRightAltIcon />
-          //           </Typography>
-          //         </Link>
-          //       </div>
-          //     </div>
-          //   ))}
-          // </div>
-        }
+        <Blog posts={pstories} header="Stories from the ground" />
+        <div className="mt-5">
+          <Blog posts={reports} header="Survey results" />
+        </div>
       </div>
     </div>
   );

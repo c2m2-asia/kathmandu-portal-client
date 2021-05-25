@@ -74,15 +74,15 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
   const getColor = scaleThreshold()
     .domain(minmax)
     .range([
-      '#ffd5d7',
-      '#f6bec1',
-      '#eca8ac',
-      '#e19197',
-      '#d67b83',
-      '#ca646f',
-      '#be4c5b',
-      '#b13249',
-      '#a30b37',
+      '#b5eee4',
+      '#a5e4d9',
+      '#96d9ce',
+      '#86cfc3',
+      '#76c5b9',
+      '#65bbae',
+      '#54b1a4',
+      '#41a799',
+      '#2a9d8f',
     ]);
 
   const barScale = scaleLinear()

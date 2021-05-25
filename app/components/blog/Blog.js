@@ -2,6 +2,7 @@ import React from 'react';
 import { uid } from 'react-uid';
 import PropTypes from 'prop-types';
 import { Grid, Box, isWidthUp, withWidth, withStyles } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import BlogCard from './BlogCard';
 
 const styles = theme => ({
@@ -62,16 +63,22 @@ function getVerticalBlogPosts(width, blogPosts) {
 }
 
 function Blog(props) {
-  const { classes, width, posts } = props;
+  const { classes, width, posts, header } = props;
 
   return (
-    <Box display="flex" justifyContent="center" className={classes.wrapper}>
-      <div className={classes.blogContentWrapper}>
-        <Grid container spacing={3}>
-          {getVerticalBlogPosts(width, posts)}
-        </Grid>
-      </div>
-    </Box>
+    <>
+      <Box display="flex" justifyContent="center" className={classes.wrapper}>
+        <div className={classes.blogContentWrapper}>
+          <Typography variant="h5" gutterBottom style={{fontWeight: '700'}}>
+            {header}
+          </Typography>
+          <div className="title-shape mb-5 mt-2" />
+          <Grid container spacing={3}>
+            {getVerticalBlogPosts(width, posts)}
+          </Grid>
+        </div>
+      </Box>
+    </>
   );
 }
 
