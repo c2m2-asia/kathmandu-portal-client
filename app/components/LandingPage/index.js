@@ -108,11 +108,11 @@ function LandingPage() {
                 textAlign: 'center',
               }}
             >
-              Survey results
+              Deep dive into data
             </Typography>
             <div className="title-shape mb-5 mt-2" />
           </div>
-          <Blog posts={stories.slice(0, 3)} />
+          <Blog posts={stories.slice(4, 7)} />
           <div className="mt-4" style={{ textAlign: 'center' }}>
             <Link to="/stories" style={{ textDecoration: 'none' }}>
               <Button

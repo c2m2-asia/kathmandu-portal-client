@@ -69,10 +69,18 @@ function Blog(props) {
     <>
       <Box display="flex" justifyContent="center" className={classes.wrapper}>
         <div className={classes.blogContentWrapper}>
-          <Typography variant="h5" gutterBottom style={{fontWeight: '700'}}>
-            {header}
-          </Typography>
-          <div className="title-shape mb-5 mt-2" />
+          {header && (
+            <>
+              <Typography
+                variant="h5"
+                gutterBottom
+                style={{ fontWeight: '700' }}
+              >
+                {header}
+              </Typography>
+              <div className="title-shape mb-5 mt-2" />
+            </>
+          )}
           <Grid container spacing={3}>
             {getVerticalBlogPosts(width, posts)}
           </Grid>
