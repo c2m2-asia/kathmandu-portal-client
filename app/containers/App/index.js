@@ -20,6 +20,7 @@ import VisualizationSelectionView from 'components/VisualizationSelectionView/Lo
 import StoriesListView from 'components/StoriesListView/Loadable';
 import StoryDetailView from 'components/StoryDetailView/Loadable';
 import UnivariateChartPage from 'containers/UnivariateChartPage/Loadable';
+import About from 'components/About';
 
 import GlobalStyle from '../../global-styles';
 
@@ -30,6 +31,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/stories" component={StoriesListView} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/stories/:id" component={StoryDetailView} />
         <Route
           exact

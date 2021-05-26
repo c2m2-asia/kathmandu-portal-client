@@ -31,6 +31,10 @@ const menuItems = [
     link: '/downloads',
     name: 'Downloads',
   },
+  {
+    link: '/about',
+    name: 'About',
+  },
 ];
 
 const useStyles = makeStyles(theme => ({

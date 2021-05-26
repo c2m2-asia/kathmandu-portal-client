@@ -70,6 +70,25 @@
   background-color: #fff;
 }
 
+.data-shape {
+  width: 65px;
+  height: 4px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-color: #2a9d8f;
+  position: relative;
+}
+.data-shape:after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  right: 13px;
+  width: 6px;
+  height: 5px;
+  background-color: rgb(38, 70, 83);
+}
+
 /* Hero */
 
 .project-desc {
@@ -110,6 +129,16 @@
 
 .desc-container {
   /* position: relative; */
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #2a9d8f
+}
+
+.footer-link:hover {
+  text-decoration: none;
+  color: #E9C46A;
 }
 
 @media (max-width: 1400px) {

@@ -114,9 +114,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
   };
 
   let allnum = [];
-  console.log(chartData.chart_data);
   chartData.chart_data.map(a => a.dist.map(b => allnum.push(b.perc_of_total)));
-  console.log('lado', allnum);
 
   return (
     <Fragment>
