@@ -33,90 +33,108 @@ function CrosstabHeatmapIndividualContainer({
     question.chart_data.reduce((a, b) => a + b.total, 0);
 
   return (
-    <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
-      <Typography variant="body2" color="primary">
-        QUESTION
-      </Typography>
-      <Typography variant="h6" gutterBottom style={{ width: '50%' }}>
-        {element.ques_en}
-      </Typography>
-      <Typography variant="body1" gutterBottom color="textPrimary">
-        Showing {getTotalResponses(element)} responses
-      </Typography>
+    <Paper elevation={1} style={{ marginBottom: '2rem', position: 'relative' }}>
       <div
         style={{
-          display: 'flex',
-          gap: '1.2rem',
-          alignItems: 'center',
-          marginTop: '1.5rem',
+          position: 'absolute',
+          right: '2rem',
+          padding: '1rem',
+          background: '#E9C46A',
         }}
       >
-        <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
-          <div style={{ display: 'flex', gap: '0.2rem' }}>
-            <GetAppIcon color="primary" />
-            <Typography variant="body2" gutterBottom color="textPrimary">
-              Download this data
-            </Typography>
-          </div>
-        </Link>
-
-        {viewType === 'chart' && (
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={isShowPercentage}
-                onChange={() => setIsShowPercentagesChecked(!isShowPercentage)}
-                name="checkedB"
-                color="primary"
-              />
-            }
-            label={
-              <Typography variant="body2" gutterBottom color="textPrimary">
-                Show percentages?
-              </Typography>
-            }
-          />
-        )}
+        <Typography variant="body2" style={{ color: 'white' }}>
+          Updated 28 June, 2021
+        </Typography>
       </div>
-
-      {loading && (
+      <div style={{ padding: '2rem' }}>
+        <Typography variant="body2" color="primary">
+          QUESTION
+        </Typography>
+        <Typography variant="h6" gutterBottom style={{ width: '50%' }}>
+          {element.ques_en}
+        </Typography>
+        {
+          //   <Typography variant="body1" gutterBottom color="textPrimary">
+          //   Showing {getTotalResponses(element)} responses
+          // </Typography>
+        }
         <div
           style={{
             display: 'flex',
-            gap: '1rem',
-            flexDirection: 'column',
+            gap: '1.2rem',
+            alignItems: 'center',
+            marginTop: '1.5rem',
           }}
         >
-          {['a', 'b', 'c', 'd'].map(el => (
-            <div
-              key={uid(el)}
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: '1rem',
-              }}
-            >
-              <Skeleton
-                animation="wave"
-                variant="rect"
-                width="50vw"
-                height={85}
-              />
-              <Skeleton animation="wave" variant="text" width="6vw" />
+          <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
+            <div style={{ display: 'flex', gap: '0.2rem' }}>
+              <GetAppIcon color="primary" />
+              <Typography variant="body2" gutterBottom color="textPrimary">
+                Download this data
+              </Typography>
             </div>
-          ))}
-        </div>
-      )}
+          </Link>
 
-      {viewType === 'chart' ? (
-        <CrosstabHeatMap
-          chartData={element}
-          isShowPercentage={isShowPercentage}
-        />
-      ) : (
-        <CrosstabTable chartData={element} />
-      )}
+          {viewType === 'chart' && (
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isShowPercentage}
+                  onChange={() =>
+                    setIsShowPercentagesChecked(!isShowPercentage)
+                  }
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label={
+                <Typography variant="body2" gutterBottom color="textPrimary">
+                  Show in percentages
+                </Typography>
+              }
+            />
+          )}
+        </div>
+
+        {loading && (
+          <div
+            style={{
+              display: 'flex',
+              gap: '1rem',
+              flexDirection: 'column',
+            }}
+          >
+            {['a', 'b', 'c', 'd'].map(el => (
+              <div
+                key={uid(el)}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: '1rem',
+                }}
+              >
+                <Skeleton
+                  animation="wave"
+                  variant="rect"
+                  width="50vw"
+                  height={85}
+                />
+                <Skeleton animation="wave" variant="text" width="6vw" />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {viewType === 'chart' ? (
+          <CrosstabHeatMap
+            chartData={element}
+            isShowPercentage={isShowPercentage}
+          />
+        ) : (
+          <CrosstabTable chartData={element} />
+        )}
+      </div>
     </Paper>
   );
 }

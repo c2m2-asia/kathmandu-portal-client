@@ -35,7 +35,9 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
       value={surveyArea}
       onChange={(e, value) => {
         setSurveyArea(value);
-        setDimension(value === 'businesses' ? 'm_biz_type' : 'm_edu_levl');
+        setDimension(
+          value === 'businesses' ? 'm_biz_type' : 'm_years_of_experience',
+        );
       }}
       indicatorColor="primary"
       centered

@@ -11,11 +11,19 @@ import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
+import Chip from '@material-ui/core/Chip';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 // import NativeSelect from '@material-ui/core/NativeSelect';
 import Typography from '@material-ui/core/Typography';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
@@ -28,6 +36,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     // color: '#bbbbbb',
     fontWeight: 500,
+  },
+  select: {
+    borderRadius: '25%',
   },
   icon: {
     // color: '#bbbbbb',
@@ -47,6 +58,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  paper: {
+    marginRight: theme.spacing(2),
+  },
 }));
 
 const dimensions = {
@@ -62,6 +76,16 @@ const dimensions = {
   ],
 };
 
+const researchAreas = [
+  {
+    value: 'impact',
+    label: 'Impact',
+  },
+  { value: 'need', label: 'Need' },
+  { value: 'preparedness', label: 'Preparedness' },
+  { value: 'outlook', label: 'Outlook' },
+];
+
 function ControlsBar({
   surveyArea,
   researchArea,
@@ -72,6 +96,35 @@ function ControlsBar({
   setViewType,
 }) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen(prevOpen => !prevOpen);
+  };
+
+  const handleClose = event => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
   return (
     <div className={clsx('container', classes.controlsContainer)}>
@@ -79,11 +132,64 @@ function ControlsBar({
         <Typography variant="body1" style={{ fontWeight: '600', color: '#B' }}>
           Explore
         </Typography>
+        <Chip
+          style={{ height: '50px', borderRadius: '25px', padding: '1rem' }}
+          label={researchAreas.find(a => a.value === researchArea).label}
+          clickable
+          color="primary"
+          onClick={handleToggle}
+          onDelete={handleToggle}
+          deleteIcon={<ExpandMoreIcon size="large" />}
+          ref={anchorRef}
+          aria-controls={open ? 'menu-list-grow' : undefined}
+          aria-haspopup="true"
+        />
+        <Popper
+          open={open}
+          anchorEl={anchorRef.current}
+          role={undefined}
+          transition
+          disablePortal
+        >
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin:
+                  placement === 'bottom' ? 'center top' : 'center bottom',
+              }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList
+                    autoFocusItem={open}
+                    id="menu-list-grow"
+                    onKeyDown={handleListKeyDown}
+                  >
+                    {researchAreas.map(area => (
+                      <MenuItem
+                        key={uid(area)}
+                        value={area.value}
+                        onClick={e => {
+                          console.log(e.target.value);
+                          handleClose(e);
+                        }}
+                      >
+                        {area.label}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
         <FormControl variant="outlined" className={classes.formControl}>
           <Select
             classes={{
               root: classes.root,
               icon: classes.icon,
+              select: classes.select,
             }}
             native
             value={researchArea}
