@@ -33,7 +33,10 @@ function CrosstabHeatmapIndividualContainer({
     question.chart_data.reduce((a, b) => a + b.total, 0);
 
   return (
-    <Paper elevation={1} style={{ marginBottom: '2rem', position: 'relative' }}>
+    <Paper
+      elevation={1}
+      style={{ marginBottom: '2rem', position: 'relative', flex: '48%' }}
+    >
       <div
         style={{
           position: 'absolute',
