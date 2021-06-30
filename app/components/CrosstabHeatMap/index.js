@@ -180,6 +180,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                       )
                     }
                     onMouseOut={() => hideTooltip()}
+                    onBlur={() => hideTooltip()}
                   />
                   <text
                     style={{

@@ -24,7 +24,7 @@ function CrosstabHeatmapContainer({ chartData, loading, viewType }) {
         placeItems: 'center',
       }}
     >
-      <div style={{ display: 'flex', flexWrap: 'wrap', width: '95%', gap: '2%' }}>
+      <div className="container">
         {loading && <CrosstabHeatmapSkeleton viewType={viewType} />}
         {!loading &&
           chartData &&

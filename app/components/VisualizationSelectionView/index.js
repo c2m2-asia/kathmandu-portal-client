@@ -32,17 +32,7 @@ function VisualizationSelectionView() {
             style={{ backgroundColor: '#FFFFFF' }}
           >
             <div className="insight-selection chart-selection chart-img-holder">
-              <h5
-                style={{
-                  fontSize: '2rem',
-                  padding: '2rem',
-                  color: 'ghostwhite',
-                  fontWeight: '600',
-                  lineHeight: '2.5rem',
-                }}
-              >
-                COVID-19 AND KATHMANDU’S TOURISM INDUSTRY IN CHARTS
-              </h5>
+              <h5>COVID-19 AND KATHMANDU’S TOURISM INDUSTRY IN CHARTS</h5>
             </div>
           </div>
         </Link>
@@ -53,9 +43,7 @@ function VisualizationSelectionView() {
             style={{ backgroundColor: '#FFFFFF' }}
           >
             <div className="insight-selection map-selection map-img-holder">
-              <h5 style={{ fontSize: '2rem', padding: '2rem' }}>
-                COVID-19 AND KATHMANDU’S TOURISM INDUSTRY IN MAPS
-              </h5>
+              <h5>COVID-19 AND KATHMANDU’S TOURISM INDUSTRY IN MAPS</h5>
             </div>
           </div>
         </Link>

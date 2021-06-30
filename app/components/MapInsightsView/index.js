@@ -28,15 +28,15 @@ const useStyles = makeStyles(theme => ({
     paddingRight: '0.5rem',
     '&:hover': {
       transition: 'all .4s ease',
-      backgroundColor: '#1b7a98',
+      backgroundColor: '#2A9D8F',
       color: 'white',
       borderRight: '5px solid #4E8EAA',
     },
   },
   activeInsight: {
-    backgroundColor: '#4E8EAA',
-    color: 'rgba(255,255,255,0.8)',
-    borderRight: '5px solid #98AFBA',
+    backgroundColor: '#2A9D8F',
+    color: 'rgba(255,255,255,0.9)',
+    borderRight: '5px solid #48A9A6',
   },
 }));
 
@@ -50,7 +50,7 @@ function MapInsightsView() {
     <Grid
       container
       style={{
-        background: '#0B5C76',
+        // background: '#0B5C76',
         height: 'calc(100vh - 65px)',
         padding: '2rem',
       }}
@@ -61,7 +61,7 @@ function MapInsightsView() {
             <Typography
               variant="h6"
               gutterBottom
-              style={{ color: 'rgba(255,255,255,0.4)', paddingLeft: '1rem' }}
+              style={{ paddingLeft: '1rem', color: 'rgba(0,0,0,0.5)' }}
             >
               {researchArea}
             </Typography>
@@ -110,6 +110,7 @@ function MapInsightsView() {
             <div className="bottom-controls">
               {researchAreas.map((researchArea, index) => (
                 <div
+                  key={uid(researchArea, index)}
                   className="controls"
                   role="button"
                   onClick={() => setSelectedIndexControl(index)}

@@ -56,7 +56,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  filter: brightness(0.7);
+  filter: brightness(0.6);
 }
 
 .chart-img-holder:hover::before {
@@ -66,24 +66,49 @@
   filter: brightness(0.8);
 }
 
-.map-img-holder {
+.map-img-holder::before {
+  content: '';
+  background-image: url('../../images/map-insights.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.6);
+}
+
+.map-img-holder:hover::before {
+  transform: scale(1.03);
+  opacity: 1;
+  border-radius: 10px;
+  filter: brightness(0.8);
+}
+
+/* .map-img-holder {
   background-image: url('../../images/map-insights.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   transition: all 1s;
+  filter: brightness(0.8);
 }
 
 .map-img-holder:hover {
   transform: scale(1.1);
   opacity: 1;
   border-radius: 10px;
-}
+} */
 
 .insight-selection h5 {
   position: relative;
-  color: black;
-  font-size: 2.5rem;
-  line-height: 1.5;
-  font-weight: 800;
+  font-size: 2rem;
+  padding: 2rem;
+  color: ghostwhite;
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: 2px;
 }

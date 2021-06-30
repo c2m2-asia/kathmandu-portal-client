@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
   icon: {
     '& path': {
-      fill: 'rgba(255,255,255,0.5)',
+      // fill: 'rgba(255,255,255,0.5)',
     },
   },
 });
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 const TableCell = withStyles({
   root: {
     borderBottom: 'none',
-    color: 'rgba(255,255,255,0.75)',
+    // color: 'rgba(255,255,255,0.75)',
   },
 })(MuiTableCell);
 
@@ -101,7 +101,6 @@ function CrosstabTable({ chartData }) {
                   active={sector.x_label_en === orderBy}
                   direction={orderBy === sector.x_label_en ? order : 'asc'}
                   onClick={e => handleHeaderClick(e, sector.x_label_en)}
-                  style={{ color: 'rgba(255,255,255,0.75)' }}
                 >
                   {sector.x_label_en}
                 </TableSortLabel>
@@ -114,7 +113,7 @@ function CrosstabTable({ chartData }) {
           {tableData.map((row, index) => (
             <TableRow
               key={uid(row, index)}
-              style={{ background: `${index % 2 === 0 ? '#0c495d' : ''}` }}
+              style={{ background: `${index % 2 === 0 ? 'rgba(0,0,0,0.1)' : ''}` }}
             >
               <TableCell component="th" scope="row">
                 {row.y_label_en}

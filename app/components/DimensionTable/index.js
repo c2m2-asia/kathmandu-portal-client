@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
   icon: {
     '& path': {
-      fill: 'rgba(255,255,255,0.5)',
+      // fill: 'rgba(255,255,255,0.5)',
     },
   },
 });
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 const TableCell = withStyles({
   root: {
     borderBottom: 'none',
-    color: 'rgba(255,255,255,0.75)',
+    // color: 'rgba(255,255,255,0.75)',
   },
 })(MuiTableCell);
 
@@ -57,7 +57,6 @@ function DimensionTable({ chartData }) {
                 active
                 direction={order}
                 onClick={() => setOrder(order === 'asc' ? 'desc' : 'asc')}
-                style={{ color: 'rgba(255,255,255,0.75)' }}
               >
                 Count
               </TableSortLabel>
@@ -72,7 +71,9 @@ function DimensionTable({ chartData }) {
             .map((row, index) => (
               <TableRow
                 key={uid(row, index)}
-                style={{ background: `${index % 2 === 0 ? '#0c495d' : ''}` }}
+                style={{
+                  background: `${index % 2 === 0 ? 'rgba(0,0,0,0.1)' : ''}`,
+                }}
               >
                 <TableCell component="th" scope="row">
                   {row.label_en}
