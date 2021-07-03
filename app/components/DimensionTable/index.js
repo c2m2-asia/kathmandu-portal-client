@@ -20,7 +20,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
-const locale = "en";
+const locale = 'en';
 
 const useStyles = makeStyles({
   table: {
@@ -47,7 +47,7 @@ function DimensionTable({ chartData }) {
   // forcefully storing because couldn't find a better way to sort :(
   const data = JSON.parse(JSON.stringify(chartData));
 
-  console.log("<<", data);
+  console.log('<<', data);
 
   return (
     <TableContainer style={{ background: 'inherit' }}>

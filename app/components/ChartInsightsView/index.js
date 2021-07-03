@@ -86,7 +86,7 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
           >
             {loading && <DimensionBarChartSkeleton />}
             {!loading && chartData && (
-              <>
+              <Fragment>
                 <Typography variant="h6" gutterBottom>
                   Distribution of responses by {dimensionLabel}
                 </Typography>
@@ -149,7 +149,7 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
                     chartData={chartData.univariate[0].chart_data}
                   />
                 )}
-              </>
+              </Fragment>
             )}
           </Paper>
         </div>

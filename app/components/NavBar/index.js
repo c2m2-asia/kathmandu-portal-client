@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { uid } from 'react-uid';
-import { NavLink, useLocation, withRouter } from 'react-router-dom';
+import { NavLink, useLocation, withRouter, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
@@ -15,6 +15,7 @@ import { Drawer } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { primary } from 'theme';
+import logo from 'images/project-logo.jpg';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
@@ -119,29 +120,40 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
             isHomePage ? 'none' : '1px solid rgba(105,105,105,0.33)'
           }`,
           background: '#ffffff',
+          paddingTop: '10px',
+          paddingBottom: '10px',
         }}
       >
         <Toolbar>
-          <div className={classes.title}>
-            <NavLink to="/" className={classes.noDecoration}>
-              <Typography
-                variant="h4"
-                className={classes.projectTitle}
-                display="inline"
-                style={{ color: primary }}
-              >
-                C2M2&nbsp;
-              </Typography>
-              <Typography
-                variant="h4"
-                className={classes.projectTitle}
-                display="inline"
-                style={{ color: 'rgb(64 60 54)' }}
-              >
-                KATHMANDU
-              </Typography>
-            </NavLink>
-          </div>
+          {
+            // <div className={classes.title}>
+            //   <NavLink to="/" className={classes.noDecoration}>
+            //     <Typography
+            //       variant="h4"
+            //       className={classes.projectTitle}
+            //       display="inline"
+            //       style={{ color: primary }}
+            //     >
+            //       C2M2&nbsp;
+            //     </Typography>
+            //     <Typography
+            //       variant="h4"
+            //       className={classes.projectTitle}
+            //       display="inline"
+            //       style={{ color: 'rgb(64 60 54)' }}
+            //     >
+            //       KATHMANDU
+            //     </Typography>
+            //   </NavLink>
+            // </div>
+          }
+          {
+            <div className={classes.title}>
+              <Link to="/">
+                <img height="65" src={logo} alt="C2M2 Kathmandu project logo" />
+              </Link>
+            </div>
+          }
           <Hidden mdUp>
             <IconButton
               className={classes.menuButton}

@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   wrapper: {
     textTransform: 'capitalize',
-    fontWeight: '800',
+    fontWeight: '600',
     fontSize: '1.15rem',
   },
 }));
@@ -31,35 +31,44 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
   const classes = useStyles();
 
   return (
-    <Tabs
-      value={surveyArea}
-      onChange={(e, value) => {
-        setSurveyArea(value);
-        setDimension(
-          value === 'businesses' ? 'm_biz_type' : 'm_years_of_experience',
-        );
-      }}
-      indicatorColor="primary"
-      centered
+    <div
+      className="container mt-3"
+      style={{ borderBottom: '1px solid #EBEBEB' }}
     >
-      <Tab
-        classes={{
-          wrapper: classes.wrapper,
-          selected: classes.selected,
+      <Tabs
+        value={surveyArea}
+        onChange={(e, value) => {
+          setSurveyArea(value);
+          setDimension(
+            value === 'businesses' ? 'm_biz_type' : 'm_years_of_experience',
+          );
         }}
-        label="Businesses"
-        value="businesses"
-      />
-      <Tab
-        classes={{
-          wrapper: classes.wrapper,
-          selected: classes.selected,
+        indicatorColor="primary"
+        TabIndicatorProps={{
+          style: {
+            height: '4px',
+          },
         }}
-        className={classes.tab}
-        label="Workforce"
-        value="workforce"
-      />
-    </Tabs>
+      >
+        <Tab
+          classes={{
+            wrapper: classes.wrapper,
+            selected: classes.selected,
+          }}
+          label="Businesses"
+          value="businesses"
+        />
+        <Tab
+          classes={{
+            wrapper: classes.wrapper,
+            selected: classes.selected,
+          }}
+          className={classes.tab}
+          label="Workforce"
+          value="workforce"
+        />
+      </Tabs>
+    </div>
   );
 }
 
