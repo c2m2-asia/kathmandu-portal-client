@@ -68,11 +68,14 @@ const useStyles = makeStyles(theme => ({
   },
   tabs: {
     // backgroundColor: 'red',
-    minWidth: 10,
-    '& .Mui-selected': {
-      backgroundColor: primary,
-      color: 'white',
-    },
+  },
+  tab: {
+    minWidth: '60px',
+    width: '60px',
+  },
+  selected: {
+    background: primary,
+    color: 'white',
   },
 }));
 
@@ -273,15 +276,26 @@ function ControlsBar({
         }
         <Paper square>
           <Tabs
-            className={{ root: classes.tabs }}
+            classes={{ root: classes.tabs }}
             value={viewType}
             onChange={(e, value) => setViewType(value)}
-            indicatorColor="primary"
-            textColor="primary"
+            TabIndicatorProps={{
+              style: {
+                display: 'none',
+              },
+            }}
             aria-label="icon tabs example"
           >
-            <Tab icon={<BarChartIcon />} value="chart" />
-            <Tab icon={<TableChartIcon />} value="table" />
+            <Tab
+              classes={{ root: classes.tab, selected: classes.selected }}
+              icon={<BarChartIcon />}
+              value="chart"
+            />
+            <Tab
+              classes={{ root: classes.tab, selected: classes.selected }}
+              icon={<TableChartIcon />}
+              value="table"
+            />
           </Tabs>
         </Paper>
       </div>
