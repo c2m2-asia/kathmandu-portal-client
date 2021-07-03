@@ -21,6 +21,8 @@ import byOrder from 'lodash.orderby';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
+const locale = 'en';
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -43,7 +45,7 @@ function CrosstabTable({ chartData }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState(
-    chartData.chart_data[0].dist[0].x_label_en,
+    chartData.chart_data[0].dist[0].xlabel[locale],
   );
   const [tableData, setTableData] = React.useState(
     byOrder(
@@ -52,7 +54,8 @@ function CrosstabTable({ chartData }) {
         o =>
           o.dist.find(
             bcd =>
-              bcd.x_label_en === chartData.chart_data[0].dist[0].x_label_en,
+              bcd.xlabel[locale] ===
+              chartData.chart_data[0].dist[0].xlabel[locale],
           ).total,
       ],
       ['asc'],
@@ -65,7 +68,7 @@ function CrosstabTable({ chartData }) {
     setOrderBy(property);
     const sorted = byOrder(
       chartData.chart_data,
-      [o => o.dist.find(bcd => bcd.x_label_en === property).total],
+      [o => o.dist.find(bcd => bcd.xlabel[locale] === property).total],
       [isAsc ? 'desc' : 'asc'],
     );
     setTableData(sorted);
@@ -82,7 +85,7 @@ function CrosstabTable({ chartData }) {
               colSpan={chartData.chart_data[0].dist.length}
               style={{
                 padding: '0',
-                // borderBottom: '1px solid rgba(255,255,255,0.1)',
+                borderBottom: '1px solid #bababa',
               }}
             >
               Sectors
@@ -94,15 +97,17 @@ function CrosstabTable({ chartData }) {
               <TableCell
                 key={uid(sector)}
                 align="right"
-                sortDirection={orderBy === sector.x_label_en ? order : false}
+                sortDirection={
+                  orderBy === sector.xlabel[locale] ? order : false
+                }
               >
                 <TableSortLabel
                   classes={{ icon: classes.icon }}
-                  active={sector.x_label_en === orderBy}
-                  direction={orderBy === sector.x_label_en ? order : 'asc'}
-                  onClick={e => handleHeaderClick(e, sector.x_label_en)}
+                  active={sector.xlabel[locale] === orderBy}
+                  direction={orderBy === sector.xlabel[locale] ? order : 'asc'}
+                  onClick={e => handleHeaderClick(e, sector.xlabel[locale])}
                 >
-                  {sector.x_label_en}
+                  {sector.xlabel[locale]}
                 </TableSortLabel>
               </TableCell>
             ))}
@@ -113,14 +118,16 @@ function CrosstabTable({ chartData }) {
           {tableData.map((row, index) => (
             <TableRow
               key={uid(row, index)}
-              style={{ background: `${index % 2 === 0 ? 'rgba(0,0,0,0.1)' : ''}` }}
+              style={{
+                background: `${index % 2 === 0 ? 'rgba(0,0,0,0.1)' : ''}`,
+              }}
             >
               <TableCell component="th" scope="row">
-                {row.y_label_en}
+                {row.ylabel[locale]}
               </TableCell>
               {row.dist.map(ab => (
                 <TableCell key={uid(ab)} align="right">
-                  {Math.round(ab.perc_of_total * 100)}%
+                  {Math.round(ab.percoftotal * 100)}%
                   <br />
                   <span style={{ opacity: '0.6' }}>{ab.total}</span>
                 </TableCell>

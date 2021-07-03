@@ -20,6 +20,8 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
+const locale = "en";
+
 const useStyles = makeStyles({
   table: {
     minWidth: 250,
@@ -44,6 +46,8 @@ function DimensionTable({ chartData }) {
   const [order, setOrder] = React.useState('asc');
   // forcefully storing because couldn't find a better way to sort :(
   const data = JSON.parse(JSON.stringify(chartData));
+
+  console.log("<<", data);
 
   return (
     <TableContainer style={{ background: 'inherit' }}>
@@ -76,10 +80,10 @@ function DimensionTable({ chartData }) {
                 }}
               >
                 <TableCell component="th" scope="row">
-                  {row.label_en}
+                  {row.label[locale]}
                 </TableCell>
                 <TableCell align="right">
-                  {Math.round(row.perc_of_total * 100)}%
+                  {Math.round(row.percoftotal * 100)}%
                   <br />
                   <span style={{ opacity: '0.6' }}>{row.total}</span>
                 </TableCell>
