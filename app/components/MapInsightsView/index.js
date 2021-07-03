@@ -112,7 +112,6 @@ function MapInsightsView() {
                 <div
                   key={uid(researchArea, index)}
                   className="controls"
-                  role="button"
                   onClick={() => setSelectedIndexControl(index)}
                 >
                   <Typography

@@ -18,11 +18,13 @@ const innerRectWidth = 100;
 const innerPadding = 10;
 // const maxBarWidth = 90;
 
+const locale = 'en';
+
 const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
   const percentArray = [];
   const minmax = [];
   chartData.chart_data.map(a =>
-    a.dist.map(b => percentArray.push(b.perc_of_total * 100)),
+    a.dist.map(b => percentArray.push(b.percoftotal * 100)),
   );
   const maxNo = max(percentArray, d => d);
   ['asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd'].map(
@@ -86,7 +88,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
     ]);
 
   const barScale = scaleLinear()
-    .domain([0, max(chartData.chart_data, d => d.perc_of_total * 100)])
+    .domain([0, max(chartData.chart_data, d => d.percoftotal * 100)])
     .range([0, maxBarWidth]);
 
   const textSplitter = (text, maxWidth = 15) => {
@@ -114,7 +116,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
   };
 
   const allnum = [];
-  chartData.chart_data.map(a => a.dist.map(b => allnum.push(b.perc_of_total)));
+  chartData.chart_data.map(a => a.dist.map(b => allnum.push(b.percoftotal)));
 
   function showTooltip(evt, text) {
     let tooltip = document.getElementById('tooltip');
@@ -128,6 +130,8 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
     var tooltip = document.getElementById('tooltip');
     tooltip.style.display = 'none';
   }
+
+  console.log('chartData>>', chartData);
 
   return (
     <Fragment>
@@ -156,7 +160,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                 x={xScale(0)}
                 y={yScale(index)}
                 width={
-                  crosstabWidth + innerPadding + barScale(d.perc_of_total * 100)
+                  crosstabWidth + innerPadding + barScale(d.percoftotal * 100)
                 }
                 height={yScale.bandwidth()}
               />
@@ -164,7 +168,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               {chartData.chart_data[index].dist.map((optDist, i) => (
                 <g key={uid(optDist, i)}>
                   <rect
-                    fill={getColor(optDist.perc_of_total * 100)}
+                    fill={getColor(optDist.percoftotal * 100)}
                     x={innerXScale(i) + innerPadding}
                     y={yScale(index) + innerPadding}
                     width={innerRectWidth}
@@ -174,9 +178,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                         evt,
                         `${d.y_label_en} - ${optDist.x_label_en} - ${
                           optDist.total
-                        }(${Math.round(
-                          optDist.perc_of_total * 100,
-                        )}% of total) `,
+                        }(${Math.round(optDist.percoftotal * 100)}% of total) `,
                       )
                     }
                     onMouseOut={() => hideTooltip()}
@@ -186,7 +188,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                     style={{
                       fontWeight: '600',
                       color: `${
-                        max(allnum) / 2 > optDist.perc_of_total
+                        max(allnum) / 2 > optDist.percoftotal
                           ? 'rgba(0,0,0,0.35)'
                           : 'rgba(255,255,255,0.7)'
                       }`,
@@ -198,7 +200,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                     dy={-innerPadding / 1.5}
                   >
                     {isShowPercentage
-                      ? `${Math.round(optDist.perc_of_total * 100)}%`
+                      ? `${Math.round(optDist.percoftotal * 100)}%`
                       : optDist.total}
                   </text>
                 </g>
@@ -215,7 +217,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               dominantBaseline="end"
               style={{ fontWeight: '500', fontSize: '0.9rem' }}
             >
-              {textSplitter(labels.x_label_en).map((text, i) => (
+              {textSplitter(labels.xlabel[locale]).map((text, i) => (
                 <tspan
                   key={uid(text, i)}
                   x={
@@ -246,7 +248,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                 dominantBaseline="end"
                 style={{ fontSize: '0.9rem' }}
               >
-                {textSplitter(option.y_label_en)
+                {textSplitter(option.ylabel[locale])
                   .reverse()
                   .map((text, i) => (
                     <tspan
@@ -259,7 +261,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                   ))}
                 <tspan x="0" dy="-1.2em" fontWeight="bold">
                   {isShowPercentage
-                    ? `${Math.round(option.perc_of_total * 100)}%`
+                    ? `${Math.round(option.percoftotal * 100)}%`
                     : option.total}
                 </tspan>
               </text>
@@ -268,11 +270,11 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
 
           <text
             x={width - margin.left - margin.right}
-            y={height-10}
+            y={height - 10}
             textAnchor="end"
             style={{ fontSize: '0.9rem', color: '#696969' }}
           >
-            study of 192 workers based in Kathmandu, Nepal
+            study of {chartData.askedTotal} workers based in Kathmandu, Nepal
           </text>
         </g>
       </svg>

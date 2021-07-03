@@ -24,6 +24,11 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import TableChartIcon from '@material-ui/icons/TableChart';
+import { primary } from 'theme';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
@@ -60,6 +65,14 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     marginRight: theme.spacing(2),
+  },
+  tabs: {
+    // backgroundColor: 'red',
+    minWidth: 10,
+    '& .Mui-selected': {
+      backgroundColor: primary,
+      color: 'white',
+    },
   },
 }));
 
@@ -233,29 +246,44 @@ function ControlsBar({
         </FormControl>
       </div>
       <div>
-        <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel shrink htmlFor="outlined-age-native-simple">
-            View type
-          </InputLabel>
-          <Select
-            classes={{
-              root: classes.root,
-              icon: classes.icon,
-            }}
-            native
-            notched
+        {
+          //   <FormControl variant="outlined" className={classes.formControl}>
+          //   <InputLabel shrink htmlFor="outlined-age-native-simple">
+          //     View type
+          //   </InputLabel>
+          //   <Select
+          //     classes={{
+          //       root: classes.root,
+          //       icon: classes.icon,
+          //     }}
+          //     native
+          //     notched
+          //     value={viewType}
+          //     onChange={e => setViewType(e.target.value)}
+          //     label="View type"
+          //     inputProps={{
+          //       name: 'age',
+          //       id: 'outlined-age-native-simple',
+          //     }}
+          //   >
+          //     <option value="chart">Chart</option>
+          //     <option value="table">Table</option>
+          //   </Select>
+          // </FormControl>
+        }
+        <Paper square>
+          <Tabs
+            className={{ root: classes.tabs }}
             value={viewType}
-            onChange={e => setViewType(e.target.value)}
-            label="View type"
-            inputProps={{
-              name: 'age',
-              id: 'outlined-age-native-simple',
-            }}
+            onChange={(e, value) => setViewType(value)}
+            indicatorColor="primary"
+            textColor="primary"
+            aria-label="icon tabs example"
           >
-            <option value="chart">Chart</option>
-            <option value="table">Table</option>
-          </Select>
-        </FormControl>
+            <Tab icon={<BarChartIcon />} value="chart" />
+            <Tab icon={<TableChartIcon />} value="table" />
+          </Tabs>
+        </Paper>
       </div>
     </div>
   );

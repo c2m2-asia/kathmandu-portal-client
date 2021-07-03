@@ -21,6 +21,8 @@ import Skeleton from '@material-ui/lab/Skeleton';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
+const locale = "en"
+
 function CrosstabHeatmapIndividualContainer({
   chartData,
   loading,
@@ -54,7 +56,7 @@ function CrosstabHeatmapIndividualContainer({
           QUESTION
         </Typography>
         <Typography variant="h6" gutterBottom style={{ width: '50%' }}>
-          {element.ques_en}
+          {element.ques[locale]}
         </Typography>
         {
           //   <Typography variant="body1" gutterBottom color="textPrimary">

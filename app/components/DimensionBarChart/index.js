@@ -19,6 +19,8 @@ const barWidth = 130;
 const margin = { top: 0, right: 0, bottom: 50, left: 0 };
 const padding = 15;
 
+const locale = 'en';
+
 function DimensionBarChart({ chartData, isShowPercentage }) {
   const data = chartData;
   const width = data.length * barWidth + data.length * padding;
@@ -28,7 +30,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
   //   .label.toLowerCase();
 
   const y = scaleLinear()
-    .domain([0, max(data, d => d.perc_of_total * 100)])
+    .domain([0, max(data, d => d.percoftotal * 100)])
     .nice()
     .range([height - margin.bottom, margin.top]);
 
@@ -69,9 +71,9 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
               <rect
                 fill={primary}
                 x={x(index)}
-                y={y(datum.perc_of_total * 100)}
+                y={y(datum.percoftotal * 100)}
                 width={barWidth}
-                height={y(0) - y(datum.perc_of_total * 100)}
+                height={y(0) - y(datum.percoftotal * 100)}
               />
               <text
                 x={x(index) + barWidth}
@@ -85,7 +87,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
                 }}
               >
                 {isShowPercentage
-                  ? `${Math.round(datum.perc_of_total * 100)}%`
+                  ? `${Math.round(datum.percoftotal * 100)}%`
                   : `${datum.total}`}
               </text>
             </g>
@@ -99,7 +101,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
               dominantBaseline="end"
               style={{ fontWeight: '500', textAnchor: 'middle' }}
             >
-              {textSplitter(datum.label_en, 13).map((text, i) => (
+              {textSplitter(datum.label[locale], 13).map((text, i) => (
                 <tspan
                   key={uid(text, i)}
                   x={x(index) + x.bandwidth() / 2 - padding / 2}
