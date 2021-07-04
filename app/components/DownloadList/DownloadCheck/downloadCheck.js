@@ -52,30 +52,28 @@ const downloadCheck = props => {
             : 'col-11 noDisplay form-check'
         }
       >
-        {Object.keys(props.state.form[props.label]).map((sublabel, index) => {
-          return (
-            <div className="row">
-              <div className="form-check col-10" key={index}>
-                <label className="form-check-label subLabel">
-                  <input
-                    type="checkbox"
-                    name={`${props.label}_${sublabel}`}
-                    className="form-check-input form-check-input-lg"
-                    checked={props.state.form[props.label][sublabel]}
-                    onChange={props.subChanged}
-                  />
-                  {sublabel}
-                </label>
-              </div>
-              <div className="col-2">
-                <i
-                  className="fa fa-info-circle info"
-                  title={labelsInfo[props.label + sublabel]}
+        {Object.keys(props.state.form[props.label]).map((sublabel, index) => (
+          <div className="row">
+            <div className="form-check col-10" key={index}>
+              <label className="form-check-label subLabel">
+                <input
+                  type="checkbox"
+                  name={`${props.label}_${sublabel}`}
+                  className="form-check-input form-check-input-lg"
+                  checked={props.state.form[props.label][sublabel]}
+                  onChange={props.subChanged}
                 />
-              </div>
+                {sublabel}
+              </label>
             </div>
-          );
-        })}
+            <div className="col-2">
+              <i
+                className="fa fa-info-circle info"
+                title={labelsInfo[props.label + sublabel]}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

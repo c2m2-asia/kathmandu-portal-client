@@ -72,24 +72,22 @@ class downloadForm extends Component {
             <hr />
             <form className="form-group">
               <div>
-                {Object.keys(this.state.form).map((label, index) => {
-                  return (
-                    <DownloadCheck
-                      key={index}
-                      mainChanged={event => {
-                        this.onMainChangeHandler(event);
-                      }}
-                      subChanged={event => {
-                        this.onSubChangeHandler(event);
-                      }}
-                      expandChanged={event => {
-                        this.onExpandHandler(event);
-                      }}
-                      state={this.state}
-                      label={label}
-                    />
-                  );
-                })}
+                {Object.keys(this.state.form).map((label, index) => (
+                  <DownloadCheck
+                    key={index}
+                    mainChanged={event => {
+                      this.onMainChangeHandler(event);
+                    }}
+                    subChanged={event => {
+                      this.onSubChangeHandler(event);
+                    }}
+                    expandChanged={event => {
+                      this.onExpandHandler(event);
+                    }}
+                    state={this.state}
+                    label={label}
+                  />
+                ))}
               </div>
             </form>
           </div>
