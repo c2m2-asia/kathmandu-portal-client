@@ -14,6 +14,7 @@ import LandingPage from 'components/LandingPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import NavBar from 'components/NavBar';
 import ScrollToTopButton from 'components/ScrollToTopButton';
+import Downloads from 'containers/Downloads/Loadable';
 import ChartInsightsPage from 'containers/ChartInsightsPage/Loadable';
 import MapInsightsView from 'components/MapInsightsView/Loadable';
 import VisualizationSelectionView from 'components/VisualizationSelectionView/Loadable';
@@ -41,6 +42,7 @@ export default function App() {
         <Route exact path="/chart-insights" component={ChartInsightsPage} />
         <Route exact path="/map-insights" component={MapInsightsView} />
         <Route exact path="/univariate" component={UnivariateChartPage} />
+        <Route exact path="/Downloads" component={Downloads} />
         <Route component={NotFoundPage} />
       </Switch>
       <ScrollToTopButton />
