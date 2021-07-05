@@ -53,19 +53,19 @@ function DownloadView() {
           label: 'Need',
           name: 'need',
           description:
-            "Contains individual business' data on need due to COVID-19",
+            'Contains individual business data on immediate needs like loans, HHS training, funding, etc.',
         },
         {
           label: 'Preparedness',
           name: 'preparedness',
           description:
-            "Contains individual business' data on preparedness due to COVID-19",
+            'Contains individual business data on how prepared businesses are to mitigate impacts caused due to COVID-19 like implementation of HHS measures, strategic actions with stakeholders, etc.',
         },
         {
           label: 'Outlook',
           name: 'outlook',
           description:
-            "Contains individual business' data on outlook due to COVID-19",
+            'Contains individual business data on how the COVID-19 situation will be in the future like earnings, management, support, etc.',
         },
       ],
     },
@@ -78,25 +78,25 @@ function DownloadView() {
           label: 'Impact',
           name: 'impact',
           description:
-            "Contains individual business' data on impact due to COVID-19",
+            'Contains individual worker data on impact due to COVID-19 like migration, COVID-19 infection, pay cut-off, etc.',
         },
         {
           label: 'Need',
           name: 'need',
           description:
-            "Contains individual business' data on need due to COVID-19",
+            'Contains individual worker data about measures to mitigate the impact caused by COVID-19.',
         },
         {
           label: 'Preparedness',
           name: 'preparedness',
           description:
-            "Contains individual business' data on preparedness due to COVID-19",
+            'Contains individual worker data on savings, alternate sources of income, etc.',
         },
         {
           label: 'Outlook',
           name: 'outlook',
           description:
-            "Contains individual business' data on outlook due to COVID-19",
+            'Contains individual worker data on challenges for resumption, expected time range for everything to come back to normal and so on.',
         },
       ],
     },
