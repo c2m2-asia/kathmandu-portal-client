@@ -9,6 +9,7 @@ import { uid } from 'react-uid';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
@@ -17,11 +18,16 @@ import Checkbox from '@material-ui/core/Checkbox';
 import BusinessIcon from '@material-ui/icons/Business';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import Button from '@material-ui/core/Button';
+import MuiAlert from '@material-ui/lab/Alert';
 import Typography from '@material-ui/core/Typography';
 import MetaTable from 'components/MetaTable/Loadable';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import './styles.css';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles = makeStyles(theme => ({
   formLabel: {
@@ -126,6 +132,20 @@ function DownloadView() {
     },
   });
 
+  const [snackbarOpen, setSnackbarOpen] = React.useState(false);
+
+  const openSnackbar = () => {
+    setSnackbarOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnackbarOpen(false);
+  };
+
   const onMetaStatusChange = (surveyArea, researchArea) =>
     setMetaStatus({
       ...metaStatus,
@@ -156,11 +176,36 @@ function DownloadView() {
     setCheckedStatus(prevStatus => ({ ...prevStatus, ...tempState }));
   };
 
+  const handleDownloadClick = () => {
+    const businessFlag = Object.values(checkedStatus.businesses).includes(true);
+    const workersFlag = Object.values(checkedStatus.workers).includes(true);
+    if (!businessFlag && !workersFlag) {
+      openSnackbar();
+    } else {
+      alert('Coming soon...');
+    }
+  };
+
   return (
     <div className="container py-5">
       <Paper elevation={3} style={{ padding: '3rem' }}>
-        <Typography variant="h5" gutterBottom>
-          Select dataset(s)
+        <div className="d-flex justify-content-between align-items-center">
+          <Typography variant="h5">Select dataset(s)</Typography>
+          <Button
+            variant="contained"
+            size="large"
+            color="primary"
+            onClick={handleDownloadClick}
+          >
+            Download
+          </Button>
+        </div>
+        <Typography
+          variant="body1"
+          style={{ color: '#696969', marginTop: '0.5rem' }}
+        >
+          Select dataset(s) that you would like to download from the checklist
+          below and click on the 'download' button.
         </Typography>
         <Divider style={{ marginTop: '1rem', background: 'rgb(93 85 85)' }} />
         {Object.keys(headers).map(sArea => (
@@ -222,7 +267,7 @@ function DownloadView() {
                 </div>
                 {metaStatus[sArea][rArea.name] && (
                   <div className="meta-table-container">
-                    <MetaTable tableName="individualDemographics" />
+                    <MetaTable tableName={`${sArea}${rArea.label}`} />
                   </div>
                 )}
               </div>
@@ -230,6 +275,15 @@ function DownloadView() {
           </div>
         ))}
       </Paper>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="info">
+          Select dataset(s) that you would like to download first.
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
