@@ -10,7 +10,7 @@ import { uid } from 'react-uid';
 // import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
-
+import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -186,6 +186,18 @@ function DownloadView() {
     }
   };
 
+  const getTotalSelections = () => {
+    const businessTotal = Object.values(checkedStatus.businesses).reduce(
+      (a, item) => a + (item === true ? 1 : 0),
+      0,
+    );
+    const workersTotal = Object.values(checkedStatus.workers).reduce(
+      (a, item) => a + (item === true ? 1 : 0),
+      0,
+    );
+    return businessTotal + workersTotal;
+  };
+
   return (
     <div className="container py-5">
       <Paper elevation={3} style={{ padding: '3rem' }}>
@@ -197,7 +209,15 @@ function DownloadView() {
             color="primary"
             onClick={handleDownloadClick}
           >
-            Download
+            Download{' '}
+            {(Object.values(checkedStatus.businesses).includes(true) ||
+              Object.values(checkedStatus.workers).includes(true)) && (
+              <Chip
+                size="small"
+                label={getTotalSelections()}
+                style={{ marginLeft: '0.5rem', background: '#E9C46A' }}
+              />
+            )}
           </Button>
         </div>
         <Typography

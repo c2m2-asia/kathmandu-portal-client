@@ -43,8 +43,7 @@ export default function App() {
         <Route exact path="/chart-insights" component={ChartInsightsPage} />
         <Route exact path="/map-insights" component={MapInsightsView} />
         <Route exact path="/univariate" component={UnivariateChartPage} />
-        <Route exact path="/download" component={DownloadView} />
-        <Route exact path="/Downloads" component={Downloads} />
+        <Route exact path="/downloads" component={DownloadView} />
         <Route component={NotFoundPage} />
       </Switch>
       <ScrollToTopButton />
