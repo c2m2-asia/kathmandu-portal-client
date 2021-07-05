@@ -20,6 +20,7 @@ import MapInsightsView from 'components/MapInsightsView/Loadable';
 import VisualizationSelectionView from 'components/VisualizationSelectionView/Loadable';
 import StoriesListView from 'components/StoriesListView/Loadable';
 import StoryDetailView from 'components/StoryDetailView/Loadable';
+import DownloadView from 'components/DownloadView/Loadable';
 import UnivariateChartPage from 'containers/UnivariateChartPage/Loadable';
 import About from 'components/About';
 
@@ -42,6 +43,7 @@ export default function App() {
         <Route exact path="/chart-insights" component={ChartInsightsPage} />
         <Route exact path="/map-insights" component={MapInsightsView} />
         <Route exact path="/univariate" component={UnivariateChartPage} />
+        <Route exact path="/download" component={DownloadView} />
         <Route exact path="/Downloads" component={Downloads} />
         <Route component={NotFoundPage} />
       </Switch>

@@ -131,8 +131,6 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
     tooltip.style.display = 'none';
   }
 
-  console.log('chartData>>', chartData);
-
   return (
     <Fragment>
       <div

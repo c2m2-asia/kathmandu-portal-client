@@ -187,7 +187,7 @@ function ControlsBar({
                         key={uid(area)}
                         value={area.value}
                         onClick={e => {
-                          console.log(e.target.value);
+                          setResearchArea(area.value);
                           handleClose(e);
                         }}
                       >

@@ -1,0 +1,99 @@
+.introjs-button {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.introjs-tooltiptext {
+  font-size: 14px;
+}
+
+.introjs-bullets {
+  padding-bottom: 5px;
+}
+
+.introjs-arrow.left,
+.introjs-arrow.left-bottom {
+  left: -20px;
+}
+
+.introjs-arrow {
+  border: 10px solid #fff;
+}
+
+.download {
+  background-color: #f6f6f6;
+  margin: 0;
+  color: #414141;
+}
+
+.head-label {
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #414141;
+  display: inline-block;
+}
+.label {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #414141;
+  display: inline-block;
+  padding-left: 2rem;
+}
+.sub-label {
+  margin-bottom: 8px;
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #414141;
+  display: inline-block;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.label-description {
+  font-size: 1rem;
+  padding-left: 10px;
+}
+
+.indent {
+  padding-left: 4rem;
+}
+
+.card-container {
+  /* // margin-bottom: 30vh; */
+}
+
+.selected-downloads {
+  background-color: #fff;
+  font-size: 1.2rem;
+  border-top: 2px solid #07bfa5;
+  font-weight: 300;
+}
+
+.metadata-button {
+  position: absolute;
+  left: 35px;
+}
+
+.meta-table-container {
+  padding-left: 40px;
+}
+
+.download-list {
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+.download-assets-btn {
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  outline: none;
+  border-radius: 20px;
+}
+.download-assets-btn:hover {
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  outline: none;
+}
