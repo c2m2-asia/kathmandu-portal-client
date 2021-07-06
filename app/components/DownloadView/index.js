@@ -287,7 +287,11 @@ function DownloadView() {
                 </div>
                 {metaStatus[sArea][rArea.name] && (
                   <div className="meta-table-container">
-                    <MetaTable tableName={`${sArea}${rArea.label}`} />
+                    <MetaTable
+                      tableName={`${
+                        sArea === 'businesses' ? 'business' : 'workforce'
+                      }${rArea.label}`}
+                    />
                   </div>
                 )}
               </div>

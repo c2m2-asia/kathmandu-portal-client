@@ -8,6 +8,7 @@ import React, { Component, memo } from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import school from './schools';
+import TimelineSlider from 'components/TimelineSlider/Loadable';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
@@ -201,6 +202,18 @@ class HeatMap extends Component {
               width="80px"
             />
           </a>
+        </div>
+        <div
+          style={{
+            zIndex: '100',
+            padding: '0 5px',
+            margin: '0',
+            position: 'absolute',
+            bottom: '25px',
+            right: '0px',
+          }}
+        >
+          <TimelineSlider />
         </div>
       </div>
     );
