@@ -9,11 +9,14 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import school from './schools';
 import TimelineSlider from 'components/TimelineSlider/Loadable';
+import {primary} from 'theme';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
+
+import './styles.css';
 
 class HeatMap extends Component {
   constructor() {
@@ -34,7 +37,7 @@ class HeatMap extends Component {
         'https://api.baato.io/api/v1/styles/breeze?key=bpk.vEXF2Aj-xkyk-xBSu2Z_w1N8JFss7z-Dzxygnj9I0vBE',
       center: [85.3175, 27.7109],
       zoom: 12.5,
-      // attributionControl: false,
+      attributionControl: false,
       // logoPosition: 'top-right',
     });
 
@@ -176,6 +179,7 @@ class HeatMap extends Component {
             href="https://www.openstreetmap.org/copyright"
             rel="noopener noreferrer no follow"
             target="_blank"
+            style={{textDecoration: 'none', color: primary}}
           >
             OpenStreetMap contributors
           </a>

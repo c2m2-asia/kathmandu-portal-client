@@ -1,4 +1,5 @@
 import React from 'react';
+import { uid } from 'react-uid';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -8,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Check from '@material-ui/icons/Check';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
+
+import { primary } from 'theme';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,7 +36,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return [
+    { label: 'Form deployed', date: '22nd April, 2020' },
+    { label: 'Lockdown started', date: '29th April, 2020' },
+    { label: 'Timeline 3', date: '15th May, 2020' },
+    { label: 'Timeline 4', date: '1st June, 2020' },
+    { label: 'Timeline 3', date: '15th June, 2020' },
+  ];
 }
 
 const useQontoStepIconStyles = makeStyles({
@@ -44,18 +53,19 @@ const useQontoStepIconStyles = makeStyles({
     alignItems: 'center',
   },
   active: {
-    color: '#784af4',
+    color: primary,
   },
   circle: {
-    width: 8,
-    height: 8,
+    width: 12,
+    height: 12,
     borderRadius: '50%',
     backgroundColor: 'currentColor',
   },
   completed: {
-    color: '#784af4',
-    zIndex: 1,
-    fontSize: 18,
+    width: 12,
+    height: 12,
+    borderRadius: '50%',
+    backgroundColor: primary,
   },
 });
 
@@ -70,7 +80,7 @@ function QontoStepIcon(props) {
       })}
     >
       {completed ? (
-        <Check className={classes.completed} />
+        <div className={classes.completed} />
       ) : (
         <div className={classes.circle} />
       )}
@@ -81,7 +91,13 @@ function QontoStepIcon(props) {
 export default function HorizontalNonLinearAlternativeLabelStepper() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const steps = getSteps();
+  const steps = [
+    { label: 'Form deployed', date: '22nd April, 2020' },
+    { label: 'Lockdown started', date: '29th April, 2020' },
+    { label: 'Timeline 3', date: '15th May, 2020' },
+    { label: 'Timeline 4', date: '1st June, 2020' },
+    { label: 'Timeline 3', date: '15th June, 2020' },
+  ];
 
   const isStepOptional = step => {
     return step === 1;
@@ -93,23 +109,19 @@ export default function HorizontalNonLinearAlternativeLabelStepper() {
 
   return (
     <div className={classes.root}>
-      <Stepper alternativeLabel nonLinear activeStep={activeStep}>
-        {steps.map((label, index) => {
+      <Stepper alternativeLabel activeStep={activeStep}>
+        {steps.map((step, index) => {
           const stepProps = {};
-          const buttonProps = {};
-          if (isStepOptional(index)) {
-            buttonProps.optional = (
-              <Typography variant="caption">23rd March, 2020</Typography>
-            );
-          }
           return (
-            <Step key={label} {...stepProps}>
+            <Step key={step.label} {...stepProps}>
               <StepLabel
                 onClick={handleStep(index)}
-                style={{cursor: 'pointer'}}
+                style={{ cursor: 'pointer' }}
                 StepIconComponent={QontoStepIcon}
               >
-                {label}
+                {step.label}
+                <br />
+                <Typography variant="caption">{step.date}</Typography>
               </StepLabel>
             </Step>
           );

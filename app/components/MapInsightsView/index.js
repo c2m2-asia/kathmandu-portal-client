@@ -51,7 +51,7 @@ function MapInsightsView() {
       container
       style={{
         // background: '#0B5C76',
-        height: 'calc(100vh - 65px)',
+        // height: 'calc(100vh - 65px)',
         padding: '2rem',
       }}
     >
@@ -97,16 +97,16 @@ function MapInsightsView() {
       >
         <div
           style={{
-            height: '100%',
+            height: 'calc(100vh - 4rem - 90px)',
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
           }}
         >
-          <div style={{ height: '700px' }}>
+          <div style={{ flexGrow: '1' }}>
             <HeatMap />
           </div>
-          <div style={{ height: '400px', width: '100%' }}>
+          <div>
             <div className="bottom-controls">
               {researchAreas.map((researchArea, index) => (
                 <div
