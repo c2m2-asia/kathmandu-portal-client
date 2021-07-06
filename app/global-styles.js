@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body.fontLoaded {
-    font-family: 'Poppins','Open Sans', 'Helvetica Neue', 'Baloo Bhaijan', 'cursive', Helvetica, Arial, sans-serif;
+    font-family: 'Poppins','Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {

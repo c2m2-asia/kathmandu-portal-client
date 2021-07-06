@@ -13,7 +13,7 @@ import './styles.css';
 // import messages from './messages';
 
 // const height = 700;
-const margin = { top: 0, right: 0, bottom: 70, left: 0 };
+const margin = { top: 0, right: 0, bottom: 100, left: 0 };
 const innerRectWidth = 100;
 const innerPadding = 10;
 // const maxBarWidth = 90;
@@ -208,6 +208,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
 
           {chartData.chart_data[0].dist.map((labels, index) => (
             <text
+              key={uid(labels, index)}
               x={innerXScale(index) + innerPadding / 2 + yScale.bandwidth() / 2}
               y={innerHeight}
               verticalAnchor="start"
@@ -215,7 +216,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               dominantBaseline="end"
               style={{ fontWeight: '500', fontSize: '0.9rem' }}
             >
-              {textSplitter(labels.xlabel[locale]).map((text, i) => (
+              {textSplitter(labels.xlabel[locale], 12).map((text, i) => (
                 <tspan
                   key={uid(text, i)}
                   x={
@@ -224,7 +225,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                     yScale.bandwidth() / 2
                   }
                   y={innerHeight + 10}
-                  dy={i === 0 ? '0em' : '1.2em'}
+                  dy={i === 0 ? '0em' : `${i * 1.2}em`}
                 >
                   {text}
                 </tspan>
@@ -246,7 +247,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
                 dominantBaseline="end"
                 style={{ fontSize: '0.9rem' }}
               >
-                {textSplitter(option.ylabel[locale])
+                {textSplitter(option.ylabel[locale], 25)
                   .reverse()
                   .map((text, i) => (
                     <tspan

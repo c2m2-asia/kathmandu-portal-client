@@ -16,7 +16,7 @@ import './styles.css';
 
 const height = 400;
 const barWidth = 130;
-const margin = { top: 0, right: 0, bottom: 50, left: 0 };
+const margin = { top: 0, right: 0, bottom: 70, left: 0 };
 const padding = 15;
 
 const locale = 'en';
@@ -106,7 +106,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
                   key={uid(text, i)}
                   x={x(index) + x.bandwidth() / 2 - padding / 2}
                   y={height - margin.bottom + 25}
-                  dy={i === 0 ? '0em' : '1.2em'}
+                  dy={i === 0 ? '0em' : `${i * 1.2}em`}
                 >
                   {text}
                 </tspan>
