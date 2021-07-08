@@ -5,12 +5,12 @@
  */
 
 import React, { Component, memo } from 'react';
+import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import school from './schools';
 import TimelineSlider from 'components/TimelineSlider/Loadable';
-import {primary} from 'theme';
-// import PropTypes from 'prop-types';
+import { primary } from 'theme';
+import school from './schools';
 // import styled from 'styled-components';
 
 // import { FormattedMessage } from 'react-intl';
@@ -19,8 +19,8 @@ import {primary} from 'theme';
 import './styles.css';
 
 class HeatMap extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
@@ -179,7 +179,7 @@ class HeatMap extends Component {
             href="https://www.openstreetmap.org/copyright"
             rel="noopener noreferrer no follow"
             target="_blank"
-            style={{textDecoration: 'none', color: primary}}
+            style={{ textDecoration: 'none', color: primary }}
           >
             OpenStreetMap contributors
           </a>
@@ -217,13 +217,19 @@ class HeatMap extends Component {
             right: '0px',
           }}
         >
-          <TimelineSlider />
+          <TimelineSlider
+            setTimeIndex={this.props.setTimeIndex}
+            timeIndex={this.props.timeIndex}
+          />
         </div>
       </div>
     );
   }
 }
 
-HeatMap.propTypes = {};
+HeatMap.propTypes = {
+  setTimeIndex: PropTypes.func.isRequired,
+  timeIndex: PropTypes.number.isRequired,
+};
 
 export default memo(HeatMap);

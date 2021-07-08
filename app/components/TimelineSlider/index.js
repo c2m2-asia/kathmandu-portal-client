@@ -88,9 +88,12 @@ function QontoStepIcon(props) {
   );
 }
 
-export default function HorizontalNonLinearAlternativeLabelStepper() {
+export default function TimelineSlider({
+  timeIndex,
+  setTimeIndex,
+}) {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  // const [activeStep, setActiveStep] = React.useState(0);
   const steps = [
     { label: 'Form deployed', date: '22nd April, 2020' },
     { label: 'Lockdown started', date: '29th April, 2020' },
@@ -104,12 +107,12 @@ export default function HorizontalNonLinearAlternativeLabelStepper() {
   };
 
   const handleStep = step => () => {
-    setActiveStep(step);
+    setTimeIndex(step);
   };
 
   return (
     <div className={classes.root}>
-      <Stepper alternativeLabel activeStep={activeStep}>
+      <Stepper alternativeLabel activeStep={timeIndex}>
         {steps.map((step, index) => {
           const stepProps = {};
           return (
