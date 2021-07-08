@@ -7,9 +7,9 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
+import ReactGA from 'react-ga';
 import LandingPage from 'components/LandingPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import NavBar from 'components/NavBar';
@@ -27,6 +27,11 @@ import About from 'components/About';
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
+  useEffect(() => {
+    ReactGA.initialize('UA-201397099-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div>
       <NavBar />
