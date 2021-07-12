@@ -22,10 +22,18 @@ class HeatMap extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.addMap = this.addMap.bind(this);
   }
 
   componentDidMount() {
     this.addMap();
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.heatMapData !== prevProps.heatMapData) {
+      this.addMap();
+    }
   }
 
   addMap() {
@@ -45,11 +53,12 @@ class HeatMap extends Component {
     // map.addControl(nav, "top-left");
 
     this.map = map;
+    const { heatMapData } = this.props;
 
     map.on('load', function() {
       map.addSource('schools', {
         type: 'geojson',
-        data: school,
+        data: heatMapData,
       });
 
       // add heatmap layer here
@@ -144,16 +153,14 @@ class HeatMap extends Component {
       map.on('click', 'trees-point', function(e) {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML(
-            '<b>Number of students</b> ' +
-              e.features[0].properties['student:count'],
-          )
+          .setHTML(e.features[0].properties.businessname)
           .addTo(map);
       });
     });
   }
 
   render() {
+    console.log('>>', this.props.heatMapData);
     return (
       <div
         ref={node => (this.node = node)} //eslint-disable-line
@@ -230,6 +237,7 @@ class HeatMap extends Component {
 HeatMap.propTypes = {
   setTimeIndex: PropTypes.func.isRequired,
   timeIndex: PropTypes.number.isRequired,
+  heatMapData: PropTypes.object.isRequired,
 };
 
 export default memo(HeatMap);

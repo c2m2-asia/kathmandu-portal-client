@@ -62,9 +62,7 @@ function MapInsightsView({ getMapData, mapData }) {
   const heatMapData =
     mapData &&
     mapData.distribution[selectedHighlight] &&
-    mapData.distribution[selectedHighlight][0][selectedOptionIndex];
-
-  console.log('mapData', mapData);
+    mapData.distribution[selectedHighlight][selectedOptionIndex].geometries;
 
   return (
     <Fragment>
@@ -131,12 +129,16 @@ function MapInsightsView({ getMapData, mapData }) {
               }}
             >
               <div style={{ flexGrow: '1' }}>
-                <HeatMap setTimeIndex={setTimeIndex} timeIndex={timeIndex} />
+                <HeatMap
+                  setTimeIndex={setTimeIndex}
+                  timeIndex={timeIndex}
+                  heatMapData={heatMapData}
+                />
               </div>
               <div>
                 <div className="bottom-controls">
                   {mapData.distribution[selectedHighlight] &&
-                    mapData.distribution[selectedHighlight][0].map(
+                    mapData.distribution[selectedHighlight].map(
                       (options, index) => (
                         <div
                           key={uid(options, index)}
@@ -145,6 +147,7 @@ function MapInsightsView({ getMapData, mapData }) {
                         >
                           <Typography
                             variant="h2"
+                            style={{ whiteSpace: 'no-wrap' }}
                             className={`${
                               selectedOptionIndex === index
                                 ? 'active-control-text'
