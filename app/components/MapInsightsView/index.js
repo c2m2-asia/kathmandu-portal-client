@@ -55,7 +55,6 @@ function MapInsightsView({ getMapData, mapData }) {
   }, [timeIndex]);
 
   useEffect(() => {
-    if (mapData) console.log('laaaaaado');
     if (mapData) setSelectedHighlight(Object.keys(mapData.highlights)[0]);
   }, [mapData]);
 
@@ -75,7 +74,17 @@ function MapInsightsView({ getMapData, mapData }) {
             padding: '2rem',
           }}
         >
-          <Grid item xs={12} sm={4} lg={4} style={{ paddingRight: '1rem' }}>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            lg={4}
+            style={{
+              paddingRight: '1rem',
+              height: 'calc((100vh - 4rem) - 90px)',
+              overflowY: 'auto',
+            }}
+          >
             {researchAreas.map((researchArea, index) => (
               <div
                 key={uid(researchArea, index)}
@@ -146,8 +155,7 @@ function MapInsightsView({ getMapData, mapData }) {
                           onClick={() => setSelectedOptionIndex(index)}
                         >
                           <Typography
-                            variant="h2"
-                            style={{ whiteSpace: 'no-wrap' }}
+                            style={{ whiteSpace: 'no-wrap', fontSize: '6vh' }}
                             className={`${
                               selectedOptionIndex === index
                                 ? 'active-control-text'
