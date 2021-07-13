@@ -179,10 +179,27 @@ function DownloadView() {
   const handleDownloadClick = () => {
     const businessFlag = Object.values(checkedStatus.businesses).includes(true);
     const workersFlag = Object.values(checkedStatus.workers).includes(true);
+    const activeBusinessAreas = Object.keys(checkedStatus.businesses).filter(
+      rArea => checkedStatus.businesses[rArea],
+    );
+    const businessString = activeBusinessAreas
+      .map(i => `business_${i}`)
+      .toString();
+    const activeWorkersAreas = Object.keys(checkedStatus.workers).filter(
+      rArea => checkedStatus.workers[rArea],
+    );
+    const workersString = activeWorkersAreas
+      .map(i => `workforce_${i}`)
+      .toString();
     if (!businessFlag && !workersFlag) {
       openSnackbar();
     } else {
-      alert('Coming soon...');
+      window.open(
+        `http://178.128.59.143:4000/api/v1/download/bulk/?types=${businessString}${businessString &&
+          workersString &&
+          ','}${workersString}`,
+        '_self',
+      );
     }
   };
 
