@@ -103,11 +103,6 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
   const onClose = () => {
     setOpen(false);
   };
-
-  // const location = useLocation();
-  console.log(location.pathname);
-
-  // const navBg = location.pathname === '/' ? '#ffffff' : '#0B5C76';
   const isHomePage = location.pathname === '/';
 
   return (

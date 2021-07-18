@@ -14,11 +14,15 @@ import InputLabel from '@material-ui/core/InputLabel';
 // import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-// import NativeSelect from '@material-ui/core/NativeSelect';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import TableChartIcon from '@material-ui/icons/TableChart';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
+import { primary } from 'theme';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -26,12 +30,12 @@ const useStyles = makeStyles(theme => ({
     minWidth: 140,
   },
   root: {
-    color: '#bbbbbb',
-    fontWeight: 600,
-    background: 'rgba(0,0,0,0.1)',
+    // color: '#bbbbbb',
+    fontWeight: 500,
+    // background: 'rgba(0,0,0,0.1)',
   },
   icon: {
-    color: '#bbbbbb',
+    // color: '#bbbbbb',
   },
   controlPrimary: {
     display: 'flex',
@@ -48,6 +52,20 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  paper: {
+    marginRight: theme.spacing(2),
+  },
+  tabs: {
+    // backgroundColor: 'red',
+  },
+  tab: {
+    minWidth: '60px',
+    width: '60px',
+  },
+  selected: {
+    background: primary,
+    color: 'white',
+  },
 }));
 
 function UnivariateControlsBar({
@@ -60,63 +78,58 @@ function UnivariateControlsBar({
   const classes = useStyles();
 
   return (
-    <div style={{ background: '#084558' }}>
-      <div className={clsx('container', classes.controlsContainer)}>
-        <div className={classes.controlPrimary}>
-          <Typography
-            variant="body1"
-            style={{ fontWeight: '600', color: '#B' }}
+    <div className={clsx('container', classes.controlsContainer)}>
+      <div className={classes.controlPrimary}>
+        <Typography variant="body1" style={{ fontWeight: '600', color: '#B' }}>
+          Explore by
+        </Typography>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <Select
+            classes={{
+              root: classes.root,
+              icon: classes.icon,
+              select: classes.select,
+            }}
+            native
+            value={researchArea}
+            onChange={e => setResearchArea(e.target.value)}
+            label="Age"
+            inputProps={{
+              name: 'age',
+              id: 'outlined-age-native-simple',
+            }}
           >
-            Explore by
-          </Typography>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <Select
-              classes={{
-                root: classes.root,
-                icon: classes.icon,
-              }}
-              native
-              value={researchArea}
-              onChange={e => setResearchArea(e.target.value)}
-              label="Age"
-              inputProps={{
-                name: 'age',
-                id: 'outlined-age-native-simple',
-              }}
-            >
-              <option value="impact">Impact</option>
-              <option value="need">Need</option>
-              <option value="preparedness">Preparedness</option>
-              <option value="outlook">Outlook</option>
-            </Select>
-          </FormControl>
-        </div>
-        <div>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel shrink htmlFor="outlined-age-native-simple">
-              View type
-            </InputLabel>
-            <Select
-              classes={{
-                root: classes.root,
-                icon: classes.icon,
-              }}
-              native
-              notched
-              value={viewType}
-              onChange={e => setViewType(e.target.value)}
-              label="View type"
-              inputProps={{
-                name: 'age',
-                id: 'outlined-age-native-simple',
-              }}
-            >
-              <option value="chart">Chart</option>
-              <option value="table">Table</option>
-            </Select>
-          </FormControl>
-        </div>
+            <option value="impact">Impact</option>
+            <option value="need">Need</option>
+            <option value="preparedness">Preparedness</option>
+            <option value="outlook">Outlook</option>
+          </Select>
+        </FormControl>
       </div>
+      <Paper square>
+        <Tabs
+          classes={{ root: classes.tabs }}
+          value={viewType}
+          onChange={(e, value) => setViewType(value)}
+          TabIndicatorProps={{
+            style: {
+              display: 'none',
+            },
+          }}
+          aria-label="icon tabs example"
+        >
+          <Tab
+            classes={{ root: classes.tab, selected: classes.selected }}
+            icon={<BarChartIcon />}
+            value="chart"
+          />
+          <Tab
+            classes={{ root: classes.tab, selected: classes.selected }}
+            icon={<TableChartIcon />}
+            value="table"
+          />
+        </Tabs>
+      </Paper>
     </div>
   );
 }

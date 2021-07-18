@@ -241,10 +241,10 @@ function LandingPage() {
       <section className="bg-white py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div className="row">
-            <div className="col-12 col-sm-6">
+            <div className="col-12 col-lg-6">
               <img src={questionnaire} width="400" />
             </div>
-            <div className="col-12 col-sm-6 mt-5">
+            <div className="col-12 col-lg-6 mt-5">
               <Typography
                 variant="h5"
                 gutterBottom

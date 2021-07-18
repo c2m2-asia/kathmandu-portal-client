@@ -18,10 +18,11 @@ import Tab from '@material-ui/core/Tab';
 const useStyles = makeStyles(theme => ({
   selected: {
     outline: 'none',
+    color: '#2a9d8f',
   },
   wrapper: {
     textTransform: 'capitalize',
-    fontWeight: '800',
+    fontWeight: '600',
     fontSize: '1.15rem',
   },
 }));
@@ -30,39 +31,48 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea }) {
   const classes = useStyles();
 
   return (
-    <Tabs
-      value={surveyArea}
-      onChange={(e, value) => {
-        setSurveyArea(value);
-      }}
-      indicatorColor="primary"
-      centered
+    <div
+      className="container mt-3"
+      style={{ borderBottom: '1px solid #EBEBEB' }}
     >
-      <Tab
-        disabled
-        classes={{
-          wrapper: classes.wrapper,
-          selected: classes.selected,
+      <Tabs
+        value={surveyArea}
+        onChange={(e, value) => {
+          setSurveyArea(value);
         }}
-        label="Businesses"
-        value="businesses"
-      />
-      <Tab
-        classes={{
-          wrapper: classes.wrapper,
-          selected: classes.selected,
+        indicatorColor="primary"
+        TabIndicatorProps={{
+          style: {
+            height: '4px',
+          },
         }}
-        className={classes.tab}
-        label="Workforce"
-        value="workforce"
-      />
-    </Tabs>
+      >
+        <Tab
+          classes={{
+            wrapper: classes.wrapper,
+            selected: classes.selected,
+          }}
+          label="Businesses"
+          value="businesses"
+        />
+        <Tab
+          classes={{
+            wrapper: classes.wrapper,
+            selected: classes.selected,
+          }}
+          className={classes.tab}
+          label="Workforce"
+          value="workforce"
+        />
+      </Tabs>
+    </div>
   );
 }
 
 SurveyAreaSelector.propTypes = {
   surveyArea: PropTypes.string.isRequired,
   setSurveyArea: PropTypes.func.isRequired,
+  setDimension: PropTypes.func.isRequired,
 };
 
 export default memo(SurveyAreaSelector);

@@ -16,7 +16,7 @@ import { scaleBand, scaleLinear, max, range } from 'd3';
 const barHeight = 80;
 const margin = { top: 0, right: 50, bottom: 0, left: 0 };
 
-function UnivariateBarChart({ chartData, isShowPercentage }) {
+function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
   const data = chartData.chart_data;
   const height = data.length * barHeight + (data.length + 1 * 10);
   const width = 800;
@@ -28,7 +28,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
   //   .label.toLowerCase();
 
   const x = scaleLinear()
-    .domain([0, max(data, d => d.perc_of_total * 100)])
+    .domain([0, max(data, d => d.percoftotal * 100)])
     .nice()
     .range([margin.left, width - margin.right]);
 
@@ -63,7 +63,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
 
   return (
     <Fragment>
-      <svg viewBox={`0 0 ${width + 600} ${height}`}>
+      <svg viewBox={`0 0 ${width + 300} ${height}`}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
@@ -71,12 +71,12 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                 fill="#2a9d8f"
                 x={x(0)}
                 y={y(index)}
-                width={x(datum.perc_of_total * 100)}
+                width={x(datum.percoftotal * 100)}
                 height={y.bandwidth()}
               />
-              {datum.perc_of_total * 100 > 35 && (
+              {datum.percoftotal * 100 > 35 && (
                 <text
-                  x={x(datum.perc_of_total * 100)}
+                  x={x(datum.percoftotal * 100)}
                   y={y(index) + y.bandwidth() / 2}
                   dy=".35em"
                   dx="-5"
@@ -90,10 +90,10 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                   textAnchor="end"
                   dominantBaseline="central"
                 >
-                  {textSplitter(datum.label_en).map((text, i, arr) => (
+                  {textSplitter(datum.label[locale]).map((text, i, arr) => (
                     <tspan
                       key={uid(text, i)}
-                      x={x(datum.perc_of_total * 100)}
+                      x={x(datum.percoftotal * 100)}
                       y={y(index) + y.bandwidth() / 2}
                       dy={i === 0 ? '0em' : '1.2em'}
                       dx="-5"
@@ -108,7 +108,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                         <Fragment>
                           ,&nbsp;
                           {isShowPercentage
-                            ? `${Math.round(datum.perc_of_total * 100)}%`
+                            ? `${Math.round(datum.percoftotal * 100)}%`
                             : `${datum.total}`}
                         </Fragment>
                       )}
@@ -116,9 +116,9 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                   ))}
                 </text>
               )}
-              {datum.perc_of_total * 100 < 35 && (
+              {datum.percoftotal * 100 < 35 && (
                 <text
-                  x={x(datum.perc_of_total * 100)}
+                  x={x(datum.percoftotal * 100)}
                   y={y(index) + y.bandwidth() / 2}
                   dy=".35em"
                   dx="5"
@@ -132,10 +132,10 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                   textAnchor="start"
                   dominantBaseline="central"
                 >
-                  {textSplitter(datum.label_en).map((text, i, arr) => (
+                  {textSplitter(datum.label[locale]).map((text, i, arr) => (
                     <tspan
                       key={uid(text, i)}
-                      x={x(datum.perc_of_total * 100)}
+                      x={x(datum.percoftotal * 100)}
                       y={y(index) + y.bandwidth() / 2}
                       dy={i === 0 ? '0em' : '1.2em'}
                       dx="5"
@@ -150,7 +150,7 @@ function UnivariateBarChart({ chartData, isShowPercentage }) {
                         <Fragment>
                           ,&nbsp;
                           {isShowPercentage
-                            ? `${Math.round(datum.perc_of_total * 100)}%`
+                            ? `${Math.round(datum.percoftotal * 100)}%`
                             : `${datum.total}`}
                         </Fragment>
                       )}
