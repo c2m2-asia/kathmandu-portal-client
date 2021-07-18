@@ -158,6 +158,8 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
         chartData={chartData}
         loading={loading}
         viewType={viewType}
+        surveyArea={surveyArea}
+        researchArea={researchArea}
       />
     </Fragment>
   );

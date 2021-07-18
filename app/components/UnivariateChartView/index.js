@@ -58,6 +58,8 @@ function UnivariateChartView({ getUnivariateData, univariateData, loading }) {
                 key={uid(chartData)}
                 chartData={chartData}
                 viewType={viewType}
+                surveyArea={surveyArea}
+                researchArea={researchArea}
               />
             ))}
         </div>

@@ -63,7 +63,7 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
 
   return (
     <Fragment>
-      <svg viewBox={`0 0 ${width + 300} ${height}`}>
+      <svg viewBox={`0 0 ${width + 400} ${height + 80}`}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
@@ -160,6 +160,14 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
               )}
             </g>
           ))}
+          <text
+            x={width - margin.left - margin.right}
+            y={height + 50}
+            textAnchor="end"
+            style={{ fontSize: '0.9rem', color: '#696969' }}
+          >
+            study of {chartData.askedTotal} workers based in Kathmandu, Nepal
+          </text>
         </g>
       </svg>
     </Fragment>

@@ -14,7 +14,13 @@ import CrosstabHeatmapIndividualContainer from 'components/CrosstabHeatmapIndivi
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
-function CrosstabHeatmapContainer({ chartData, loading, viewType }) {
+function CrosstabHeatmapContainer({
+  chartData,
+  loading,
+  viewType,
+  surveyArea,
+  researchArea,
+}) {
   return (
     <div
       style={{
@@ -35,6 +41,8 @@ function CrosstabHeatmapContainer({ chartData, loading, viewType }) {
               loading={loading}
               viewType={viewType}
               element={element}
+              surveyArea={surveyArea}
+              researchArea={researchArea}
             />
           ))}
       </div>

@@ -21,13 +21,26 @@ import UnivariateBarChart from 'components/UnivariateBarChart/Loadable';
 
 const locale = 'en';
 
-function UnivariateBarChartContainer({ chartData, viewType }) {
+function UnivariateBarChartContainer({
+  chartData,
+  viewType,
+  surveyArea,
+  researchArea,
+}) {
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
 
   const getTotalResponses = question =>
     question.chart_data.reduce((a, b) => a + b.total, 0);
 
   console.log('chartData', chartData);
+
+  const onDownload = variable =>
+    window.open(
+      `http://178.128.59.143:4000/api/v1/download/chart/?type=univariate&survey=${
+        surveyArea === 'businesses' ? 'business' : 'workforce'
+      }&var_group=${researchArea}&variable=${variable}`,
+      '_self',
+    );
 
   return (
     <Paper elevation={1} style={{ marginBottom: '2rem', position: 'relative' }}>
@@ -55,9 +68,11 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
         >
           {chartData.ques[locale]}
         </Typography>
-        <Typography variant="body1" gutterBottom color="textPrimary">
-          Showing {chartData.askedTotal} responses
-        </Typography>
+        {
+          //   <Typography variant="body1" gutterBottom color="textPrimary">
+          //   Showing {chartData.askedTotal} responses
+          // </Typography>
+        }
         <div
           style={{
             display: 'flex',
@@ -66,14 +81,16 @@ function UnivariateBarChartContainer({ chartData, viewType }) {
             marginTop: '1.5rem',
           }}
         >
-          <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
-            <div style={{ display: 'flex', gap: '0.2rem' }}>
-              <GetAppIcon color="primary" />
-              <Typography variant="body2" gutterBottom color="textPrimary">
-                Download this data
-              </Typography>
-            </div>
-          </Link>
+          <div
+            role="button"
+            style={{ display: 'flex', gap: '0.2rem' }}
+            onClick={() => onDownload(chartData.variable)}
+          >
+            <GetAppIcon color="primary" />
+            <Typography variant="body2" gutterBottom color="textPrimary">
+              Download this data
+            </Typography>
+          </div>
 
           {viewType === 'chart' && (
             <FormControlLabel

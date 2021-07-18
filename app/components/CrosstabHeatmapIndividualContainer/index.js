@@ -21,18 +21,28 @@ import Skeleton from '@material-ui/lab/Skeleton';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
-const locale = "en"
+const locale = 'en';
 
 function CrosstabHeatmapIndividualContainer({
   chartData,
   loading,
   viewType,
   element,
+  surveyArea,
+  researchArea,
 }) {
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
 
   const getTotalResponses = question =>
     question.chart_data.reduce((a, b) => a + b.total, 0);
+
+  const onDownload = variable =>
+    window.open(
+      `http://178.128.59.143:4000/api/v1/download/chart/?type=bivariate&survey=${
+        surveyArea === 'businesses' ? 'business' : 'workforce'
+      }&var_group=${researchArea}&variable=${variable}`,
+      '_self',
+    );
 
   return (
     <Paper
@@ -71,14 +81,16 @@ function CrosstabHeatmapIndividualContainer({
             marginTop: '1.5rem',
           }}
         >
-          <Link to="/chart-insights/#" style={{ textDecoration: 'none' }}>
-            <div style={{ display: 'flex', gap: '0.2rem' }}>
-              <GetAppIcon color="primary" />
-              <Typography variant="body2" gutterBottom color="textPrimary">
-                Download this data
-              </Typography>
-            </div>
-          </Link>
+          <div
+            style={{ display: 'flex', gap: '0.2rem' }}
+            role="button"
+            onClick={() => onDownload(element.variable)}
+          >
+            <GetAppIcon color="primary" />
+            <Typography variant="body2" gutterBottom color="textPrimary">
+              Download this data
+            </Typography>
+          </div>
 
           {viewType === 'chart' && (
             <FormControlLabel
