@@ -38,10 +38,8 @@ const useStyles = makeStyles(theme => ({
 function getSteps() {
   return [
     { label: 'Form deployed', date: '22nd April, 2020' },
-    { label: 'Lockdown started', date: '29th April, 2020' },
-    { label: 'Timeline 3', date: '15th May, 2020' },
-    { label: 'Timeline 4', date: '1st June, 2020' },
-    { label: 'Timeline 3', date: '15th June, 2020' },
+    { label: 'Lockdown started', date: '28th April, 2020' },
+    { label: 'Last survey response', date: '1st June, 2020' },
   ];
 }
 
@@ -88,18 +86,13 @@ function QontoStepIcon(props) {
   );
 }
 
-export default function TimelineSlider({
-  timeIndex,
-  setTimeIndex,
-}) {
+export default function TimelineSlider({ timeIndex, setTimeIndex }) {
   const classes = useStyles();
   // const [activeStep, setActiveStep] = React.useState(0);
   const steps = [
     { label: 'Form deployed', date: '22nd April, 2020' },
     { label: 'Lockdown started', date: '29th April, 2020' },
-    { label: 'Timeline 3', date: '15th May, 2020' },
-    { label: 'Timeline 4', date: '1st June, 2020' },
-    { label: 'Timeline 3', date: '15th June, 2020' },
+    { label: 'Last survey response', date: '1st June, 2020' },
   ];
 
   const isStepOptional = step => {

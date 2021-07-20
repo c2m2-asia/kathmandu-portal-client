@@ -10,7 +10,6 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import TimelineSlider from 'components/TimelineSlider/Loadable';
 import { primary } from 'theme';
-import school from './schools';
 // import styled from 'styled-components';
 
 // import { FormattedMessage } from 'react-intl';
@@ -49,8 +48,8 @@ class HeatMap extends Component {
       // logoPosition: 'top-right',
     });
 
-    // const nav = new mapboxgl.NavigationControl();
-    // map.addControl(nav, "top-left");
+    const nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
 
     this.map = map;
     const { heatMapData } = this.props;
@@ -160,7 +159,6 @@ class HeatMap extends Component {
   }
 
   render() {
-    console.log('>>', this.props.heatMapData);
     return (
       <div
         ref={node => (this.node = node)} //eslint-disable-line
