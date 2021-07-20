@@ -34,6 +34,7 @@ const styles = theme => ({
   wrapper: {
     minHeight: '60vh',
     overflow: 'hidden',
+    paddingBottom: '2rem',
   },
   // img: {
   //   width: '100%',

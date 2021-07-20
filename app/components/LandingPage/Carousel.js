@@ -131,7 +131,7 @@ function Carousel() {
             </Typography>
             <Link to={victim.link} className="read-more">
               <Typography variant="body2" gutterBottom color="primary">
-                Read more <ArrowRightAltIcon />
+                Read story <ArrowRightAltIcon />
               </Typography>
             </Link>
           </div>

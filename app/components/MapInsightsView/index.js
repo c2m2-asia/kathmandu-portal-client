@@ -17,6 +17,7 @@ import HeatMap from 'components/HeatMap/Loadable';
 import Typography from '@material-ui/core/Typography';
 import './styles.css';
 import mapInsight from 'images/map-insight-1.png';
+import ZoomImage from 'components/StoryDetailView/ZoomImage';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
@@ -234,7 +235,7 @@ function MapInsightsView({ getMapData, mapData }) {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
             non quis exercitationem culpa nesciunt nihil aut nostrum.
           </Typography>
-          <img src={mapInsight} style={{ width: '100%' }} />
+          <ZoomImage src="map-insight-1.png" />
         </Paper>
       )}
     </div>

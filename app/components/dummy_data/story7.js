@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import ZoomImage from 'components/StoryDetailView/ZoomImage';
 import closedBusiness from 'images/closed-business.png';
-
+import {primary} from 'theme';
 const redColor = '#AC2020';
 
 const story1 = (
@@ -68,7 +68,7 @@ const story1 = (
       variant="h6"
       gutterBottom
       display="block"
-      style={{ color: redColor }}
+      style={{ color: primary }}
     >
       WHAT MEASURES CAN BE TAKEN?
     </Typography>

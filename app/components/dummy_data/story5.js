@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import ZoomImage from 'components/StoryDetailView/ZoomImage';
 import closedBusiness from 'images/closed-business.png';
 
-const redColor = '#AC2020';
+import { primary } from 'theme';
 
 const story1 = (
   <Fragment>
@@ -52,7 +52,7 @@ const story1 = (
       variant="h6"
       gutterBottom
       display="block"
-      style={{ color: redColor }}
+      style={{ color: primary }}
     >
       UNDERSTANDING TOURISM BUSINESSES’ NEED FOR FINANCIAL ASSISTANCE
     </Typography>
@@ -70,7 +70,7 @@ const story1 = (
       style={{ color: 'rgba(0, 0, 0, 0.87)' }}
     >
       With the country being closed to tourists for more than a year
-      <sup style={{ color: redColor }}>1</sup>, small to medium-sized
+      <sup style={{ color: primary }}>1</sup>, small to medium-sized
       businessesMost of the respondents in our survey were small and
       medium-sized businesses (based on staff size) operating in the travel or
       accommodation segment were among the worst hit.
@@ -82,7 +82,7 @@ const story1 = (
       gutterBottom
       style={{ marginLeft: 'auto' }}
     >
-      <span style={{ color: redColor }}>1.</span>&nbsp;
+      <span style={{ color: primary }}>1.</span>&nbsp;
       <a
         style={{ textDecoration: 'none', color: 'inherit' }}
         href="https://www.himalmag.com/silent-squares-kathmandu-photo-essay-2020/"
@@ -99,7 +99,7 @@ const story1 = (
       gutterBottom
       style={{ marginLeft: 'auto' }}
     >
-      <span style={{ color: redColor }}>2.</span>&nbsp; Most of the respondents
+      <span style={{ color: primary }}>2.</span>&nbsp; Most of the respondents
       in our survey were small and medium-sized businesses
     </Typography>
     <Typography paragraph style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
@@ -132,7 +132,7 @@ const story1 = (
       variant="h6"
       gutterBottom
       display="block"
-      style={{ color: redColor }}
+      style={{ color: primary }}
     >
       THE NEXT SIX MONTHS
     </Typography>
@@ -186,7 +186,7 @@ const story1 = (
       variant="h6"
       gutterBottom
       display="block"
-      style={{ color: redColor }}
+      style={{ color: primary }}
     >
       WHAT MEASURES CAN BE TAKEN?
     </Typography>

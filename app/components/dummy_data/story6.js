@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import ZoomImage from 'components/StoryDetailView/ZoomImage';
 import closedBusiness from 'images/closed-business.png';
-
-const redColor = '#AC2020';
+import { primary } from 'theme';
+// const primary = '#AC2020';
 
 const story1 = (
   <Fragment>
@@ -60,7 +60,7 @@ const story1 = (
       variant="h6"
       gutterBottom
       display="block"
-      style={{ color: redColor }}
+      style={{ color: primary }}
     >
       WHERE DOES THE NEED FOR MONETARY SUPPORT COME FROM?
     </Typography>
@@ -68,7 +68,7 @@ const story1 = (
       65% of our respondents report having no employment at present. 95% have
       some form of debt. Among the remaining 35% who managed to find work,
       nearly two-thirds report having to work at reduced incomes
-      <sup style={{ color: redColor }}>1</sup>. The pandemic, as we can expect,
+      <sup style={{ color: primary }}>1</sup>. The pandemic, as we can expect,
       has had a severe toll on the income of the Nepali tourism workforce.
     </Typography>
     <Typography
@@ -78,7 +78,7 @@ const story1 = (
       gutterBottom
       style={{ marginLeft: 'auto' }}
     >
-      <span style={{ color: redColor }}>1.</span>&nbsp; Review workforce survey
+      <span style={{ color: primary }}>1.</span>&nbsp; Review workforce survey
       facts and figures here.
     </Typography>
     <Typography paragraph style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
@@ -137,7 +137,7 @@ const story1 = (
       variant="h6"
       gutterBottom
       display="block"
-      style={{ color: redColor }}
+      style={{ color: primary }}
     >
       WHAT MEASURES CAN BE TAKEN?
     </Typography>
