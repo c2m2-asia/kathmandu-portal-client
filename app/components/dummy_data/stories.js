@@ -13,7 +13,7 @@ const stories = [
     src: `vidya.jpg`,
     author: 'Aishworya Shrestha',
     snippet:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'I was supposed to meet Vidya at Thamel, the heart of tourist activities in Kathmandu. Having talked quite a few times on the phone, I was looking for her as she waved her hands, smiling ear to ear....',
     content: story1,
   },
 
@@ -24,7 +24,7 @@ const stories = [
     src: `ramesh.jpg`,
     author: 'Aishworya Shrestha',
     snippet:
-      'Ramesh Dhakal, Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'Ramesh Dhakal, the owner of Hotel Green Horizon and Nepal Mountain Trekkers, started as a porter. He entered tourism in 1997, following his friends from Dhading to Kathmandu. However, it was the...',
     content: story3,
   },
 
@@ -35,7 +35,7 @@ const stories = [
     src: `neetam.jpg`,
     author: 'Aishworya Shrestha',
     snippet:
-      'Neetam Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'Neetam started working in tourism right after her intermediate high school exams, also known as School Leaving Certificate (SLC) exams, in 2008. Starting as a trainee, she studied tourism in her...',
     content: story1,
   },
   {
@@ -45,7 +45,7 @@ const stories = [
     src: `saila.jpg`,
     author: 'Aishworya Shrestha',
     snippet:
-      'Saila daiLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'Saila dai’s shop looked just like any other tourist bag shop we see at Thamel with varieties of jute and hemp bags of all sizes ornamented all around. As we entered the store, Saila dai was seat...',
     content: story2,
   },
   {
@@ -56,7 +56,7 @@ const stories = [
     src: `closed.jpg`,
     author: 'Arogya Koirala, Sazal Sthapit, and Asmod Karki',
     snippet:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'When we asked the 106 Kathmandu-based tourism entrepreneurs who took part in our tourism business survey about the kind of policy support that would help them recover from the pandemic, here’s what...',
     content: story5,
   },
   {
@@ -67,7 +67,7 @@ const stories = [
     src: `porters.jpg`,
     author: 'Arogya Koirala, Sazal Sthapit, and Aishworya Shrestha',
     snippet:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'Our ongoing survey for members of the Nepali tourism workforce provides useful insight into their immediate financial needs. We asked survey participants about the kinds of financial support they...',
     content: story6,
   },
   {
@@ -77,7 +77,7 @@ const stories = [
     src: `stress.jpg`,
     author: 'Arogya Koirala and Aishworya Shrestha',
     snippet:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      'With the ongoing COVID-19 pandemic, stories and articles that report an increase in issues pertaining to people’s mental health and psychosocial wellbeing seem to be on the rise. Unsurprisingly, early...',
     content: story7,
   },
 ];

@@ -88,7 +88,8 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
             {!loading && chartData && (
               <Fragment>
                 <Typography variant="h6" gutterBottom>
-                  Distribution of responses by {dimensionLabel}
+                  Distribution of {surveyArea} survey respondents by{' '}
+                  {dimensionLabel}
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                   Showing {getTotalResponses()} responses

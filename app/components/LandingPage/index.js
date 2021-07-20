@@ -342,13 +342,13 @@ function LandingPage() {
               }}
             >
               <div style={{ margin: 'auto' }}>
-                <img src={kllLogo} width="140" />
+                <img src={kllLogo} width="100" />
               </div>
               <div style={{ margin: 'auto' }}>
-                <img src={aagLogo} />
+                <img src={aagLogo} width="140" />
               </div>
               <div style={{ margin: 'auto' }}>
-                <img src={mapGiveLogo} width="200" />
+                <img src={mapGiveLogo} width="150" />
               </div>
             </div>
           </div>

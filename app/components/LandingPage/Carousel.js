@@ -5,10 +5,12 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { uid } from 'react-uid';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import blob from 'images/blob.svg';
 import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
@@ -30,6 +32,7 @@ const victims = [
     description:
       'I love my job, I have been involved in it for 10 years...Since the lockdown, my husband and I are unemployed, we have had no income for more than a year now.',
     src: testimonial2,
+    link: '/stories/1',
   },
   {
     name: 'Saila Dai',
@@ -37,6 +40,7 @@ const victims = [
     description:
       'At a point during the lockdown, I thought we would die of hunger. There was no income, and the savings were dwindling rapidly.',
     src: testimonial5,
+    link: '/stories/4',
   },
   {
     name: 'Ramesh Dhakal',
@@ -44,6 +48,7 @@ const victims = [
     description:
       'My energy to work more, take tourism to new heights has faded. I used to donate 5% of my income to charity now I don’t even feel like working.',
     src: testimonial3,
+    link: '/stories/2',
   },
   {
     name: 'Neetam Subedi',
@@ -51,6 +56,7 @@ const victims = [
     description:
       'I thought everything would be back to normal by October. Contrastingly, in October, we had to face unexpected pressures - even from the government.',
     src: testimonial1,
+    link: '/stories/3',
   },
 ];
 
@@ -123,6 +129,11 @@ function Carousel() {
             <Typography paragraph gutterBottom>
               {victim.description}
             </Typography>
+            <Link to={victim.link} className="read-more">
+              <Typography variant="body2" gutterBottom color="primary">
+                Read more <ArrowRightAltIcon />
+              </Typography>
+            </Link>
           </div>
         </div>
       ))}

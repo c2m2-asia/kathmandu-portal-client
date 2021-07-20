@@ -14,7 +14,7 @@ import { primary } from 'theme';
 // import messages from './messages';
 import './styles.css';
 
-const height = 400;
+const height = 350;
 const barWidth = 130;
 const margin = { top: 0, right: 0, bottom: 70, left: 0 };
 const padding = 15;
@@ -83,7 +83,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
                 style={{
                   fontWeight: '500',
                   textAnchor: 'end',
-                  color: 'white',
+                  color: `${datum.percoftotal * 100 < 4 ? 'black' : 'white'}`,
                 }}
               >
                 {isShowPercentage

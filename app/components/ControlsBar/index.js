@@ -62,12 +62,14 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingBottom: '1rem',
   },
   paper: {
     marginRight: theme.spacing(2),
   },
   tabs: {
-    // backgroundColor: 'red',
+    background: '#f8f8f8',
+    borderRadius: '10px',
   },
   tab: {
     minWidth: '60px',
@@ -77,7 +79,29 @@ const useStyles = makeStyles(theme => ({
     background: primary,
     color: 'white',
   },
+  selectedTab: {
+    background: theme.palette.primary.main,
+    color: '#fff',
+    textTransform: 'capitalize',
+    outline: 'none',
+    borderRadius: '10px',
+  },
+  wrapper: {
+    justifyContent: 'start',
+    textTransform: 'capitalize',
+    fontWeight: '500',
+  },
 }));
+
+const researchAreas = [
+  {
+    value: 'impact',
+    label: 'Impact',
+  },
+  { value: 'need', label: 'Need' },
+  { value: 'preparedness', label: 'Preparedness' },
+  { value: 'outlook', label: 'Outlook' },
+];
 
 const dimensions = {
   businesses: [
@@ -91,16 +115,6 @@ const dimensions = {
     { label: 'Age', value: 'm_age' },
   ],
 };
-
-const researchAreas = [
-  {
-    value: 'impact',
-    label: 'Impact',
-  },
-  { value: 'need', label: 'Need' },
-  { value: 'preparedness', label: 'Preparedness' },
-  { value: 'outlook', label: 'Outlook' },
-];
 
 function ControlsBar({
   surveyArea,
@@ -145,136 +159,180 @@ function ControlsBar({
   return (
     <div className={clsx('container', classes.controlsContainer)}>
       <div className={classes.controlPrimary}>
-        <Typography variant="body1" style={{ fontWeight: '600', color: '#B' }}>
-          Explore
-        </Typography>
-        <Chip
-          style={{ height: '50px', borderRadius: '25px', padding: '1rem' }}
-          label={researchAreas.find(a => a.value === researchArea).label}
-          clickable
-          color="primary"
-          onClick={handleToggle}
-          onDelete={handleToggle}
-          deleteIcon={<ExpandMoreIcon size="large" />}
-          ref={anchorRef}
-          aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-        />
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom' ? 'center top' : 'center bottom',
-              }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="menu-list-grow"
-                    onKeyDown={handleListKeyDown}
-                  >
-                    {researchAreas.map(area => (
-                      <MenuItem
-                        key={uid(area)}
-                        value={area.value}
-                        onClick={e => {
-                          setResearchArea(area.value);
-                          handleClose(e);
-                        }}
-                      >
-                        {area.label}
-                      </MenuItem>
-                    ))}
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-        <FormControl variant="outlined" className={classes.formControl}>
-          <Select
-            classes={{
-              root: classes.root,
-              icon: classes.icon,
-              select: classes.select,
-            }}
-            native
-            value={researchArea}
-            onChange={e => setResearchArea(e.target.value)}
-            label="Age"
-            inputProps={{
-              name: 'age',
-              id: 'outlined-age-native-simple',
-            }}
-          >
-            <option value="impact">Impact</option>
-            <option value="need">Need</option>
-            <option value="preparedness">Preparedness</option>
-            <option value="outlook">Outlook</option>
-          </Select>
-        </FormControl>
-        <Typography variant="body1" style={{ fontWeight: '600', color: '#B' }}>
-          by
-        </Typography>
-        <FormControl variant="outlined" className={classes.formControl}>
-          <Select
-            classes={{
-              root: classes.root,
-              icon: classes.icon,
-            }}
-            native
-            value={dimension}
-            onChange={e => setDimension(e.target.value)}
-            label="Age"
-            inputProps={{
-              name: 'age',
-              id: 'outlined-age-native-simple',
-            }}
-          >
-            {dimensions[surveyArea].map(dim => (
-              <option key={uid(dim)} value={dim.value}>
-                {dim.label}
-              </option>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-      <div>
+        {
+          //   <Typography variant="body1" style={{ fontWeight: '600', color: '#B' }}>
+          //   Explore
+          // </Typography>
+        }
+        {
+          //   <Chip
+          //   style={{ height: '50px', borderRadius: '25px', padding: '1rem' }}
+          //   label={researchAreas.find(a => a.value === researchArea).label}
+          //   clickable
+          //   color="primary"
+          //   onClick={handleToggle}
+          //   onDelete={handleToggle}
+          //   deleteIcon={<ExpandMoreIcon size="large" />}
+          //   ref={anchorRef}
+          //   aria-controls={open ? 'menu-list-grow' : undefined}
+          //   aria-haspopup="true"
+          // />
+          // <Popper
+          //   open={open}
+          //   anchorEl={anchorRef.current}
+          //   role={undefined}
+          //   transition
+          //   disablePortal
+          // >
+          //   {({ TransitionProps, placement }) => (
+          //     <Grow
+          //       {...TransitionProps}
+          //       style={{
+          //         transformOrigin:
+          //           placement === 'bottom' ? 'center top' : 'center bottom',
+          //       }}
+          //     >
+          //       <Paper>
+          //         <ClickAwayListener onClickAway={handleClose}>
+          //           <MenuList
+          //             autoFocusItem={open}
+          //             id="menu-list-grow"
+          //             onKeyDown={handleListKeyDown}
+          //           >
+          //             {researchAreas.map(area => (
+          //               <MenuItem
+          //                 key={uid(area)}
+          //                 value={area.value}
+          //                 onClick={e => {
+          //                   setResearchArea(area.value);
+          //                   handleClose(e);
+          //                 }}
+          //               >
+          //                 {area.label}
+          //               </MenuItem>
+          //             ))}
+          //           </MenuList>
+          //         </ClickAwayListener>
+          //       </Paper>
+          //     </Grow>
+          //   )}
+          // </Popper>
+        }
         {
           //   <FormControl variant="outlined" className={classes.formControl}>
-          //   <InputLabel shrink htmlFor="outlined-age-native-simple">
-          //     View type
-          //   </InputLabel>
+          //   <Select
+          //     classes={{
+          //       root: classes.root,
+          //       icon: classes.icon,
+          //       select: classes.select,
+          //     }}
+          //     native
+          //     value={researchArea}
+          //     onChange={e => setResearchArea(e.target.value)}
+          //     label="Age"
+          //     inputProps={{
+          //       name: 'age',
+          //       id: 'outlined-age-native-simple',
+          //     }}
+          //   >
+          //     <option value="impact">Impact</option>
+          //     <option value="need">Need</option>
+          //     <option value="preparedness">Preparedness</option>
+          //     <option value="outlook">Outlook</option>
+          //   </Select>
+          // </FormControl>
+        }
+        <div className="d-flex flex-column">
+          <Typography
+            variant="body1"
+            style={{ fontWeight: '600', color: '#B' }}
+            gutterBottom
+          >
+            Research Area
+          </Typography>
+          <Tabs
+            className={classes.tabs}
+            value={researchArea}
+            onChange={(e, value) => {
+              setResearchArea(value);
+            }}
+            indicatorColor=""
+          >
+            {researchAreas.map(rArea => (
+              <Tab
+                classes={{
+                  selected: classes.selectedTab,
+                  wrapper: classes.wrapper,
+                }}
+                label={rArea.label}
+                value={rArea.value}
+              />
+            ))}
+          </Tabs>
+        </div>
+        {
+          //   <Typography variant="body1" style={{ fontWeight: '600', color: '#B' }}>
+          //   by
+          // </Typography>
+          // <FormControl variant="outlined" className={classes.formControl}>
           //   <Select
           //     classes={{
           //       root: classes.root,
           //       icon: classes.icon,
           //     }}
           //     native
-          //     notched
-          //     value={viewType}
-          //     onChange={e => setViewType(e.target.value)}
-          //     label="View type"
+          //     value={dimension}
+          //     onChange={e => setDimension(e.target.value)}
+          //     label="Age"
           //     inputProps={{
           //       name: 'age',
           //       id: 'outlined-age-native-simple',
           //     }}
           //   >
-          //     <option value="chart">Chart</option>
-          //     <option value="table">Table</option>
+          //     {dimensions[surveyArea].map(dim => (
+          //       <option key={uid(dim)} value={dim.value}>
+          //         {dim.label}
+          //       </option>
+          //     ))}
           //   </Select>
           // </FormControl>
         }
-        <Paper square>
+        <div className="d-flex flex-column">
+          <Typography
+            variant="body1"
+            style={{ fontWeight: '600', color: '#B' }}
+            gutterBottom
+          >
+            Dimension
+          </Typography>
+          <Tabs
+            className={classes.tabs}
+            value={dimension}
+            onChange={(e, value) => {
+              setDimension(value);
+            }}
+            indicatorColor=""
+          >
+            {dimensions[surveyArea].map(dim => (
+              <Tab
+                classes={{
+                  selected: classes.selectedTab,
+                  wrapper: classes.wrapper,
+                }}
+                label={dim.label}
+                value={dim.value}
+              />
+            ))}
+          </Tabs>
+        </div>
+        <div className="d-flex flex-column">
+          <Typography
+            variant="body1"
+            style={{ fontWeight: '600', color: '#B' }}
+            gutterBottom
+          >
+            View type
+          </Typography>
           <Tabs
             classes={{ root: classes.tabs }}
             value={viewType}
@@ -297,8 +355,33 @@ function ControlsBar({
               value="table"
             />
           </Tabs>
-        </Paper>
+        </div>
       </div>
+      {
+        //   <FormControl variant="outlined" className={classes.formControl}>
+        //   <InputLabel shrink htmlFor="outlined-age-native-simple">
+        //     View type
+        //   </InputLabel>
+        //   <Select
+        //     classes={{
+        //       root: classes.root,
+        //       icon: classes.icon,
+        //     }}
+        //     native
+        //     notched
+        //     value={viewType}
+        //     onChange={e => setViewType(e.target.value)}
+        //     label="View type"
+        //     inputProps={{
+        //       name: 'age',
+        //       id: 'outlined-age-native-simple',
+        //     }}
+        //   >
+        //     <option value="chart">Chart</option>
+        //     <option value="table">Table</option>
+        //   </Select>
+        // </FormControl>
+      }
     </div>
   );
 }

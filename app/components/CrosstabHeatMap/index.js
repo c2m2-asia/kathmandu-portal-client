@@ -140,7 +140,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${width} ${height}`}
+        viewBox={`0 0 ${width+180} ${height}`}
       >
         <g transform={`translate(${margin.left},${margin.top})`}>
           {chartData.chart_data.map((d, index) => (

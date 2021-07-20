@@ -133,12 +133,12 @@
 
 .footer-link {
   text-decoration: none;
-  color: #2a9d8f
+  color: #2a9d8f;
 }
 
 .footer-link:hover {
   text-decoration: none;
-  color: #E9C46A;
+  color: #e9c46a;
 }
 
 @media (max-width: 1400px) {
@@ -207,4 +207,14 @@
     text-align: center;
     margin-top: 1rem;
   }
+}
+
+.read-more {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
