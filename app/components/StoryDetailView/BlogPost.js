@@ -10,6 +10,7 @@ import {
   Tooltip,
 } from '@material-ui/core';
 import BlogCard from 'components/blog/BlogCard';
+import smoothScrollTop from './smoothScrollTop';
 import stories from 'components/dummy_data/stories';
 import ZoomImage from './ZoomImage';
 
@@ -48,6 +49,10 @@ const styles = theme => ({
 function BlogPost(props) {
   const shareUrl = 'http://www.kathmandulivinglabs.org/';
   const { classes, date, title, src, content, otherArticles, author } = props;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [props.title]);
 
   return (
     <Box className={classes.wrapper} display="flex" justifyContent="center">

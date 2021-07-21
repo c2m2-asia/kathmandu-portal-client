@@ -10,20 +10,20 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import Chip from '@material-ui/core/Chip';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import Chip from '@material-ui/core/Chip';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
 // import NativeSelect from '@material-ui/core/NativeSelect';
 import Typography from '@material-ui/core/Typography';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
+// import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+// import Grow from '@material-ui/core/Grow';
+// import Paper from '@material-ui/core/Paper';
+// import Popper from '@material-ui/core/Popper';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import MenuList from '@material-ui/core/MenuList';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import BarChartIcon from '@material-ui/icons/BarChart';
@@ -260,6 +260,7 @@ function ControlsBar({
           >
             {researchAreas.map(rArea => (
               <Tab
+                key={uid(rArea)}
                 classes={{
                   selected: classes.selectedTab,
                   wrapper: classes.wrapper,

@@ -175,7 +175,7 @@ function MapInsightsView({ getMapData, mapData }) {
                             <Typography
                               style={{
                                 whiteSpace: 'nowrap',
-                                fontSize: '2.5rem',
+                                fontSize: '2rem',
                               }}
                               className={`${
                                 selectedOptionIndex === index

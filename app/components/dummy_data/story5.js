@@ -332,7 +332,7 @@ const story1 = (
         Ramesh, a tourism entrepreneur from Thamel, faced several financial
         hurdles trying to sustain his tourism business amidst the pandemic.
       </Typography>
-      <Link to="/stories" style={{ marginLeft: 'auto' }}>
+      <Link to="/stories/2" style={{ marginLeft: 'auto' }}>
         Read his full story here.
       </Link>
     </div>
