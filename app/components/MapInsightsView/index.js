@@ -211,7 +211,6 @@ function MapInsightsView({ getMapData, mapData }) {
           elevation={1}
           style={{
             padding: '1rem',
-            margin: '1rem',
             width: '50%',
             marginTop: '3rem',
             marginBottom: '3rem',

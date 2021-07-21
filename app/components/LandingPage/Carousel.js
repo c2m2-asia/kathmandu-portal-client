@@ -11,7 +11,6 @@ import { uid } from 'react-uid';
 // import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import blob from 'images/blob.svg';
 import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';

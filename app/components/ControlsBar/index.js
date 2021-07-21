@@ -332,7 +332,7 @@ function ControlsBar({
             style={{ fontWeight: '600', color: '#B' }}
             gutterBottom
           >
-            View type
+            View Type
           </Typography>
           <Tabs
             classes={{ root: classes.tabs }}

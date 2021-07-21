@@ -140,7 +140,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${width+180} ${height}`}
+        viewBox={`0 0 ${width + 180} ${height}`}
       >
         <g transform={`translate(${margin.left},${margin.top})`}>
           {chartData.chart_data.map((d, index) => (
@@ -273,7 +273,25 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
             textAnchor="end"
             style={{ fontSize: '0.9rem', color: '#696969' }}
           >
-            study of {chartData.askedTotal} workers based in Kathmandu, Nepal
+            <tspan
+              x={width - margin.left - margin.right}
+              y={height - 10}
+              textAnchor="end"
+              style={{ fontSize: '0.9rem', color: '#696969' }}
+            >
+              {chartData.chartInfo}
+            </tspan>
+            {
+            //   <tspan
+            //   x={width - margin.left - margin.right}
+            //   y={height - 10}
+            //   textAnchor="end"
+            //   dy="1.2em"
+            //   style={{ fontSize: '0.9rem', color: '#696969' }}
+            // >
+            //   {chartData.surveyInfo}
+            // </tspan>
+          }
           </text>
         </g>
       </svg>
