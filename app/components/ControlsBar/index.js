@@ -105,10 +105,12 @@ const researchAreas = [
 
 const dimensions = {
   businesses: [
+    { label: 'None', value: 'none' },
     { label: 'Type', value: 'm_biz_type' },
     { label: 'Years in operation', value: 'm_biz_years_in_operation' },
   ],
   workforce: [
+    { label: 'None', value: 'none' },
     { label: 'Gender', value: 'm_gender' },
     { label: 'Experience', value: 'm_years_of_experience' },
     { label: 'Education level', value: 'm_edu_levl' },
@@ -316,6 +318,7 @@ function ControlsBar({
           >
             {dimensions[surveyArea].map(dim => (
               <Tab
+                key={uid(dim)}
                 classes={{
                   selected: classes.selectedTab,
                   wrapper: classes.wrapper,

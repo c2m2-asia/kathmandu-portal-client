@@ -17,32 +17,34 @@ import SurveyAreaSelector from './SurveyAreaSelector';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
-function UnivariateChartView({
-  getUnivariateData,
-  univariateData,
-  loading,
-  viewType,
-  surveyArea,
-  researchArea,
-}) {
-  // const [surveyArea, setSurveyArea] = useState('businesses');
-  // const [researchArea, setResearchArea] = useState('impact');
-  // const [viewType, setViewType] = useState('chart');
-  //
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     getUnivariateData(surveyArea, researchArea);
-  //   }, 500);
-  // }, [surveyArea, researchArea]);
+function UnivariateChartView({ getUnivariateData, univariateData, loading }) {
+  const [surveyArea, setSurveyArea] = useState('businesses');
+  const [researchArea, setResearchArea] = useState('impact');
+  const [viewType, setViewType] = useState('chart');
+
+  useEffect(() => {
+    setTimeout(() => {
+      getUnivariateData(surveyArea, researchArea);
+    }, 500);
+  }, [surveyArea, researchArea]);
 
   // const getTotalResponses = () =>
   //   chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
 
-  console.log('asdasdasd', univariateData);
-
   return (
     <Fragment>
-      <div style={{ background: 'rgb(245, 247, 252)' }}>
+      <SurveyAreaSelector
+        surveyArea={surveyArea}
+        setSurveyArea={setSurveyArea}
+      />
+      <UnivariateControlsBar
+        surveyArea={surveyArea}
+        researchArea={researchArea}
+        setResearchArea={setResearchArea}
+        viewType={viewType}
+        setViewType={setViewType}
+      />
+      <div style={{ background: '#f5f7fc' }}>
         <div
           className="container"
           style={{ paddingTop: '4rem', paddingBottom: '4rem' }}

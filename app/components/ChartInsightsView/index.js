@@ -16,6 +16,7 @@ import ControlsBar from 'components/ControlsBar/Loadable';
 import DimensionTable from 'components/DimensionTable/Loadable';
 import CrosstabHeatmapContainer from 'components/CrosstabHeatmapContainer';
 import DimensionBarChartSkeleton from 'components/DimensionBarChartSkeleton/Loadable';
+import UnivariateChartView from 'components/UnivariateChartView/Loadable';
 import Paper from '@material-ui/core/Paper';
 
 import SurveyAreaSelector from './SurveyAreaSelector';
@@ -25,10 +26,12 @@ import './styles.css';
 
 const dimensions = {
   businesses: [
+    { label: 'None', value: 'none' },
     { label: 'Type', value: 'm_biz_type' },
     { label: 'Years in operation', value: 'm_biz_years_in_operation' },
   ],
   workforce: [
+    { label: 'None', value: 'none' },
     { label: 'Gender', value: 'm_gender' },
     { label: 'Experience', value: 'm_years_of_experience' },
     { label: 'Education level', value: 'm_edu_levl' },
@@ -53,10 +56,18 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
     setTimeout(() => {
       getChartData(surveyArea, researchArea, dimension);
     }, 500);
+  }, []);
+
+  useEffect(() => {
+    getChartData(surveyArea, researchArea, dimension);
   }, [surveyArea, researchArea, dimension]);
 
   const getTotalResponses = () =>
     chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
+
+  console.log(dimension, chartData);
+
+  console.log('loading', loading);
 
   return (
     <Fragment>
@@ -75,7 +86,7 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
         viewType={viewType}
         setViewType={setViewType}
       />
-      {dimension !== 'none' && (
+      {dimension !== 'none' && !loading && (
         <>
           <div style={{ backgroundColor: '#264653' }}>
             <div
@@ -91,83 +102,100 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
                 }}
               >
                 {loading && <DimensionBarChartSkeleton />}
-                {!loading && chartData && (
-                  <Fragment>
-                    <Typography variant="h6" gutterBottom>
-                      Distribution of {surveyArea} survey respondents by{' '}
-                      {dimensionLabel}
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      Showing {getTotalResponses()} responses
-                    </Typography>
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: '1.2rem',
-                        alignItems: 'center',
-                        marginTop: '1.5rem',
-                      }}
-                    >
-                      <Link
-                        to="/chart-insights/#"
-                        style={{ textDecoration: 'none' }}
+                {!loading &&
+                  chartData &&
+                  chartData.bivariate &&
+                  dimension !== 'none' && (
+                    <Fragment>
+                      <Typography variant="h6" gutterBottom>
+                        Distribution of {surveyArea} survey respondents by{' '}
+                        {dimensionLabel}
+                      </Typography>
+                      <Typography variant="body1" gutterBottom>
+                        Showing {chartData.univariate[0].universe} responses
+                      </Typography>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: '1.2rem',
+                          alignItems: 'center',
+                          marginTop: '1.5rem',
+                        }}
                       >
-                        <div style={{ display: 'flex', gap: '0.3rem' }}>
-                          <GetAppIcon color="primary" />
-                          <Typography
-                            variant="body2"
-                            gutterBottom
-                            color="textPrimary"
-                          >
-                            Download this data
-                          </Typography>
-                        </div>
-                      </Link>
-                      {viewType === 'chart' && (
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              color="primary"
-                              checked={isShowPercentage}
-                              onChange={() =>
-                                setIsShowPercentagesChecked(!isShowPercentage)
-                              }
-                              name="checkedB"
-                            />
-                          }
-                          label={
-                            <Typography variant="body2" gutterBottom>
-                              Show in percentages
+                        <Link
+                          to="/chart-insights/#"
+                          style={{ textDecoration: 'none' }}
+                        >
+                          <div style={{ display: 'flex', gap: '0.3rem' }}>
+                            <GetAppIcon color="primary" />
+                            <Typography
+                              variant="body2"
+                              gutterBottom
+                              color="textPrimary"
+                            >
+                              Download this data
                             </Typography>
-                          }
+                          </div>
+                        </Link>
+                        {viewType === 'chart' && (
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                color="primary"
+                                checked={isShowPercentage}
+                                onChange={() =>
+                                  setIsShowPercentagesChecked(!isShowPercentage)
+                                }
+                                name="checkedB"
+                              />
+                            }
+                            label={
+                              <Typography variant="body2" gutterBottom>
+                                Show in percentages
+                              </Typography>
+                            }
+                          />
+                        )}
+                      </div>
+
+                      {viewType === 'chart' ? (
+                        <DimensionBarChart
+                          surveyArea={surveyArea}
+                          dimension={dimension}
+                          chartData={chartData.univariate[0].chart_data}
+                          isShowPercentage={isShowPercentage}
+                        />
+                      ) : (
+                        <DimensionTable
+                          chartData={chartData.univariate[0].chart_data}
                         />
                       )}
-                    </div>
-
-                    {viewType === 'chart' ? (
-                      <DimensionBarChart
-                        surveyArea={surveyArea}
-                        dimension={dimension}
-                        chartData={chartData.univariate[0].chart_data}
-                        isShowPercentage={isShowPercentage}
-                      />
-                    ) : (
-                      <DimensionTable
-                        chartData={chartData.univariate[0].chart_data}
-                      />
-                    )}
-                  </Fragment>
-                )}
+                    </Fragment>
+                  )}
               </Paper>
             </div>
           </div>
-          <CrosstabHeatmapContainer
-            chartData={chartData}
-            loading={loading}
-            viewType={viewType}
-            surveyArea={surveyArea}
-            researchArea={researchArea}
-          />
+        </>
+      )}
+      {!chartData.bivariate && dimension === 'none' ? (
+        <UnivariateChartView
+          univariateData={chartData}
+          viewType={viewType}
+          surveyArea={surveyArea}
+          researchArea={researchArea}
+          loading={loading}
+        />
+      ) : (
+        <>
+          {chartData && chartData.bivariate && (
+            <CrosstabHeatmapContainer
+              chartData={chartData}
+              loading={loading}
+              viewType={viewType}
+              surveyArea={surveyArea}
+              researchArea={researchArea}
+            />
+          )}
         </>
       )}
     </Fragment>
