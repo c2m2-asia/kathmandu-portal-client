@@ -248,7 +248,7 @@ function LandingPage() {
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-6">
-              <img src={questionnaire} width="400" />
+              <img src={questionnaire} width="400" alt="survey SVG"/>
             </div>
             <div className="col-12 col-lg-6 mt-5">
               <Typography
@@ -348,7 +348,7 @@ function LandingPage() {
               <div style={{ display: 'grid', placeContent: 'center' }}>
                 <Typography variant="h6">Implemented by</Typography>
                 <div style={{ margin: 'auto' }}>
-                  <img src={kllLogo} width="100" />
+                  <img src={kllLogo} width="100" alt="KLL logo" />
                 </div>
               </div>
               <div style={{ display: 'grid', placeContent: 'center' }}>
@@ -359,10 +359,10 @@ function LandingPage() {
                   style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
                 >
                   <div style={{ margin: 'auto' }}>
-                    <img src={aagLogo} width="140" />
+                    <img src={aagLogo} width="140" alt="AAG logo" />
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={mapGiveLogo} width="150" />
+                    <img src={mapGiveLogo} width="150" alt="MapGive logo" />
                   </div>
                 </div>
               </div>
@@ -374,19 +374,19 @@ function LandingPage() {
                   style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
                 >
                   <div style={{ margin: 'auto' }}>
-                    <img src={hanLogo} width="100" />
+                    <img src={hanLogo} width="100" alt="HAN logo" />
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={ttdcLogo} width="100" />
+                    <img src={ttdcLogo} width="100" alt="TTDC logo" />
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={unitravLogo} width="100" />
+                    <img src={unitravLogo} width="100" alt="UNITRAV logo" />
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={taanLogo} width="100" />
+                    <img src={taanLogo} width="100" alt="TAAN logo" />
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={jottufLogo} width="100" />
+                    <img src={jottufLogo} width="100" alt="JOTTUF logo" />
                   </div>
                 </div>
               </div>
