@@ -26,6 +26,12 @@ import PersonIcon from '@material-ui/icons/Person';
 import kllLogo from 'images/kll-logo.png';
 import aagLogo from 'images/aag-logo.png';
 import mapGiveLogo from 'images/map-give-logo.png';
+import unitravLogo from 'images/unitrav-logo.png';
+import taanLogo from 'images/taan-logo.png';
+import jottufLogo from 'images/jottuf-logo.png';
+import ttdcLogo from 'images/ttdc-logo.png';
+import hanLogo from 'images/han-logo.png';
+
 import Carousel from './Carousel';
 
 function LandingPage() {
@@ -333,28 +339,63 @@ function LandingPage() {
             <div
               style={{
                 display: 'flex',
+                flexDirection: 'column',
                 gap: '1.5rem',
-                alignItems: 'center',
-                justifyContent: 'space-between',
                 marginTop: '2rem',
                 flexWrap: 'wrap',
-                textAlign: 'center',
               }}
             >
-              <div style={{ margin: 'auto' }}>
-                <img src={kllLogo} width="100" />
+              <div style={{ display: 'grid', placeContent: 'center' }}>
+                <Typography variant="h6">Implemented by</Typography>
+                <div style={{ margin: 'auto' }}>
+                  <img src={kllLogo} width="100" />
+                </div>
               </div>
-              <div style={{ margin: 'auto' }}>
-                <img src={aagLogo} width="140" />
+              <div style={{ display: 'grid', placeContent: 'center' }}>
+                <Typography variant="h6" style={{ textAlign: 'center' }}>
+                  Global partners
+                </Typography>
+                <div
+                  style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
+                >
+                  <div style={{ margin: 'auto' }}>
+                    <img src={aagLogo} width="140" />
+                  </div>
+                  <div style={{ margin: 'auto' }}>
+                    <img src={mapGiveLogo} width="150" />
+                  </div>
+                </div>
               </div>
-              <div style={{ margin: 'auto' }}>
-                <img src={mapGiveLogo} width="150" />
+              <div style={{ display: 'grid', placeContent: 'center' }}>
+                <Typography variant="h6" style={{ textAlign: 'center' }}>
+                  National partners
+                </Typography>
+                <div
+                  style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
+                >
+                  <div style={{ margin: 'auto' }}>
+                    <img src={hanLogo} width="100" />
+                  </div>
+                  <div style={{ margin: 'auto' }}>
+                    <img src={ttdcLogo} width="100" />
+                  </div>
+                  <div style={{ margin: 'auto' }}>
+                    <img src={unitravLogo} width="100" />
+                  </div>
+                  <div style={{ margin: 'auto' }}>
+                    <img src={taanLogo} width="100" />
+                  </div>
+                  <div style={{ margin: 'auto' }}>
+                    <img src={jottufLogo} width="100" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Footer */}
       <section
         className="py-3"
         style={{
