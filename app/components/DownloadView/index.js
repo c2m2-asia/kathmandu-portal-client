@@ -71,7 +71,7 @@ function DownloadView() {
     },
     workers: {
       name: 'workers',
-      label: 'Workers',
+      label: 'Workforce',
       icon: <PeopleAltIcon style={{ width: '30px', height: '30px' }} />,
       researchAreas: [
         {

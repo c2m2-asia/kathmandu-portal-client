@@ -94,6 +94,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
           ))}
           {data.map((datum, index) => (
             <text
+              key={uid(datum, index)}
               x={x(index) + x.bandwidth() / 2 - padding / 2}
               y={height - margin.bottom + 15}
               verticalAnchor="start"

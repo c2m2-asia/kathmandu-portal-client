@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import { uid } from 'react-uid';
 import { NavLink, useLocation, withRouter, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,6 +21,10 @@ import logo from 'images/project-logo.jpg';
 // import messages from './messages';
 
 const menuItems = [
+  {
+    link: '/',
+    name: 'Home',
+  },
   {
     link: '/stories',
     name: 'Stories',
@@ -78,7 +83,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
   },
   noDecoration: {
-    textDecoration: 'none !important',
+    textDecoration: 'none',
   },
   menuItemsContainer: {
     display: 'flex',
@@ -94,6 +99,11 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Baloo Bhaijaan', cursive",
     fontWeight: 400,
   },
+  activeLink: {
+    color: primary,
+    fontWeight: '600',
+    textDecoration: 'underline',
+  },
 }));
 
 function NavBar({ history, onLocaleToggle, locale, location }) {
@@ -104,6 +114,14 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
     setOpen(false);
   };
   const isHomePage = location.pathname === '/';
+
+  const isActiveLink = url => {
+    const splitLocation = location.pathname.split('/');
+    const splitUrl = url.split('/');
+    console.log(splitLocation, splitUrl);
+    if (splitLocation[1] === splitUrl[1]) return true;
+    return false;
+  };
 
   return (
     <div>
@@ -168,7 +186,10 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
                   className={classes.noDecoration}
                 >
                   <Button
-                    className={isHomePage ? classes.homeBtn : classes.homeBtn}
+                    className={clsx(
+                      classes.homeBtn,
+                      isActiveLink(menuItem.link) && classes.activeLink,
+                    )}
                   >
                     {menuItem.name}
                   </Button>

@@ -26,7 +26,7 @@ function VisualizationSelectionView() {
         Select one to proceed
       </Typography>
       <div className="selections-container">
-        <Link to="/chart-insights">
+        <Link to="/visualizations/chart-insights">
           <div
             className="insight-container"
             style={{ backgroundColor: '#FFFFFF' }}
@@ -37,7 +37,7 @@ function VisualizationSelectionView() {
           </div>
         </Link>
 
-        <Link to="/map-insights">
+        <Link to="/visualizations/map-insights">
           <div
             className="insight-container"
             style={{ backgroundColor: '#FFFFFF' }}

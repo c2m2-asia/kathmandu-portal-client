@@ -44,8 +44,16 @@ export default function App() {
           path="/visualizations"
           component={VisualizationSelectionView}
         />
-        <Route exact path="/chart-insights" component={ChartInsightsPage} />
-        <Route exact path="/map-insights" component={MapInsightsPage} />
+        <Route
+          exact
+          path="/visualizations/chart-insights"
+          component={ChartInsightsPage}
+        />
+        <Route
+          exact
+          path="/visualizations/map-insights"
+          component={MapInsightsPage}
+        />
         <Route exact path="/univariate" component={UnivariateChartPage} />
         <Route exact path="/downloads" component={DownloadView} />
         <Route component={NotFoundPage} />

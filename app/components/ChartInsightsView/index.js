@@ -177,7 +177,7 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
           </div>
         </>
       )}
-      {!chartData.bivariate && dimension === 'none' ? (
+      {chartData && !chartData.bivariate && dimension === 'none' ? (
         <UnivariateChartView
           univariateData={chartData}
           viewType={viewType}
