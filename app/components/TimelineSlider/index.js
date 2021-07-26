@@ -109,8 +109,9 @@ export default function TimelineSlider({ timeIndex, setTimeIndex }) {
         {steps.map((step, index) => {
           const stepProps = {};
           return (
-            <Step key={step.label} {...stepProps}>
+            <Step key={step.label} {...stepProps} disabled>
               <StepLabel
+                disabled
                 onClick={handleStep(index)}
                 style={{ cursor: 'pointer' }}
                 StepIconComponent={QontoStepIcon}

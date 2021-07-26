@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '5px',
     paddingLeft: '1rem',
     paddingRight: '0.5rem',
+    wordBreak: 'keep-all',
     '&:hover': {
       transition: 'all .4s ease',
       backgroundColor: '#2A9D8F',
@@ -91,7 +92,7 @@ function MapInsightsView({ getMapData, mapData }) {
               lg={4}
               style={{
                 paddingRight: '1rem',
-                height: 'calc((100vh - 4rem) - 90px)',
+                grow: '1',
                 overflowY: 'auto',
               }}
             >
@@ -144,7 +145,6 @@ function MapInsightsView({ getMapData, mapData }) {
             >
               <div
                 style={{
-                  height: 'calc(100vh - 4rem - 90px)',
                   width: '100%',
                   display: 'flex',
                   flexDirection: 'column',
@@ -206,6 +206,8 @@ function MapInsightsView({ getMapData, mapData }) {
           </Grid>
         )}
       </Paper>
+
+      {/* Static maps...*/}
       {mapData && (
         <Paper
           elevation={1}

@@ -52,7 +52,7 @@ function StoriesListView() {
       <div className="container py-5">
         <Blog posts={pstories} header="Stories from the ground" />
         <div className="mt-5">
-          <Blog posts={reports} header="Survey results" />
+          <Blog posts={reports} header="Deep dive into data" />
         </div>
       </div>
     </div>

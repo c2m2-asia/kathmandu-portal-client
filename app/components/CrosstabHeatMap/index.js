@@ -76,16 +76,30 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
   const getColor = scaleThreshold()
     .domain(minmax)
     .range([
-      '#dbfeb8',
-      '#cbf6b9',
-      '#bdedba',
-      '#b1e4ba',
-      '#a6dbba',
-      '#8bcbad',
-      '#6fbca2',
-      '#51ac98',
+      '#dce4e3',
+      '#c8dbd9',
+      '#b4d2ce',
+      '#a0cac4',
+      '#8cc1ba',
+      '#77b8af',
+      '#61afa4',
+      '#49a69a',
       '#2a9d8f',
     ]);
+
+  // const getColor = scaleThreshold()
+  //   .domain(minmax)
+  //   .range([
+  //     '#dbfeb8',
+  //     '#cbf6b9',
+  //     '#bdedba',
+  //     '#b1e4ba',
+  //     '#a6dbba',
+  //     '#8bcbad',
+  //     '#6fbca2',
+  //     '#51ac98',
+  //     '#2a9d8f',
+  //   ]);
 
   const barScale = scaleLinear()
     .domain([0, max(chartData.chart_data, d => d.percoftotal * 100)])
@@ -282,16 +296,16 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               {chartData.chartInfo}
             </tspan>
             {
-            //   <tspan
-            //   x={width - margin.left - margin.right}
-            //   y={height - 10}
-            //   textAnchor="end"
-            //   dy="1.2em"
-            //   style={{ fontSize: '0.9rem', color: '#696969' }}
-            // >
-            //   {chartData.surveyInfo}
-            // </tspan>
-          }
+              //   <tspan
+              //   x={width - margin.left - margin.right}
+              //   y={height - 10}
+              //   textAnchor="end"
+              //   dy="1.2em"
+              //   style={{ fontSize: '0.9rem', color: '#696969' }}
+              // >
+              //   {chartData.surveyInfo}
+              // </tspan>
+            }
           </text>
         </g>
       </svg>
