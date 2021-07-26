@@ -14,7 +14,8 @@ import stories from 'components/dummy_data/stories';
 import BlogPost from './BlogPost';
 
 function StoryDetailView(props) {
-  const story = stories.find(s => s.id === parseInt(props.match.params.id)); //eslint-disable-line
+  const story = stories.find(s => s.id === parseInt(props.match.params.id));
+  const otherArticles = stories.filter(s => s.id !== parseInt(props.match.params.id)); //eslint-disable-line
 
   // useEffect(() => {
   //   window.scrollTo(0, 0);
@@ -29,7 +30,7 @@ function StoryDetailView(props) {
           content={story.content}
           author={story.author}
           date={story.date}
-          otherArticles={stories}
+          otherArticles={otherArticles}
         />
       </div>
     </div>

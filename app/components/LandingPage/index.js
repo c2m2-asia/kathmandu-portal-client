@@ -248,7 +248,7 @@ function LandingPage() {
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-6">
-              <img src={questionnaire} width="400" alt="survey SVG"/>
+              <img src={questionnaire} width="400" alt="survey SVG" />
             </div>
             <div className="col-12 col-lg-6 mt-5">
               <Typography
@@ -367,7 +367,11 @@ function LandingPage() {
                 </div>
               </div>
               <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography variant="h6" style={{ textAlign: 'center' }}>
+                <Typography
+                  variant="h6"
+                  style={{ textAlign: 'center' }}
+                  gutterBottom
+                >
                   National partners
                 </Typography>
                 <div

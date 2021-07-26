@@ -102,7 +102,7 @@ const useStyles = makeStyles(theme => ({
   activeLink: {
     color: primary,
     fontWeight: '600',
-    textDecoration: 'underline',
+    // textDecoration: 'underline',
   },
 }));
 

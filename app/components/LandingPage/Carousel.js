@@ -129,7 +129,11 @@ function Carousel() {
               {victim.description}
             </Typography>
             <Link to={victim.link} className="read-more">
-              <Typography variant="body2" gutterBottom color="primary">
+              <Typography
+                variant="body2"
+                gutterBottom
+                style={{ color: '#1B6543' }}
+              >
                 Read story <ArrowRightAltIcon />
               </Typography>
             </Link>
