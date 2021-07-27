@@ -12,7 +12,8 @@ module.exports = options => ({
     {
       // Compile into js/build.js
       path: path.resolve(process.cwd(), 'build'),
-      publicPath: '/kathmandu-portal-client/',
+      // publicPath: '/', // surge
+      publicPath: '/kathmandu-portal-client/', // github pages
     },
     options.output,
   ), // Merge with env dependent settings
