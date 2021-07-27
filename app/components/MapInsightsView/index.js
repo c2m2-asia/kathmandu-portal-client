@@ -41,6 +41,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#2A9D8F',
     color: 'rgba(255,255,255,0.9)',
     borderRight: '5px solid #48A9A6',
+    paddingTop: '0.3rem',
+    paddingBottom: '0.3rem',
   },
 }));
 
@@ -50,14 +52,16 @@ function MapInsightsView({ getMapData, mapData }) {
   const classes = useStyles();
   const [selectedHighlight, setSelectedHighlight] = useState('');
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  const [timeIndex, setTimeIndex] = useState(1);
+  const [timeIndex, setTimeIndex] = useState(2);
 
   useEffect(() => {
     getMapData(timeIndex);
   }, [timeIndex]);
 
   useEffect(() => {
-    if (mapData) setSelectedHighlight(Object.keys(mapData.highlights)[0]);
+    if (mapData && !selectedHighlight) {
+      setSelectedHighlight(Object.keys(mapData.highlights)[0]);
+    }
   }, [mapData]);
 
   const heatMapData =
@@ -167,8 +171,8 @@ function MapInsightsView({ getMapData, mapData }) {
                             key={uid(options, index)}
                             className={`controls ${
                               selectedOptionIndex === index
-                                ? ''
-                                : 'controls-shadow'
+                                ? 'selected-option'
+                                : ''
                             }`}
                             onClick={() => setSelectedOptionIndex(index)}
                           >
@@ -179,8 +183,8 @@ function MapInsightsView({ getMapData, mapData }) {
                               }}
                               className={`${
                                 selectedOptionIndex === index
-                                  ? 'active-control-text'
-                                  : 'control-text'
+                                  ? 'active-option-text'
+                                  : 'option-text'
                               }`}
                             >
                               {options.percoftotal}%
@@ -189,8 +193,8 @@ function MapInsightsView({ getMapData, mapData }) {
                               variant="subtitle1"
                               className={`${
                                 selectedOptionIndex === index
-                                  ? 'active-control-text'
-                                  : 'control-text'
+                                  ? 'active-option-text'
+                                  : 'option-text'
                               }`}
                               style={{ fontSize: '1.1rem', lineHeight: '1.2' }}
                             >
@@ -236,7 +240,10 @@ function MapInsightsView({ getMapData, mapData }) {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
             non quis exercitationem culpa nesciunt nihil aut nostrum.
           </Typography>
-          <ZoomImage src="map-insight-1.png" />
+          <ZoomImage
+            src="map-insight-1.png"
+            alt="Distribution of respondents by occupation and district C2M2 Kathmandu"
+          />
         </Paper>
       )}
     </div>

@@ -118,7 +118,6 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
   const isActiveLink = url => {
     const splitLocation = location.pathname.split('/');
     const splitUrl = url.split('/');
-    console.log(splitLocation, splitUrl);
     if (splitLocation[1] === splitUrl[1]) return true;
     return false;
   };

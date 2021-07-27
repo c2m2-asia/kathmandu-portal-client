@@ -13,9 +13,15 @@
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  border-right: 2px solid rgba(255, 255, 255, 0.26);
-  padding: 1rem;
-  border-right: 1px solid #ececec;
+  padding: 0.3rem;
+  border: 1px solid #bababa;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  width: 250px;
+}
+
+.selected-option {
+  border: 3px solid #2A9D8F;
 }
 
 .controls-shadow {
@@ -24,14 +30,14 @@
   box-shadow: 0 4px 6px -6px #222;
 }
 
-.active-control-text {
+.active-option-text {
   font-weight: 600;
   color: #2A9D8F;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   text-align: center;
 }
 
-.control-text {
+.option-text {
   font-weight: inherit;
   color: rgba(0, 0, 0, 0.8);
   padding-left: 1rem;

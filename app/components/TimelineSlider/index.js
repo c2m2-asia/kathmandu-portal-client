@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     opacity: '0.9',
   },
+  stepperRoot: {
+    padding: '22px 0px 22px 0px',
+  },
   button: {
     marginRight: theme.spacing(1),
   },
@@ -105,7 +108,11 @@ export default function TimelineSlider({ timeIndex, setTimeIndex }) {
 
   return (
     <div className={classes.root}>
-      <Stepper alternativeLabel activeStep={timeIndex}>
+      <Stepper
+        alternativeLabel
+        activeStep={timeIndex}
+        classes={{ root: classes.stepperRoot }}
+      >
         {steps.map((step, index) => {
           const stepProps = {};
           return (
