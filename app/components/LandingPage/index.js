@@ -104,7 +104,7 @@ function LandingPage() {
                 textAlign: 'center',
               }}
             >
-              Stories from the ground
+              Stories from the Ground
             </Typography>
             <div className="title-shape mb-5 mt-2" />
           </div>
@@ -123,7 +123,7 @@ function LandingPage() {
                 textAlign: 'center',
               }}
             >
-              Deep dive into data
+              Deep Dive Into Data
             </Typography>
             <div className="title-shape mb-5 mt-2" />
           </div>
@@ -154,7 +154,7 @@ function LandingPage() {
                 textAlign: 'center',
               }}
             >
-              Our data sources
+              Our Data Sources
             </Typography>
             <div className="data-shape mb-5 mt-2" />
           </div>
@@ -258,7 +258,7 @@ function LandingPage() {
                   color: '#333f57',
                 }}
               >
-                Official questionnaire
+                Official Questionnaire
               </Typography>
               <div className="title-shape mb-5 mt-2" />
               <Typography
@@ -317,7 +317,7 @@ function LandingPage() {
                   textAlign: 'center',
                 }}
               >
-                About the project
+                About the Project
               </Typography>
               <div className="title-shape mb-5 mt-2" />
             </div>
@@ -353,7 +353,7 @@ function LandingPage() {
               </div>
               <div style={{ display: 'grid', placeContent: 'center' }}>
                 <Typography variant="h6" style={{ textAlign: 'center' }}>
-                  Global partners
+                  Global Partners
                 </Typography>
                 <div
                   style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
@@ -372,7 +372,7 @@ function LandingPage() {
                   style={{ textAlign: 'center' }}
                   gutterBottom
                 >
-                  National partners
+                  National Partners
                 </Typography>
                 <div
                   style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
