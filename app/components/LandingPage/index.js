@@ -42,11 +42,11 @@ function LandingPage() {
           <div className="d-flex desc-container">
             <div className="w-50 project-desc" style={{ padding: '2rem' }}>
               <Typography variant="h1">
-                Nepal
-                <br />
-                Tourism in
-                <br />
                 COVID-19
+                <br />
+                AND ITS IMPACT ON
+                <br />
+                NEPALESE TOURISM
               </Typography>
               <Typography
                 paragraph
@@ -55,7 +55,7 @@ function LandingPage() {
                   paddingRight: '20%',
                   marginTop: '1.5rem',
                   fontSize: '20px',
-                  letterSpacing: '.20px',
+                  letterSpacing: '.16px',
                 }}
               >
                 Helping tourism stakeholders expedite the revival of tourism and

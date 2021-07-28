@@ -30,6 +30,7 @@ function StoryDetailView(props) {
           content={story.content}
           author={story.author}
           date={story.date}
+          photoCourtesy={story.photoCourtesy}
           otherArticles={otherArticles}
         />
       </div>

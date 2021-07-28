@@ -125,7 +125,7 @@ const theme = createMuiTheme({
     h1: {
       // color: 'rgba(255,255,255)',
       fontWeight: '700',
-      fontSize: '3.53rem',
+      fontSize: '2.7rem',
       letterSpacing: '.94px',
     },
     h6: {

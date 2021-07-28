@@ -48,7 +48,16 @@ const styles = theme => ({
 
 function BlogPost(props) {
   const shareUrl = 'http://www.kathmandulivinglabs.org/';
-  const { classes, date, title, src, content, otherArticles, author } = props;
+  const {
+    classes,
+    date,
+    title,
+    src,
+    content,
+    otherArticles,
+    author,
+    photoCourtesy,
+  } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -116,6 +125,16 @@ function BlogPost(props) {
                 </div>
               </Box>
               <ZoomImage src={src} alt="" />
+              <Typography
+                variant="caption"
+                style={{
+                  color: '#696969',
+                  float: 'right',
+                  marginRight: '0.5rem',
+                }}
+              >
+                Photo Courtesy: {photoCourtesy}
+              </Typography>
               <Box p={3}>{content}</Box>
             </Card>
           </Grid>

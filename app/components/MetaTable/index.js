@@ -59,7 +59,7 @@ function MetaTable({ tableName }) {
               <TableCell style={{ borderBottom: 'none' }} align="right">
                 {row.desc}
               </TableCell>
-              <TableCell style={{ borderBottom: 'none' }} align="right">
+              <TableCell style={{ borderBottom: 'none', whiteSpace: 'nowrap' }} align="right">
                 {row.type}
               </TableCell>
             </TableRow>

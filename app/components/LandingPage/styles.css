@@ -141,6 +141,12 @@
   color: #e9c46a;
 }
 
+.hero-title {
+  font-weight: '700';
+  font-size: '2.7rem';
+  letter-spacing: '.94px';
+}
+
 @media (max-width: 1400px) {
   .research-areas {
     bottom: 3rem;
@@ -149,10 +155,13 @@
 
 @media (max-width: 1200px) {
   .research-areas {
-    position: absolute;
-    width: calc(100% - 90px);
-    bottom: 0.5rem;
-    padding: 0.4rem 1rem;
+    position: relative;
+    margin: 0 !important;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem !important;
   }
 }
 
@@ -168,7 +177,7 @@
 }
 
 @media (max-width: 992px) {
-  .research-areas {
+  /* .research-areas {
     position: relative;
     margin: 0 !important;
     width: 100%;
@@ -176,7 +185,7 @@
     left: 0;
     text-align: center;
     margin-top: 1rem !important;
-  }
+  } */
 
   .desc-container {
     flex-direction: column;

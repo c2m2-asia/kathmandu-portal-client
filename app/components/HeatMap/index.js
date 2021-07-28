@@ -163,7 +163,7 @@ class HeatMap extends Component {
       <div
         ref={node => (this.node = node)} //eslint-disable-line
         style={{
-          height: '650px',
+          height: '600px',
           borderRadius: '10px',
         }}
       >
@@ -215,11 +215,12 @@ class HeatMap extends Component {
         <div
           style={{
             zIndex: '100',
-            padding: '0 5px',
             margin: '0',
+            marginRight: '8px',
             position: 'absolute',
             bottom: '25px',
             right: '0px',
+            boxShadow: '0px 5px 10px rgb(0 0 0 / 25%)',
           }}
         >
           <TimelineSlider
