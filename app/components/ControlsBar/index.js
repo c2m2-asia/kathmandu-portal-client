@@ -98,8 +98,8 @@ const researchAreas = [
     value: 'impact',
     label: 'Impact',
   },
-  { value: 'need', label: 'Need' },
   { value: 'preparedness', label: 'Preparedness' },
+  { value: 'need', label: 'Need' },
   { value: 'outlook', label: 'Outlook' },
 ];
 

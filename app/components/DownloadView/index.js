@@ -50,16 +50,16 @@ function DownloadView() {
             "Contains individual business' data on impact due to COVID-19",
         },
         {
-          label: 'Need',
-          name: 'need',
-          description:
-            'Contains individual business data on immediate needs like loans, HHS training, funding, etc.',
-        },
-        {
           label: 'Preparedness',
           name: 'preparedness',
           description:
             'Contains individual business data on how prepared businesses are to mitigate impacts caused due to COVID-19 like implementation of HHS measures, strategic actions with stakeholders, etc.',
+        },
+        {
+          label: 'Need',
+          name: 'need',
+          description:
+            'Contains individual business data on immediate needs like loans, HHS training, funding, etc.',
         },
         {
           label: 'Outlook',
@@ -81,16 +81,16 @@ function DownloadView() {
             'Contains individual worker data on impact due to COVID-19 like migration, COVID-19 infection, pay cut-off, etc.',
         },
         {
-          label: 'Need',
-          name: 'need',
-          description:
-            'Contains individual worker data about measures to mitigate the impact caused by COVID-19.',
-        },
-        {
           label: 'Preparedness',
           name: 'preparedness',
           description:
             'Contains individual worker data on savings, alternate sources of income, etc.',
+        },
+        {
+          label: 'Need',
+          name: 'need',
+          description:
+            'Contains individual worker data about measures to mitigate the impact caused by COVID-19.',
         },
         {
           label: 'Outlook',
@@ -105,14 +105,14 @@ function DownloadView() {
   const [metaStatus, setMetaStatus] = useState({
     businesses: {
       impact: false,
-      need: false,
       preparedness: false,
+      need: false,
       outlook: false,
     },
     workers: {
       impact: false,
-      need: false,
       preparedness: false,
+      need: false,
       outlook: false,
     },
   });
@@ -126,8 +126,8 @@ function DownloadView() {
     },
     workers: {
       impact: false,
-      need: false,
       preparedness: false,
+      need: false,
       outlook: false,
     },
   });
