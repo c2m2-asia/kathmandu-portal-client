@@ -130,7 +130,7 @@ function Carousel() {
             </Typography>
             <Link to={victim.link} className="read-more">
               <Typography
-                variant="body2"
+                variant="body1"
                 gutterBottom
                 style={{ color: '#1B6543' }}
               >

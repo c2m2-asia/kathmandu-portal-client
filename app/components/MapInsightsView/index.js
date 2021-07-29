@@ -20,6 +20,7 @@ import mapInsight from 'images/map-insight-1.png';
 import ZoomImage from 'components/StoryDetailView/ZoomImage';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
+import { primary } from 'theme';
 
 const locale = 'en';
 
@@ -92,12 +93,12 @@ function MapInsightsView({ getMapData, mapData }) {
             <Grid
               item
               xs={12}
-              sm={4}
-              lg={4}
+              sm={3}
+              lg={3}
               style={{
-                paddingRight: '1rem',
-                grow: '1',
+                paddingRight: '2rem',
                 overflowY: 'auto',
+                height: 'calc(100vh - 150px)',
               }}
             >
               {researchAreas.map((researchArea, index) => (
@@ -110,7 +111,7 @@ function MapInsightsView({ getMapData, mapData }) {
                     gutterBottom
                     style={{
                       paddingLeft: '1rem',
-                      color: 'rgba(0,0,0,0.5)',
+                      color: primary,
                     }}
                   >
                     {researchArea}
@@ -122,11 +123,15 @@ function MapInsightsView({ getMapData, mapData }) {
                         <Typography
                           variant="body1"
                           gutterBottom
-                          className={clsx(
-                            selectedHighlight === highlight &&
-                              classes.activeInsight,
-                            classes.insights,
-                          )}
+                          className={`${
+                            selectedHighlight === highlight
+                              ? 'highlight-selected'
+                              : 'highlight'
+                          } ${
+                            selectedHighlight === highlight
+                              ? 'selected-highlight'
+                              : ''
+                          }`}
                           onClick={() => {
                             setSelectedHighlight(highlight);
                             setSelectedOptionIndex(0);
@@ -143,8 +148,8 @@ function MapInsightsView({ getMapData, mapData }) {
             <Grid
               item
               xs={12}
-              sm={8}
-              lg={8}
+              sm={9}
+              lg={9}
               style={{ height: '100%', width: '100%' }}
             >
               <div
@@ -154,7 +159,7 @@ function MapInsightsView({ getMapData, mapData }) {
                   flexDirection: 'column',
                 }}
               >
-                <div style={{ flexGrow: '1' }}>
+                <div>
                   <HeatMap
                     setTimeIndex={setTimeIndex}
                     timeIndex={timeIndex}

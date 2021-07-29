@@ -163,7 +163,7 @@ class HeatMap extends Component {
       <div
         ref={node => (this.node = node)} //eslint-disable-line
         style={{
-          height: '600px',
+          height: 'calc(100vh - 350px)',
           borderRadius: '10px',
         }}
       >

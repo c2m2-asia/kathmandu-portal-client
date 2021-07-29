@@ -61,6 +61,7 @@ function CrosstabHeatmapIndividualContainer({
           Updated July 21, 2021
         </Typography>
       </div>
+
       <div style={{ padding: '2rem' }}>
         <Typography variant="body2" color="primary">
           QUESTION

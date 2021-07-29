@@ -154,7 +154,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${width + 180} ${height}`}
+        viewBox={`0 0 ${width + 180} ${height+20}`}
       >
         <g transform={`translate(${margin.left},${margin.top})`}>
           {chartData.chart_data.map((d, index) => (
@@ -295,17 +295,16 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
             >
               {chartData.chartInfo}
             </tspan>
-            {
-              //   <tspan
-              //   x={width - margin.left - margin.right}
-              //   y={height - 10}
-              //   textAnchor="end"
-              //   dy="1.2em"
-              //   style={{ fontSize: '0.9rem', color: '#696969' }}
-              // >
-              //   {chartData.surveyInfo}
-              // </tspan>
-            }
+
+            <tspan
+              x={width - margin.left - margin.right}
+              y={height - 10}
+              textAnchor="end"
+              dy="1.2em"
+              style={{ fontSize: '0.9rem', color: '#696969' }}
+            >
+              {chartData.surveyInfo}
+            </tspan>
           </text>
         </g>
       </svg>
