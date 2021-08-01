@@ -22,7 +22,6 @@ import NavBar from 'components/NavBar';
 import SurveyAreaSelector from './SurveyAreaSelector';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
-import 'intro.js/introjs.css';
 import './styles.css';
 
 const dimensions = {

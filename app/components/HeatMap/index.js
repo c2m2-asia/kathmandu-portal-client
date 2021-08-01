@@ -222,6 +222,7 @@ class HeatMap extends Component {
             right: '0px',
             boxShadow: '0px 5px 10px rgb(0 0 0 / 25%)',
           }}
+          className="timeline-step"
         >
           <TimelineSlider
             setTimeIndex={this.props.setTimeIndex}

@@ -101,11 +101,13 @@ function MapInsightsView({ getMapData, mapData }) {
                   overflowY: 'auto',
                   height: 'calc(100vh - 160px)',
                 }}
+                className="highlights-step"
               >
                 {researchAreas.map((researchArea, index) => (
                   <div
                     key={uid(researchArea, index)}
                     style={{ marginBottom: '2rem' }}
+                    className="impact-step"
                   >
                     <Typography
                       variant="h6"
@@ -160,7 +162,7 @@ function MapInsightsView({ getMapData, mapData }) {
                     flexDirection: 'column',
                   }}
                 >
-                  <div>
+                  <div className="map-step">
                     <HeatMap
                       setTimeIndex={setTimeIndex}
                       timeIndex={timeIndex}
@@ -168,7 +170,7 @@ function MapInsightsView({ getMapData, mapData }) {
                     />
                   </div>
                   <div>
-                    <div className="bottom-controls">
+                    <div className="bottom-controls options-step">
                       {mapData.distribution[selectedHighlight] &&
                         mapData.distribution[selectedHighlight].map(
                           (options, index) => (
@@ -230,6 +232,7 @@ function MapInsightsView({ getMapData, mapData }) {
               marginTop: '3rem',
               marginBottom: '3rem',
             }}
+            className="static-map-step"
           >
             <Typography
               variant="h6"

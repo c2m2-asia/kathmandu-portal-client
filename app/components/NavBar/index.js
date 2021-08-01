@@ -108,7 +108,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function NavBar({ history, onLocaleToggle, locale, location, children }) {
+function NavBar({
+  history,
+  onLocaleToggle,
+  locale,
+  location,
+  children,
+  dimension,
+}) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -133,6 +140,11 @@ function NavBar({ history, onLocaleToggle, locale, location, children }) {
       return true;
     }
     return false;
+  };
+
+  const getViewUrl = () => {
+    const splitLocation = location.pathname.split('/');
+    return splitLocation[splitLocation.length - 1];
   };
 
   return (
@@ -191,7 +203,12 @@ function NavBar({ history, onLocaleToggle, locale, location, children }) {
 
           <Hidden smDown>
             <div className={classes.menuItemsContainer}>
-              {showHowToUseButton() && <SpotlightWalkthrough />}
+              {showHowToUseButton() && (
+                <SpotlightWalkthrough
+                  dimension={dimension}
+                  viewUrl={getViewUrl()}
+                />
+              )}
               {menuItems.map(menuItem => (
                 <NavLink
                   key={uid(menuItem)}
