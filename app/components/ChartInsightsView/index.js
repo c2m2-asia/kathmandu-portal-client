@@ -20,7 +20,6 @@ import UnivariateChartView from 'components/UnivariateChartView/Loadable';
 import Paper from '@material-ui/core/Paper';
 import NavBar from 'components/NavBar';
 import SurveyAreaSelector from './SurveyAreaSelector';
-import { Steps, Hints } from 'intro.js-react';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import 'intro.js/introjs.css';
@@ -48,7 +47,6 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
   const defaultDimension = surveyArea === 'businesses' ? 'none' : 'none';
   const [dimension, setDimension] = useState(defaultDimension);
   const [viewType, setViewType] = useState('chart');
-  const [isTourEnabled, setIsTourEnabled] = useState(false);
 
   const dimensionLabel = dimensions[surveyArea]
     .find(a => a.value === dimension)
@@ -64,67 +62,11 @@ const ChartInsightsView = ({ getChartData, chartData, loading }) => {
     getChartData(surveyArea, researchArea, dimension);
   }, [surveyArea, researchArea, dimension]);
 
-  const getTotalResponses = () =>
-    chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
-
-  console.log(dimension, chartData);
-
-  console.log('loading', loading);
-
-  const steps = [
-    {
-      element: '.controls-step',
-      intro:
-        'This is the control selection section. These tabs help you to browse survey results by different categories.',
-      position: 'bottom',
-      tooltipClass: 'myTooltipClass',
-      highlightClass: 'myHighlightClass',
-    },
-    {
-      element: '.surveyArea-step',
-      intro: 'Select the survey area that you would like to browse.',
-    },
-    {
-      element: '.researchArea-step',
-      intro: 'Select the research area that you would like to browse.',
-    },
-    {
-      element: '.dimension-step',
-      intro: 'Select the dimension that you would like to browse.',
-    },
-    {
-      element: '.viewType-step',
-      intro:
-        'Select whether you want to view data in tabular format or charts.',
-    },
-    {
-      element: `${
-        dimension === 'none'
-          ? '.first-univariate-chart-step'
-          : '.first-bivariate-chart-step'
-      }`,
-      position: 'bottom',
-      intro: 'Charts are based on the selected controls.',
-    },
-  ];
+  // const getTotalResponses = () =>
+  //   chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
 
   return (
-    <NavBar>
-      <button onClick={() => setIsTourEnabled(true)}>click me</button>
-      <Steps
-        enabled={isTourEnabled}
-        steps={steps}
-        initialStep={0}
-        onExit={() => setIsTourEnabled(false)}
-        options={{
-          nextLabel: 'Next',
-          prevLabel: 'Previous',
-          skipLabel: 'Skip',
-          doneLabel: 'Done',
-          scrollToElement: true,
-          showStepNumbers: false,
-        }}
-      />
+    <NavBar dimension={dimension}>
       <div className="container controls-step">
         <SurveyAreaSelector
           surveyArea={surveyArea}

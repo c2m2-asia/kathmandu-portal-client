@@ -15,8 +15,10 @@ import Hidden from '@material-ui/core/Hidden';
 import { Drawer } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import { primary } from 'theme';
 import logo from 'images/project-logo.jpg';
+import SpotlightWalkthrough from 'components/SpotlightWalkthrough';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
@@ -122,6 +124,17 @@ function NavBar({ history, onLocaleToggle, locale, location, children }) {
     return false;
   };
 
+  const showHowToUseButton = () => {
+    const splitLocation = location.pathname.split('/');
+    if (
+      splitLocation[splitLocation.length - 1] === 'chart-insights' ||
+      splitLocation[splitLocation.length - 1] === 'map-insights'
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <Fragment>
       <AppBar
@@ -178,6 +191,7 @@ function NavBar({ history, onLocaleToggle, locale, location, children }) {
 
           <Hidden smDown>
             <div className={classes.menuItemsContainer}>
+              {showHowToUseButton() && <SpotlightWalkthrough />}
               {menuItems.map(menuItem => (
                 <NavLink
                   key={uid(menuItem)}
