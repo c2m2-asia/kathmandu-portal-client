@@ -40,7 +40,7 @@ const dimensions = {
 };
 
 const ChartInsightsView = ({ getChartData, chartData, loading }) => {
-  const [surveyArea, setSurveyArea] = useState('workforce');
+  const [surveyArea, setSurveyArea] = useState('businesses');
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
   const [researchArea, setResearchArea] = useState('impact');
   const defaultDimension = surveyArea === 'businesses' ? 'none' : 'none';

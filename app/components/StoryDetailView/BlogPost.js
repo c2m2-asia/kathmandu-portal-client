@@ -131,6 +131,7 @@ function BlogPost(props) {
                   color: '#696969',
                   float: 'right',
                   marginRight: '0.5rem',
+                  marginTop: '0.2rem',
                 }}
               >
                 Photo Courtesy: {photoCourtesy}

@@ -63,7 +63,7 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
 
   return (
     <Fragment>
-      <svg viewBox={`0 0 ${width + 400} ${height + 80}`}>
+      <svg viewBox={`0 0 ${width + 400} ${height + 90}`}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
@@ -168,11 +168,22 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
           >
             {chartData.chartInfo}
           </text>
+          {chartData.inputType === 'multi-select' && (
+            <text
+              x={width - margin.left - margin.right}
+              y={height + 50}
+              textAnchor="end"
+              dy="1.2em"
+              style={{ fontSize: '0.9rem', color: '#696969' }}
+            >
+              Respondents could select more than one answer for this question.
+            </text>
+          )}
           <text
             x={width - margin.left - margin.right}
             y={height + 50}
             textAnchor="end"
-            dy="1.2em"
+            dy={`${chartData.inputType === 'multi-select' ? '2.4em' : '1.2em'}`}
             style={{ fontSize: '0.9rem', color: '#696969' }}
           >
             {chartData.surveyInfo}

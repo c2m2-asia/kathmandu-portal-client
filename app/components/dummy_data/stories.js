@@ -80,7 +80,7 @@ const stories = [
     title: 'Psychological stress: the new normal for tourism workers?',
     id: 7,
     date: 'May 11, 2021',
-    src: `stress.jpg`,
+    src: `psychology.jpg`,
     author: 'Arogya Koirala and Aishworya Shrestha',
     snippet:
       'With the ongoing COVID-19 pandemic, stories and articles that report an increase in issues pertaining to people’s mental health and psychosocial wellbeing seem to be on the rise. Unsurprisingly, early...',
