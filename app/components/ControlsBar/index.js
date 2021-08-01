@@ -244,7 +244,7 @@ function ControlsBar({
           //   </Select>
           // </FormControl>
         }
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column researchArea-step">
           <Typography
             variant="body1"
             style={{ fontWeight: '600', color: '#B' }}
@@ -300,7 +300,7 @@ function ControlsBar({
           //   </Select>
           // </FormControl>
         }
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column dimension-step">
           <Typography
             variant="body1"
             style={{ fontWeight: '600', color: '#B' }}
@@ -329,7 +329,7 @@ function ControlsBar({
             ))}
           </Tabs>
         </div>
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column viewType-step">
           <Typography
             variant="body1"
             style={{ fontWeight: '600', color: '#B' }}

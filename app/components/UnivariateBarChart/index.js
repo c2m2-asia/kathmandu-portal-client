@@ -98,7 +98,7 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
                       dy={i === 0 ? '0em' : '1.2em'}
                       dx="-5"
                       style={{
-                        fontWeight: '500',
+                        fontWeight: '600',
                         textAnchor: 'end',
                         color: innerTextColor,
                       }}
@@ -140,7 +140,7 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
                       dy={i === 0 ? '0em' : '1.2em'}
                       dx="5"
                       style={{
-                        fontWeight: '500',
+                        fontWeight: '600',
                         textAnchor: 'start',
                         color: outerTextColor,
                       }}
@@ -166,7 +166,16 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
             textAnchor="end"
             style={{ fontSize: '0.9rem', color: '#696969' }}
           >
-            study of {chartData.askedTotal} workers based in Kathmandu, Nepal
+            {chartData.chartInfo}
+          </text>
+          <text
+            x={width - margin.left - margin.right}
+            y={height + 50}
+            textAnchor="end"
+            dy="1.2em"
+            style={{ fontSize: '0.9rem', color: '#696969' }}
+          >
+            {chartData.surveyInfo}
           </text>
         </g>
       </svg>

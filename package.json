@@ -84,6 +84,8 @@
     "hoist-non-react-statics": "3.3.0",
     "immer": "3.0.0",
     "intl": "1.2.5",
+    "intro.js": "^4.1.0",
+    "intro.js-react": "^0.4.0",
     "invariant": "2.2.4",
     "ip": "1.1.5",
     "lodash.orderby": "^4.6.0",

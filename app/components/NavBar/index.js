@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import clsx from 'clsx';
 import { uid } from 'react-uid';
 import { NavLink, useLocation, withRouter, Link } from 'react-router-dom';
@@ -106,7 +106,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function NavBar({ history, onLocaleToggle, locale, location }) {
+function NavBar({ history, onLocaleToggle, locale, location, children }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -123,7 +123,7 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
   };
 
   return (
-    <div>
+    <Fragment>
       <AppBar
         position="static"
         elevation={0}
@@ -228,7 +228,8 @@ function NavBar({ history, onLocaleToggle, locale, location }) {
           </div>
         </List>
       </Drawer>
-    </div>
+      {children}
+    </Fragment>
   );
 }
 export default withRouter(NavBar);

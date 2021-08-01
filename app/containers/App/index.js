@@ -12,7 +12,6 @@ import { Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import LandingPage from 'components/LandingPage';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import NavBar from 'components/NavBar';
 import ScrollToTopButton from 'components/ScrollToTopButton';
 import ChartInsightsPage from 'containers/ChartInsightsPage/Loadable';
 import MapInsightsPage from 'containers/MapInsightsPage/Loadable';
@@ -32,8 +31,7 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <NavBar />
+    <>
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/stories" component={StoriesListView} />
@@ -60,6 +58,6 @@ export default function App() {
       </Switch>
       <ScrollToTopButton />
       <GlobalStyle />
-    </div>
+    </>
   );
 }

@@ -46,6 +46,7 @@ function CrosstabHeatmapIndividualContainer({
 
   return (
     <Paper
+      className="first-bivariate-chart-step"
       elevation={1}
       style={{ marginBottom: '2rem', position: 'relative', flex: '48%' }}
     >

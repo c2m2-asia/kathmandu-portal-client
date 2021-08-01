@@ -7,6 +7,7 @@
 import React, { Fragment } from 'react';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
+import NavBar from 'components/NavBar';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -36,7 +37,7 @@ import Carousel from './Carousel';
 
 function LandingPage() {
   return (
-    <Fragment>
+    <NavBar>
       <section className="hero py-5" style={{ background: '#ffffff' }}>
         <div className="container" style={{ position: 'relative' }}>
           <div className="d-flex desc-container">
@@ -429,7 +430,7 @@ function LandingPage() {
           .
         </div>
       </section>
-    </Fragment>
+    </NavBar>
   );
 }
 

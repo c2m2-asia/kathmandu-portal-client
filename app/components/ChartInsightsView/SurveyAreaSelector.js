@@ -32,16 +32,14 @@ function SurveyAreaSelector({ surveyArea, setSurveyArea, setDimension }) {
 
   return (
     <div
-      className="container mt-3"
+      className="container mt-3 surveyArea-step"
       style={{ borderBottom: '1px solid #EBEBEB' }}
     >
       <Tabs
         value={surveyArea}
         onChange={(e, value) => {
           setSurveyArea(value);
-          setDimension(
-            value === 'businesses' ? 'm_biz_type' : 'm_years_of_experience',
-          );
+          setDimension('none');
         }}
         indicatorColor="primary"
         TabIndicatorProps={{

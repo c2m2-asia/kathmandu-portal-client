@@ -43,7 +43,7 @@ function UnivariateBarChartContainer({
     );
 
   return (
-    <Paper elevation={1} style={{ marginBottom: '2rem', position: 'relative' }}>
+    <Paper elevation={1} style={{ marginBottom: '2rem', position: 'relative' }} className="first-univariate-chart-step">
       <div
         style={{
           position: 'absolute',

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
-
+import NavBar from 'components/NavBar';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
@@ -17,7 +17,7 @@ import './styles.css';
 
 function VisualizationSelectionView() {
   return (
-    <>
+    <NavBar>
       <Typography
         variant="subtitle1"
         gutterBottom
@@ -48,7 +48,7 @@ function VisualizationSelectionView() {
           </div>
         </Link>
       </div>
-    </>
+    </NavBar>
   );
 }
 

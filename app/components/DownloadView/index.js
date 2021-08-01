@@ -9,6 +9,7 @@ import { uid } from 'react-uid';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
+import NavBar from 'components/NavBar';
 import Snackbar from '@material-ui/core/Snackbar';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
@@ -216,116 +217,121 @@ function DownloadView() {
   };
 
   return (
-    <div className="container py-5">
-      <Paper elevation={3} style={{ padding: '3rem' }}>
-        <div className="d-flex justify-content-between align-items-center">
-          <Typography variant="h5">Select dataset(s)</Typography>
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-            onClick={handleDownloadClick}
+    <NavBar>
+      <div className="container py-5">
+        <Paper elevation={3} style={{ padding: '3rem' }}>
+          <div className="d-flex justify-content-between align-items-center">
+            <Typography variant="h5">Select dataset(s)</Typography>
+            <Button
+              variant="contained"
+              size="large"
+              color="primary"
+              onClick={handleDownloadClick}
+            >
+              Download{' '}
+              {(Object.values(checkedStatus.businesses).includes(true) ||
+                Object.values(checkedStatus.workers).includes(true)) && (
+                <Chip
+                  size="small"
+                  label={getTotalSelections()}
+                  style={{ marginLeft: '0.5rem', background: '#E9C46A' }}
+                />
+              )}
+            </Button>
+          </div>
+          <Typography
+            variant="body1"
+            style={{ color: '#696969', marginTop: '0.5rem' }}
           >
-            Download{' '}
-            {(Object.values(checkedStatus.businesses).includes(true) ||
-              Object.values(checkedStatus.workers).includes(true)) && (
-              <Chip
-                size="small"
-                label={getTotalSelections()}
-                style={{ marginLeft: '0.5rem', background: '#E9C46A' }}
-              />
-            )}
-          </Button>
-        </div>
-        <Typography
-          variant="body1"
-          style={{ color: '#696969', marginTop: '0.5rem' }}
-        >
-          Select dataset(s) that you would like to download from the checklist
-          below and click on the 'download' button.
-        </Typography>
-        <Divider style={{ marginTop: '1rem', background: 'rgb(93 85 85)' }} />
-        {Object.keys(headers).map(sArea => (
-          <div className="row" key={uid(sArea)}>
-            <div className="col-12 pb-3 mt-4">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={Object.keys(checkedStatus[sArea]).every(
-                      k => checkedStatus[sArea][k],
-                    )}
-                    name={headers[sArea].name}
-                    onChange={e =>
-                      onSurveyAreaCheckedChange(e.target.name, e.target.checked)
-                    }
-                    color="primary"
-                    style={{ marginRight: '1rem' }}
-                  />
-                }
-                label={
-                  <span className="pl-3 d-flex align-items-end">
-                    {headers[sArea].icon}
-                    <div className="label">{headers[sArea].label}</div>
-                  </span>
-                }
-              />
-            </div>
-            {headers[sArea].researchAreas.map(rArea => (
-              <div className="col-12 indent pb-4" key={uid(rArea)}>
+            Select dataset(s) that you would like to download from the checklist
+            below and click on the 'download' button.
+          </Typography>
+          <Divider style={{ marginTop: '1rem', background: 'rgb(93 85 85)' }} />
+          {Object.keys(headers).map(sArea => (
+            <div className="row" key={uid(sArea)}>
+              <div className="col-12 pb-3 mt-4">
                 <FormControlLabel
-                  classes={{ root: classes.formLabel }}
                   control={
                     <Checkbox
-                      checked={checkedStatus[sArea][rArea.name]}
-                      onChange={() => onCheckboxChange(sArea, rArea.name)}
-                      name="checkedB"
+                      checked={Object.keys(checkedStatus[sArea]).every(
+                        k => checkedStatus[sArea][k],
+                      )}
+                      name={headers[sArea].name}
+                      onChange={e =>
+                        onSurveyAreaCheckedChange(
+                          e.target.name,
+                          e.target.checked,
+                        )
+                      }
                       color="primary"
                       style={{ marginRight: '1rem' }}
                     />
                   }
                   label={
-                    <div>
-                      <div className="sub-label">{rArea.label}</div>
-                      <div className="label-description">
-                        {rArea.description}
-                      </div>
-                    </div>
+                    <span className="pl-3 d-flex align-items-end">
+                      {headers[sArea].icon}
+                      <div className="label">{headers[sArea].label}</div>
+                    </span>
                   }
                 />
-                <div style={{ marginLeft: '3rem' }}>
-                  <Button
-                    style={{ color: '#696969' }}
-                    onClick={() => onMetaStatusChange(sArea, rArea.name)}
-                  >
-                    {metaStatus[sArea][rArea.name]
-                      ? 'Hide table information'
-                      : 'Show table information'}
-                  </Button>
-                </div>
-                {metaStatus[sArea][rArea.name] && (
-                  <div className="meta-table-container">
-                    <MetaTable
-                      tableName={`${
-                        sArea === 'businesses' ? 'business' : 'workforce'
-                      }${rArea.label}`}
-                    />
-                  </div>
-                )}
               </div>
-            ))}
-          </div>
-        ))}
-      </Paper>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleClose}
-      >
-        <Alert onClose={handleClose} severity="info">
-          Select dataset(s) that you would like to download first.
-        </Alert>
-      </Snackbar>
-    </div>
+              {headers[sArea].researchAreas.map(rArea => (
+                <div className="col-12 indent pb-4" key={uid(rArea)}>
+                  <FormControlLabel
+                    classes={{ root: classes.formLabel }}
+                    control={
+                      <Checkbox
+                        checked={checkedStatus[sArea][rArea.name]}
+                        onChange={() => onCheckboxChange(sArea, rArea.name)}
+                        name="checkedB"
+                        color="primary"
+                        style={{ marginRight: '1rem' }}
+                      />
+                    }
+                    label={
+                      <div>
+                        <div className="sub-label">{rArea.label}</div>
+                        <div className="label-description">
+                          {rArea.description}
+                        </div>
+                      </div>
+                    }
+                  />
+                  <div style={{ marginLeft: '3rem' }}>
+                    <Button
+                      style={{ color: '#696969' }}
+                      onClick={() => onMetaStatusChange(sArea, rArea.name)}
+                    >
+                      {metaStatus[sArea][rArea.name]
+                        ? 'Hide table information'
+                        : 'Show table information'}
+                    </Button>
+                  </div>
+                  {metaStatus[sArea][rArea.name] && (
+                    <div className="meta-table-container">
+                      <MetaTable
+                        tableName={`${
+                          sArea === 'businesses' ? 'business' : 'workforce'
+                        }${rArea.label}`}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          ))}
+        </Paper>
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert onClose={handleClose} severity="info">
+            Select dataset(s) that you would like to download first.
+          </Alert>
+        </Snackbar>
+      </div>
+    </NavBar>
   );
 }
 

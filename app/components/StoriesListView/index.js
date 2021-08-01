@@ -9,6 +9,7 @@ import clsx from 'clsx';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
+import NavBar from 'components/NavBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 // import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
@@ -48,6 +49,7 @@ function StoriesListView() {
   const reports = stories.slice(4, 7);
 
   return (
+    <NavBar>
     <div className="bg-white">
       <div className="container py-5">
         <Blog posts={pstories} header="Stories from the ground" />
@@ -55,7 +57,7 @@ function StoriesListView() {
           <Blog posts={reports} header="Deep dive into data" />
         </div>
       </div>
-    </div>
+    </div></NavBar>
   );
 }
 
