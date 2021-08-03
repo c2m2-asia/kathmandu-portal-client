@@ -7,7 +7,7 @@ import story7 from './story7';
 
 const stories = [
   {
-    title: 'Our hopes were pinned on Visit Nepal 2020',
+    title: 'Our hopes were pinned on Visit Nepal 2020.',
     id: 1,
     date: 'May 21, 2021',
     src: `vidya.jpg`,
@@ -19,7 +19,7 @@ const stories = [
   },
 
   {
-    title: 'Questioning life decisions has now become an everyday ordeal',
+    title: 'Questioning life decisions has now become an everyday ordeal.',
     id: 2,
     date: 'May 12, 2021',
     src: `ramesh.jpg`,
@@ -31,7 +31,7 @@ const stories = [
   },
 
   {
-    title: 'Thinking of leaving',
+    title: 'Thinking of leaving.',
     id: 3,
     date: 'May 12, 2021',
     src: `neetam.jpg`,
@@ -42,7 +42,7 @@ const stories = [
     photoCourtesy: 'Aishworya Shrestha',
   },
   {
-    title: 'Never been this worried in the last thirty years',
+    title: 'Never been this worried in the last thirty years.',
     id: 4,
     date: 'May 12, 2021',
     src: `saila.jpg`,

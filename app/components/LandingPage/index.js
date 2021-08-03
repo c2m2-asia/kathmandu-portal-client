@@ -24,6 +24,10 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import BusinessIcon from '@material-ui/icons/Business';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import PersonIcon from '@material-ui/icons/Person';
+import IconButton from '@material-ui/core/IconButton';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LanguageIcon from '@material-ui/icons/Language';
 import kllLogo from 'images/kll-logo.png';
 import aagLogo from 'images/aag-logo.png';
 import mapGiveLogo from 'images/map-give-logo.png';
@@ -32,6 +36,9 @@ import taanLogo from 'images/taan-logo.png';
 import jottufLogo from 'images/jottuf-logo.png';
 import ttdcLogo from 'images/ttdc-logo.png';
 import hanLogo from 'images/han-logo.png';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import Carousel from './Carousel';
 
@@ -309,40 +316,11 @@ function LandingPage() {
       <section className="py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div style={{ maxWidth: '700px', margin: 'auto' }}>
-            <div className="d-flex flex-column align-items-center">
-              <Typography
-                variant="h5"
-                gutterBottom
-                style={{
-                  color: '#333f57',
-                  textAlign: 'center',
-                }}
-              >
-                About the Project
-              </Typography>
-              <div className="title-shape mb-5 mt-2" />
-            </div>
-            <Typography
-              paragraph
-              gutterBottom
-              style={{
-                color: '#333f57',
-                textAlign: 'center',
-              }}
-            >
-              The Cities’ COVID Mitigation Mapping program (C2M2) builds on
-              global networks of geospatial experts to analyze second-order
-              impacts of COVID-19. The goal of this program is to increase
-              identification and understanding of the distribution and gaps in
-              resources available to vulnerable populations in urban
-              communities.
-            </Typography>
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '1.5rem',
-                marginTop: '2rem',
                 flexWrap: 'wrap',
               }}
             >
@@ -356,14 +334,12 @@ function LandingPage() {
                 <Typography variant="h6" style={{ textAlign: 'center' }}>
                   Global Partners
                 </Typography>
-                <div
-                  style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
-                >
+                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                   <div style={{ margin: 'auto' }}>
                     <img src={aagLogo} width="140" alt="AAG logo" />
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={mapGiveLogo} width="150" alt="MapGive logo" />
+                    <img src={mapGiveLogo} height="73" alt="MapGive logo" />
                   </div>
                 </div>
               </div>
@@ -375,9 +351,7 @@ function LandingPage() {
                 >
                   National Partners
                 </Typography>
-                <div
-                  style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
-                >
+                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                   <div style={{ margin: 'auto' }}>
                     <img src={hanLogo} width="100" alt="HAN logo" />
                   </div>
@@ -402,32 +376,111 @@ function LandingPage() {
 
       {/* Footer */}
       <section
-        className="py-3"
+        className="py-5"
         style={{
-          background: '#264653',
+          background: '#33475b',
           color: 'white',
           fontSize: '13px',
-          textAlign: 'center',
         }}
       >
         <div className="container">
-          Developed by&nbsp;
-          <a
-            className="footer-link"
-            href="https://www.kathmandulivinglabs.org/"
-            target="_blank"
-          >
-            Kathmandu Living Labs
-          </a>
-          .&nbsp;Implemented by&nbsp;
-          <a className="footer-link" href="http://www.aag.org/">
-            American Association of Geographers
-          </a>
-          .&nbsp;Supported by&nbsp;
-          <a className="footer-link" href="https://mapgive.state.gov/">
-            U.S. Department of State's MapGive initiative
-          </a>
-          .
+          <div className="row">
+            <div className="col-5">
+              <Typography variant="h6" gutterBottom align="left">
+                About C2M2
+              </Typography>
+              <Typography
+                paragraph
+                align="left"
+                style={{ fontSize: '14px', color: '#f4f4f4' }}
+              >
+                This portal was produced as part of the Cities COVID Mitigation
+                Mapping Program. The Cities&apos; COVID Mitigation Mapping
+                (C2M2) program is part of the MapGive Initiative in the Office
+                of the Geographer at the U.S. Department of State that builds
+                partnerships to enhance geospatial capacity, generate data, and
+                share maps to support planning for mitigating COVID-19 second
+                order impacts. We acknowledge the many partners who make this a
+                successful program.
+              </Typography>
+            </div>
+            <div className="col-2 offset-md-2">
+              <Typography variant="h6" gutterBottom align="left">
+                Portal Links
+              </Typography>
+              <Link to="/" className="footer-link">
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  Stories
+                </Typography>
+              </Link>
+              <Link to="/visualizations" className="footer-link">
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  Visualizations
+                </Typography>
+              </Link>
+              <Link to="/downloads" className="footer-link">
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  Downloads
+                </Typography>
+              </Link>
+              <Link to="/about" className="footer-link">
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  About
+                </Typography>
+              </Link>
+            </div>
+            <div className="col-2 offset-md-1">
+              <Typography variant="h6" gutterBottom align="left">
+                Resources
+              </Typography>
+              <a
+                href="https://c2m2-asia.github.io/kathmandu/"
+                className="footer-link"
+                target="_blank"
+              >
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  Interim Report
+                </Typography>
+              </a>
+              <a
+                href="https://github.com/c2m2-asia/kathmandu-data"
+                className="footer-link"
+                target="_blank"
+              >
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  Data
+                </Typography>
+              </a>
+              <Link to="/" className="footer-link">
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
+                  Story Map
+                </Typography>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-2" style={{ background: '#f5f7fc' }}>
+        <div className="container">
+          <div className="d-flex justify-content-between align-items-center">
+            <div>
+              <Typography align="left" variant="subtitle2">
+                &copy; Kathmandu Living Labs
+              </Typography>
+            </div>
+            <div>
+              <IconButton aria-label="delete">
+                <LanguageIcon />
+              </IconButton>
+              <IconButton aria-label="delete">
+                <FacebookIcon />
+              </IconButton>
+              <IconButton aria-label="delete">
+                <TwitterIcon />
+              </IconButton>
+            </div>
+          </div>
         </div>
       </section>
     </NavBar>

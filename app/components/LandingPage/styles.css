@@ -133,12 +133,12 @@
 
 .footer-link {
   text-decoration: none;
-  color: #2a9d8f;
+  color: #f4f4f4;
 }
 
 .footer-link:hover {
-  text-decoration: none;
-  color: #e9c46a;
+  color: #f4f4f4;
+  text-decoration: underline;
 }
 
 .hero-title {
