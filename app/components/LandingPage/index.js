@@ -320,18 +320,24 @@ function LandingPage() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.5rem',
+                gap: '2rem',
                 flexWrap: 'wrap',
               }}
             >
               <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography variant="h6">Implemented by</Typography>
+                <Typography variant="h6" style={{ color: '#696969' }}>
+                  Implemented by
+                </Typography>
                 <div style={{ margin: 'auto' }}>
                   <img src={kllLogo} width="100" alt="KLL logo" />
                 </div>
               </div>
               <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography variant="h6" style={{ textAlign: 'center' }}>
+                <Typography
+                  variant="h6"
+                  align="center"
+                  style={{ color: '#696969' }}
+                >
                   Global Partners
                 </Typography>
                 <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
@@ -346,26 +352,64 @@ function LandingPage() {
               <div style={{ display: 'grid', placeContent: 'center' }}>
                 <Typography
                   variant="h6"
-                  style={{ textAlign: 'center' }}
+                  align="center"
                   gutterBottom
+                  style={{ color: '#696969' }}
                 >
-                  National Partners
+                  Businesses Survey Partners
                 </Typography>
-                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                <div
+                  className="d-flex align-items-center"
+                  style={{ gap: '2rem' }}
+                >
                   <div style={{ margin: 'auto' }}>
-                    <img src={hanLogo} width="100" alt="HAN logo" />
+                    <a
+                      href="https://www.hotelassociationnepal.org.np/"
+                      target="_blank"
+                    >
+                      <img src={hanLogo} width="100" alt="HAN logo" />
+                    </a>
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={ttdcLogo} width="100" alt="TTDC logo" />
+                    <a href="https://www.taan.org.np/" target="_blank">
+                      <img src={taanLogo} height="65" alt="TAAN logo" />
+                    </a>
                   </div>
                   <div style={{ margin: 'auto' }}>
-                    <img src={unitravLogo} width="100" alt="UNITRAV logo" />
+                    <a
+                      href="https://www.facebook.com/Thamel-Tourism-Development-council-TTDC-1219818868140081/"
+                      target="_blank"
+                    >
+                      <img src={ttdcLogo} width="100" alt="TTDC logo" />
+                    </a>
                   </div>
-                  <div style={{ margin: 'auto' }}>
-                    <img src={taanLogo} width="100" alt="TAAN logo" />
+                </div>
+              </div>
+              <div style={{ display: 'grid', placeContent: 'center' }}>
+                <Typography
+                  variant="h6"
+                  align="center"
+                  gutterBottom
+                  style={{ color: '#696969' }}
+                >
+                  Workforce Survey Partners
+                </Typography>
+                <div
+                  className="d-flex align-items-center"
+                  style={{ gap: '2rem' }}
+                >
+                  <div>
+                    <a href="https://unitrav.org.np/" target="_blank">
+                      <img src={unitravLogo} width="100" alt="UNITRAV logo" />
+                    </a>
                   </div>
-                  <div style={{ margin: 'auto' }}>
-                    <img src={jottufLogo} width="100" alt="JOTTUF logo" />
+                  <div>
+                    <a
+                      href="https://www.facebook.com/jottufnepal/"
+                      target="_blank"
+                    >
+                      <img src={jottufLogo} height="65" alt="JOTTUF logo" />
+                    </a>
                   </div>
                 </div>
               </div>
