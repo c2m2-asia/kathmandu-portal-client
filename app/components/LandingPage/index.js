@@ -179,7 +179,7 @@ function LandingPage() {
                   fontWeight: '700',
                 }}
               >
-                200+
+                250+
               </Typography>
               <Typography
                 variant="h5"
@@ -514,13 +514,37 @@ function LandingPage() {
               </Typography>
             </div>
             <div>
-              <IconButton aria-label="delete">
+              <IconButton
+                aria-label="delete"
+                onClick={() =>
+                  window
+                    .open('https://www.kathmandulivinglabs.org/', '_blank')
+                    .focus()
+                }
+              >
                 <LanguageIcon />
               </IconButton>
-              <IconButton aria-label="delete">
+              <IconButton
+                aria-label="delete"
+                onClick={() =>
+                  window
+                    .open(
+                      'https://www.facebook.com/kathmandulivinglabs',
+                      '_blank',
+                    )
+                    .focus()
+                }
+              >
                 <FacebookIcon />
               </IconButton>
-              <IconButton aria-label="delete">
+              <IconButton
+                aria-label="delete"
+                onClick={() =>
+                  window
+                    .open('https://twitter.com/KTMLivingLabs', '_blank')
+                    .focus()
+                }
+              >
                 <TwitterIcon />
               </IconButton>
             </div>
