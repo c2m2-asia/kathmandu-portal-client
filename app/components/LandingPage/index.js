@@ -29,6 +29,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LanguageIcon from '@material-ui/icons/Language';
 import Partners from './Partners';
+import StoryMap from './StoryMap';
 
 import Carousel from './Carousel';
 
@@ -242,7 +243,13 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-5" style={{ background: '#f5f7fc' }}>
+      <section className="bg-white py-5" style={{ background: '#264653' }}>
+        <div className="container">
+          <StoryMap />
+        </div>
+      </section>
+
+      <section className="py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-6">
@@ -286,7 +293,7 @@ function LandingPage() {
                 </Button>
               </a>
               <a
-                href="https://raw.githubusercontent.com/c2m2-asia/share-survey/main/%E0%A4%95%E0%A5%8B%E0%A4%AD%E0%A4%BF%E0%A4%A1-%E0%A5%A7%E0%A5%AF%20%E0%A4%AE%E0%A4%BE%20%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80%20%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%AF%E0%A4%9F%E0%A4%A8%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%20%E0%A4%85%E0%A4%B8%E0%A4%B0%2C%20%E0%A4%A4%E0%A5%88%E0%A4%AF%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%B0%20%E0%A4%86%E0%A4%B5%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%95%E0%A4%A4%E0%A4%BE%E0%A4%95%E0%A5%8B%20%E0%A4%B5%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%81%E0%A4%97%E0%A4%A4%20%E0%A4%A4%E0%A4%A5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%82%E0%A4%95%20%E0%A4%B8%E0%A4%82%E0%A4%95%E0%A4%B2%E0%A4%A8.pdf"
+                href="https://raw.githubusercontent.com/c2m2-asia/share-survey/main/COVID-19%20and%20Tourism%20Workers%20-%20English%20-%20A%20Survey%20to%20Assess%20COVID%20Impact%2C%20Your%20Current%20Needs%20and%20Future%20Plans.pdf"
                 style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
               >
                 <Button
@@ -303,7 +310,7 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="py-5" style={{ background: '#f5f7fc' }}>
+      <section className="bg-white py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <Partners />
         </div>
