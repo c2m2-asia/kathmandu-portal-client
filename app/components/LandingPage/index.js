@@ -28,17 +28,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LanguageIcon from '@material-ui/icons/Language';
-import kllLogo from 'images/kll-logo.png';
-import aagLogo from 'images/aag-logo.png';
-import mapGiveLogo from 'images/map-give-logo.png';
-import unitravLogo from 'images/unitrav-logo.png';
-import taanLogo from 'images/taan-logo.png';
-import jottufLogo from 'images/jottuf-logo.png';
-import ttdcLogo from 'images/ttdc-logo.png';
-import hanLogo from 'images/han-logo.png';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import Partners from './Partners';
 
 import Carousel from './Carousel';
 
@@ -315,106 +305,7 @@ function LandingPage() {
 
       <section className="py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
-          <div style={{ maxWidth: '700px', margin: 'auto' }}>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '2rem',
-                flexWrap: 'wrap',
-              }}
-            >
-              <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography variant="h6" style={{ color: '#696969' }}>
-                  Implemented by
-                </Typography>
-                <div style={{ margin: 'auto' }}>
-                  <img src={kllLogo} width="100" alt="KLL logo" />
-                </div>
-              </div>
-              <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography
-                  variant="h6"
-                  align="center"
-                  style={{ color: '#696969' }}
-                >
-                  Global Partners
-                </Typography>
-                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-                  <div style={{ margin: 'auto' }}>
-                    <img src={aagLogo} width="140" alt="AAG logo" />
-                  </div>
-                  <div style={{ margin: 'auto' }}>
-                    <img src={mapGiveLogo} height="73" alt="MapGive logo" />
-                  </div>
-                </div>
-              </div>
-              <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography
-                  variant="h6"
-                  align="center"
-                  gutterBottom
-                  style={{ color: '#696969' }}
-                >
-                  Businesses Survey Partners
-                </Typography>
-                <div
-                  className="d-flex align-items-center"
-                  style={{ gap: '2rem' }}
-                >
-                  <div style={{ margin: 'auto' }}>
-                    <a
-                      href="https://www.hotelassociationnepal.org.np/"
-                      target="_blank"
-                    >
-                      <img src={hanLogo} width="100" alt="HAN logo" />
-                    </a>
-                  </div>
-                  <div style={{ margin: 'auto' }}>
-                    <a href="https://www.taan.org.np/" target="_blank">
-                      <img src={taanLogo} height="65" alt="TAAN logo" />
-                    </a>
-                  </div>
-                  <div style={{ margin: 'auto' }}>
-                    <a
-                      href="https://www.facebook.com/Thamel-Tourism-Development-council-TTDC-1219818868140081/"
-                      target="_blank"
-                    >
-                      <img src={ttdcLogo} width="100" alt="TTDC logo" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div style={{ display: 'grid', placeContent: 'center' }}>
-                <Typography
-                  variant="h6"
-                  align="center"
-                  gutterBottom
-                  style={{ color: '#696969' }}
-                >
-                  Workforce Survey Partners
-                </Typography>
-                <div
-                  className="d-flex align-items-center"
-                  style={{ gap: '2rem' }}
-                >
-                  <div>
-                    <a href="https://unitrav.org.np/" target="_blank">
-                      <img src={unitravLogo} width="100" alt="UNITRAV logo" />
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="https://www.facebook.com/jottufnepal/"
-                      target="_blank"
-                    >
-                      <img src={jottufLogo} height="65" alt="JOTTUF logo" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Partners />
         </div>
       </section>
 

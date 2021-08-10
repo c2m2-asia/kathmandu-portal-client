@@ -99,7 +99,7 @@ function MapInsightsView({ getMapData, mapData }) {
                 style={{
                   paddingRight: '2rem',
                   overflowY: 'auto',
-                  height: 'calc(100vh - 160px)',
+                  height: '800px',
                 }}
                 className="highlights-step"
               >
@@ -153,7 +153,7 @@ function MapInsightsView({ getMapData, mapData }) {
                 xs={12}
                 sm={9}
                 lg={9}
-                style={{ height: '100%', width: '100%' }}
+                style={{ height: '100%', width: '100%', paddingLeft: '1.5rem' }}
               >
                 <div
                   style={{
@@ -163,58 +163,58 @@ function MapInsightsView({ getMapData, mapData }) {
                   }}
                 >
                   <div className="map-step">
+                    <div>
+                      <div className="bottom-controls options-step">
+                        {mapData.distribution[selectedHighlight] &&
+                          mapData.distribution[selectedHighlight].map(
+                            (options, index) => (
+                              <div
+                                role="button"
+                                key={uid(options, index)}
+                                className={`controls ${
+                                  selectedOptionIndex === index
+                                    ? 'selected-option'
+                                    : ''
+                                }`}
+                                onClick={() => setSelectedOptionIndex(index)}
+                              >
+                                <Typography
+                                  style={{
+                                    whiteSpace: 'nowrap',
+                                    fontSize: '2rem',
+                                  }}
+                                  className={`${
+                                    selectedOptionIndex === index
+                                      ? 'active-option-text'
+                                      : 'option-text'
+                                  }`}
+                                >
+                                  {options.percoftotal}%
+                                </Typography>
+                                <Typography
+                                  variant="subtitle1"
+                                  className={`${
+                                    selectedOptionIndex === index
+                                      ? 'active-option-text'
+                                      : 'option-text'
+                                  }`}
+                                  style={{
+                                    fontSize: '1.1rem',
+                                    lineHeight: '1.2',
+                                  }}
+                                >
+                                  {options.label[locale]}
+                                </Typography>
+                              </div>
+                            ),
+                          )}
+                      </div>
+                    </div>
                     <HeatMap
                       setTimeIndex={setTimeIndex}
                       timeIndex={timeIndex}
                       heatMapData={heatMapData}
                     />
-                  </div>
-                  <div>
-                    <div className="bottom-controls options-step">
-                      {mapData.distribution[selectedHighlight] &&
-                        mapData.distribution[selectedHighlight].map(
-                          (options, index) => (
-                            <div
-                              role="button"
-                              key={uid(options, index)}
-                              className={`controls ${
-                                selectedOptionIndex === index
-                                  ? 'selected-option'
-                                  : ''
-                              }`}
-                              onClick={() => setSelectedOptionIndex(index)}
-                            >
-                              <Typography
-                                style={{
-                                  whiteSpace: 'nowrap',
-                                  fontSize: '2rem',
-                                }}
-                                className={`${
-                                  selectedOptionIndex === index
-                                    ? 'active-option-text'
-                                    : 'option-text'
-                                }`}
-                              >
-                                {options.percoftotal}%
-                              </Typography>
-                              <Typography
-                                variant="subtitle1"
-                                className={`${
-                                  selectedOptionIndex === index
-                                    ? 'active-option-text'
-                                    : 'option-text'
-                                }`}
-                                style={{
-                                  fontSize: '1.1rem',
-                                  lineHeight: '1.2',
-                                }}
-                              >
-                                {options.label[locale]}
-                              </Typography>
-                            </div>
-                          ),
-                        )}
-                    </div>
                   </div>
                 </div>
               </Grid>
