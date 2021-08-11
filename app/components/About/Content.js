@@ -53,6 +53,9 @@ const useStyles = makeStyles(theme => ({
     borderRight: `1px solid ${theme.palette.divider}`,
     overflow: 'visible',
   },
+  tab: {
+    whiteSpace: 'nowrap'
+  },
   selectedTab: {
     fontWeight: '600',
   },
@@ -80,7 +83,7 @@ export default function VerticalTabs() {
         <Tab
           label="Executive Summary"
           {...a11yProps(0)}
-          classes={{ selected: classes.selectedTab }}
+          classes={{ root: classes.tab, selected: classes.selectedTab }}
         />
         <Tab
           label="Survey"

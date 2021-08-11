@@ -15,9 +15,9 @@ function AboutProject() {
   return (
     <>
       <div className="row">
-        <div className="col-12 col-sm-7">
+        <div className="col-12 col-sm-8">
           <Typography variant="h5" gutterBottom>
-            About this project
+            About this Project
           </Typography>
           <div className="title-shape mb-3 mt-2" />
           <Typography
@@ -60,9 +60,9 @@ function AboutProject() {
       </div>
 
       <div className="row">
-        <div className="col-12 col-sm-7">
+        <div className="col-12 col-sm-8">
           <Typography variant="h5" gutterBottom style={{ marginTop: '5rem' }}>
-            About C2M2 global project
+            About C2M2 Global Project
           </Typography>
           <div className="title-shape mb-3 mt-2" />
           <Typography

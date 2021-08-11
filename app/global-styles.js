@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body.fontLoaded {
-    font-family: 'Poppins','Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
   }
 
   #app {
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
   p,
   label {
-    font-family: Poppins, Georgia, Times, 'Times New Roman', serif;
+    font-family: Poppins, sans-serif;
     line-height: 1.5em;
   }
 `;

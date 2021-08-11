@@ -42,7 +42,7 @@ const MOUNT_NODE = document.getElementById('app');
 
 WebFont.load({
   google: {
-    families: ['Poppins:300,400,600,700,900'],
+    families: ['Poppins:400,600,700,900'],
   },
 });
 

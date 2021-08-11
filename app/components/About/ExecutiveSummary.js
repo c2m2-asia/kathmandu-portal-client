@@ -15,7 +15,7 @@ function ExecutiveSummary() {
   return (
     <>
       <div className="row">
-        <div className="col-12 col-sm-7">
+        <div className="col-12 col-sm-8">
           <Typography variant="h5" gutterBottom>
             Executive Summary
           </Typography>
