@@ -25,16 +25,12 @@ const TableCell = withStyles({
 
 const workforceDistribution = [
   {
-    title: 'Shopkeeper ',
-    count: 1,
+    title: 'Trekking guide',
+    count: 152,
   },
   {
     title: 'Tour guide',
     count: 53,
-  },
-  {
-    title: 'Trekking guide',
-    count: 152,
   },
   {
     title: 'Rafting guide',
@@ -45,53 +41,63 @@ const workforceDistribution = [
     count: 29,
   },
   {
-    title: 'Driver',
-    count: 3,
+    title: 'Hotel staff',
+    count: 21,
+  },
+  {
+    title: 'Chef/ cook ',
+    count: 11,
   },
   {
     title: 'Travel agent',
     count: 8,
   },
   {
-    title: 'Flight attendant',
-    count: 1,
-  },
-  {
-    title: 'Pilot ',
-    count: 1,
-  },
-  {
-    title: 'Chef / cook ',
-    count: 11,
+    title: 'Porter',
+    count: 6,
   },
   {
     title: 'Hotel manager',
     count: 4,
   },
   {
-    title: 'Hotel staff ',
-    count: 21,
-  },
-  {
     title: 'Waiter ',
     count: 4,
   },
+  // {
+  //   title: 'Driver',
+  //   count: 3,
+  // },
+  // {
+  //   title: 'Bartender',
+  //   count: 3,
+  // },
+  // {
+  //   title: 'Shopkeeper',
+  //   count: 1,
+  // },
+  // {
+  //   title: 'Flight attendant',
+  //   count: 1,
+  // },
+  // {
+  //   title: 'Pilot',
+  //   count: 1,
+  // },
   {
-    title: 'Bartender ',
-    count: 3,
-  },
-  {
-    title: 'Porter ',
-    count: 6,
-  },
-  {
-    title: 'Other ',
-    count: 15,
+    title: 'Others',
+    count: 24,
   },
 ];
 
 export default function WorkforceTable() {
   const classes = useStyles();
+
+  const getTotal = () => {
+    return workforceDistribution.reduce((acc, obj) => {
+      return acc + obj.count;
+    }, 0);
+  };
 
   return (
     <TableContainer>
@@ -133,6 +139,22 @@ export default function WorkforceTable() {
               <TableCell align="right">{row.count}</TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell component="th" scope="row" />
+            <TableCell align="right">
+              <span
+                style={{
+                  textTransform: 'uppercase',
+                  fontWeight: '600',
+                  color: '#696969',
+                }}
+              >
+                total
+              </span>
+              &nbsp;
+              <span>{getTotal()}</span>
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>

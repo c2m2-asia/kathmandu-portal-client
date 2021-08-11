@@ -29,42 +29,47 @@ const businessesDistribution = [
     count: 29,
   },
   {
-    title: 'Restaurant and Bar',
-    count: 11,
-  },
-  {
-    title: 'Travel and Tour Operator',
+    title: 'Travel and tour operations',
     count: 20,
-  },
-  {
-    title: 'Handicraft ',
-    count: 12,
-  },
-  {
-    title: 'Rafting ',
-    count: 2,
   },
   {
     title: 'Trekking ',
     count: 16,
   },
   {
-    title: 'Mountaineering ',
-    count: 1,
+    title: 'Handicraft ',
+    count: 12,
+  },
+  {
+    title: 'Restaurant and Bar',
+    count: 11,
   },
   {
     title: 'Shop/Merchandise',
     count: 11,
   },
+  // {
+  //   title: 'Rafting',
+  //   count: 2,
+  // },
+  // {
+  //   title: 'Mountaineering',
+  //   count: 1,
+  // },
   {
-    title: 'Other ',
-    count: 10,
+    title: 'Others',
+    count: 13,
   },
 ];
 
 export default function BusinessesTable() {
   const classes = useStyles();
 
+  const getTotal = () => {
+    return businessesDistribution.reduce((acc, obj) => {
+      return acc + obj.count;
+    }, 0);
+  };
   return (
     <TableContainer>
       <Table className={classes.table} aria-label="simple table">
@@ -105,6 +110,22 @@ export default function BusinessesTable() {
               <TableCell align="right">{row.count}</TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell component="th" scope="row" />
+            <TableCell align="right">
+              <span
+                style={{
+                  textTransform: 'uppercase',
+                  fontWeight: '600',
+                  color: '#696969',
+                }}
+              >
+                total
+              </span>
+              &nbsp;
+              <span>{getTotal()}</span>
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
