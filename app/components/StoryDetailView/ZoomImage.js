@@ -68,6 +68,8 @@ function ZoomImage(props) {
     }
   }, [zoomedIn, scrollbarSize]);
 
+  console.log('src', src);
+
   return (
     <Fragment>
       <ScrollbarSize onChange={setScrollbarSize} />

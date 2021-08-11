@@ -75,3 +75,19 @@
   color: white;
   box-shadow: unset;
 }
+
+.static-map {
+  width: 100%
+}
+
+.static-maps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+}
+
+.static-paper {
+  flex: 49.5%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+  /*demo*/
+  margin-bottom: 7px;
+}

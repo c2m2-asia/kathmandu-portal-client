@@ -18,6 +18,7 @@ import Typography from '@material-ui/core/Typography';
 import './styles.css';
 import mapInsight from 'images/map-insight-1.png';
 import ZoomImage from 'components/StoryDetailView/ZoomImage';
+import StaticMaps from './StaticMaps';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import { primary } from 'theme';
@@ -224,39 +225,9 @@ function MapInsightsView({ getMapData, mapData }) {
 
         {/* Static maps...*/}
         {mapData && (
-          <Paper
-            elevation={1}
-            style={{
-              padding: '1rem',
-              width: '50%',
-              marginTop: '3rem',
-              marginBottom: '3rem',
-            }}
-            className="static-map-step"
-          >
-            <Typography
-              variant="h6"
-              gutterBottom
-              style={
-                {
-                  // color: 'rgba(0,0,0,0.5)',
-                }
-              }
-            >
-              Distribution of respondents by occupation and district
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              style={{ lineHeight: '1.2', color: 'rgba(0,0,0,0.5)' }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-              non quis exercitationem culpa nesciunt nihil aut nostrum.
-            </Typography>
-            <ZoomImage
-              src="map-insight-1.png"
-              alt="Distribution of respondents by occupation and district C2M2 Kathmandu"
-            />
-          </Paper>
+          <>
+            <StaticMaps />
+          </>
         )}
       </div>
     </NavBar>
