@@ -14,7 +14,9 @@ import Button from '@material-ui/core/Button';
 import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
-import heroImg from 'images/rickshaw.jpg';
+// import heroImg from 'images/rickshaw.jpg';
+import heroImg from 'images/before-after.png';
+
 import './styles.css';
 import Blog from 'components/blog/Blog';
 import stories from 'components/dummy_data/stories';
