@@ -156,6 +156,38 @@
   flex-wrap: wrap;
 }
 
+.read-more {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.storymap-svg {
+  width: 420px;
+}
+
+.questionnaire-svg {
+  width: 420px;
+}
+
+.foots {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-project {
+  width: 40%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media (max-width: 1400px) {
   .research-areas {
     bottom: 3rem;
@@ -216,6 +248,15 @@
   .partners {
     gap: 2rem;
   }
+
+  .storymap-svg {
+    width: 320px;
+    margin-top: 2rem;
+  }
+
+  .questionnaire-svg {
+    width: 320px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -229,14 +270,4 @@
     text-align: center;
     margin-top: 1rem;
   }
-}
-
-.read-more {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }

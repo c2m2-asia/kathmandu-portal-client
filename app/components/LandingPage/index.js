@@ -26,12 +26,9 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import BusinessIcon from '@material-ui/icons/Business';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import PersonIcon from '@material-ui/icons/Person';
-import IconButton from '@material-ui/core/IconButton';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LanguageIcon from '@material-ui/icons/Language';
 import Partners from './Partners';
 import StoryMap from './StoryMap';
+import Footer from './Footer';
 
 import Carousel from './Carousel';
 
@@ -254,10 +251,14 @@ function LandingPage() {
       <section className="py-5" style={{ background: '#f5f7fc' }}>
         <div className="container">
           <div className="row">
-            <div className="col-12 col-lg-6">
-              <img src={questionnaire} width="400" alt="survey SVG" />
+            <div className="col-12 col-md-6">
+              <img
+                className="questionnaire-svg"
+                src={questionnaire}
+                alt="survey SVG"
+              />
             </div>
-            <div className="col-12 col-lg-6 mt-5">
+            <div className="col-12 col-md-6 mt-5">
               <Typography
                 variant="h5"
                 gutterBottom
@@ -281,32 +282,36 @@ function LandingPage() {
                 gathering information from businesses and workforce.
               </Typography>
 
-              <a
-                href="https://raw.githubusercontent.com/c2m2-asia/share-survey-businesses/main/COVID-19%20and%20Tourism%20Businesses%20-%20A%20survey%20for%20assessing%20COVID%20impact%2C%20your%20current%20needs%20and%20future%20plans.pdf"
-                style={{ textDecoration: 'none' }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<GetAppIcon />}
-                  size="large"
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <a
+                  href="https://raw.githubusercontent.com/c2m2-asia/share-survey-businesses/main/COVID-19%20and%20Tourism%20Businesses%20-%20A%20survey%20for%20assessing%20COVID%20impact%2C%20your%20current%20needs%20and%20future%20plans.pdf"
+                  style={{ textDecoration: 'none' }}
                 >
-                  Businesses
-                </Button>
-              </a>
-              <a
-                href="https://raw.githubusercontent.com/c2m2-asia/share-survey/main/COVID-19%20and%20Tourism%20Workers%20-%20English%20-%20A%20Survey%20to%20Assess%20COVID%20Impact%2C%20Your%20Current%20Needs%20and%20Future%20Plans.pdf"
-                style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<GetAppIcon />}
-                  size="large"
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<GetAppIcon />}
+                    size="large"
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    Businesses
+                  </Button>
+                </a>
+                <a
+                  href="https://raw.githubusercontent.com/c2m2-asia/share-survey/main/COVID-19%20and%20Tourism%20Workers%20-%20English%20-%20A%20Survey%20to%20Assess%20COVID%20Impact%2C%20Your%20Current%20Needs%20and%20Future%20Plans.pdf"
+                  style={{ textDecoration: 'none', marginLeft: '1.5rem' }}
                 >
-                  Workforce
-                </Button>
-              </a>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<GetAppIcon />}
+                    size="large"
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    Workforce
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -319,138 +324,7 @@ function LandingPage() {
       </section>
 
       {/* Footer */}
-      <section
-        className="py-5"
-        style={{
-          background: '#33475b',
-          color: 'white',
-          fontSize: '13px',
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-5">
-              <Typography variant="h6" gutterBottom align="left">
-                About C2M2
-              </Typography>
-              <Typography
-                paragraph
-                align="left"
-                style={{ fontSize: '14px', color: '#f4f4f4' }}
-              >
-                This portal was produced as part of the Cities COVID Mitigation
-                Mapping Program. The Cities&apos; COVID Mitigation Mapping
-                (C2M2) program is part of the MapGive Initiative in the Office
-                of the Geographer at the U.S. Department of State that builds
-                partnerships to enhance geospatial capacity, generate data, and
-                share maps to support planning for mitigating COVID-19 second
-                order impacts. We acknowledge the many partners who make this a
-                successful program.
-              </Typography>
-            </div>
-            <div className="col-2 offset-md-2">
-              <Typography variant="h6" gutterBottom align="left">
-                Portal Links
-              </Typography>
-              <Link to="/" className="footer-link">
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  Stories
-                </Typography>
-              </Link>
-              <Link to="/visualizations" className="footer-link">
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  Visualizations
-                </Typography>
-              </Link>
-              <Link to="/downloads" className="footer-link">
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  Downloads
-                </Typography>
-              </Link>
-              <Link to="/about" className="footer-link">
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  About
-                </Typography>
-              </Link>
-            </div>
-            <div className="col-2 offset-md-1">
-              <Typography variant="h6" gutterBottom align="left">
-                Resources
-              </Typography>
-              <a
-                href="https://c2m2-asia.github.io/kathmandu/"
-                className="footer-link"
-                target="_blank"
-              >
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  Interim Report
-                </Typography>
-              </a>
-              <a
-                href="https://github.com/c2m2-asia/kathmandu-data"
-                className="footer-link"
-                target="_blank"
-              >
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  Data
-                </Typography>
-              </a>
-              <Link to="/" className="footer-link">
-                <Typography style={{ fontSize: '14px' }} gutterBottom>
-                  Story Map
-                </Typography>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-2" style={{ background: '#f5f7fc' }}>
-        <div className="container">
-          <div className="d-flex justify-content-between align-items-center">
-            <div>
-              <Typography align="left" variant="subtitle2">
-                &copy; Kathmandu Living Labs
-              </Typography>
-            </div>
-            <div>
-              <IconButton
-                aria-label="delete"
-                onClick={() =>
-                  window
-                    .open('https://www.kathmandulivinglabs.org/', '_blank')
-                    .focus()
-                }
-              >
-                <LanguageIcon />
-              </IconButton>
-              <IconButton
-                aria-label="delete"
-                onClick={() =>
-                  window
-                    .open(
-                      'https://www.facebook.com/kathmandulivinglabs',
-                      '_blank',
-                    )
-                    .focus()
-                }
-              >
-                <FacebookIcon />
-              </IconButton>
-              <IconButton
-                aria-label="delete"
-                onClick={() =>
-                  window
-                    .open('https://twitter.com/KTMLivingLabs', '_blank')
-                    .focus()
-                }
-              >
-                <TwitterIcon />
-              </IconButton>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </NavBar>
   );
 }
