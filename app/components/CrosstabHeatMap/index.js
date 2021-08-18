@@ -7,6 +7,9 @@
 import React, { memo, Fragment, useState } from 'react';
 import { uid } from 'react-uid';
 import PropTypes from 'prop-types';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+// import './styles.css';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { scaleBand, scaleLinear, max, range, scaleThreshold } from 'd3';
 import './styles.css';
 // import { FormattedMessage } from 'react-intl';
@@ -21,6 +24,8 @@ const innerPadding = 10;
 const locale = 'en';
 
 const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const percentArray = [];
   const minmax = [];
   chartData.chart_data.map(a =>
@@ -154,7 +159,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${width + 180} ${height + 30 }`}
+        viewBox={`0 0 ${matches ? width : width + 180} ${height + 30 }`}
       >
         <g transform={`translate(${margin.left},${margin.top})`}>
           {chartData.chart_data.map((d, index) => (

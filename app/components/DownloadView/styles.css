@@ -97,3 +97,16 @@
   border: 1px solid rgba(0, 0, 0, 0.23);
   outline: none;
 }
+
+.paper-padding: {
+  padding: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .paper-padding: {
+    padding: 2rem;
+  }
+  .indent {
+    padding-left: 1rem;
+  }
+}

@@ -11,12 +11,14 @@ import { scaleBand, scaleLinear, max, range } from 'd3';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
-// import './styles.css';
-
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 const barHeight = 80;
 const margin = { top: 0, right: 50, bottom: 0, left: 0 };
 
 function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const data = chartData.chart_data;
   const height = data.length * barHeight + (data.length + 1 * 10);
   const width = 800;
@@ -63,7 +65,7 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
 
   return (
     <Fragment>
-      <svg viewBox={`0 0 ${width + 400} ${height + 90}`}>
+      <svg viewBox={`0 0 ${matches ? width : width + 400} ${height + 90}`}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>
@@ -197,6 +199,7 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
 UnivariateBarChart.propTypes = {
   chartData: PropTypes.array.isRequired,
   isShowPercentage: PropTypes.bool.isRequired,
+  locale: PropTypes.string,
 };
 
 export default memo(UnivariateBarChart);

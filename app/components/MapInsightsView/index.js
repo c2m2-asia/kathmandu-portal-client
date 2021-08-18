@@ -15,43 +15,18 @@ import Grid from '@material-ui/core/Grid';
 import NavBar from 'components/NavBar';
 import HeatMap from 'components/HeatMap/Loadable';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './styles.css';
-import mapInsight from 'images/map-insight-1.png';
-import ZoomImage from 'components/StoryDetailView/ZoomImage';
+import { primary } from 'theme';
 import StaticMaps from './StaticMaps';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
-import { primary } from 'theme';
 
 const locale = 'en';
-
-const useStyles = makeStyles(theme => ({
-  insights: {
-    cursor: 'pointer',
-    borderRadius: '5px',
-    paddingLeft: '1rem',
-    paddingRight: '0.5rem',
-    wordBreak: 'keep-all',
-    '&:hover': {
-      transition: 'all .4s ease',
-      backgroundColor: '#2A9D8F',
-      color: 'white',
-      borderRight: '5px solid #4E8EAA',
-    },
-  },
-  activeInsight: {
-    backgroundColor: '#2A9D8F',
-    color: 'rgba(255,255,255,0.9)',
-    borderRight: '5px solid #48A9A6',
-    paddingTop: '0.3rem',
-    paddingBottom: '0.3rem',
-  },
-}));
 
 const researchAreas = ['Impact', 'Need', 'Preparedness', 'Outlook'];
 
 function MapInsightsView({ getMapData, mapData }) {
-  const classes = useStyles();
   const [selectedHighlight, setSelectedHighlight] = useState('');
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
   const [timeIndex, setTimeIndex] = useState(2);
@@ -81,6 +56,9 @@ function MapInsightsView({ getMapData, mapData }) {
         }}
       >
         <Paper elevation={1} style={{ padding: '1rem' }}>
+          {!mapData &&
+            <CircularProgress />
+          }
           {mapData && (
             <Grid
               container

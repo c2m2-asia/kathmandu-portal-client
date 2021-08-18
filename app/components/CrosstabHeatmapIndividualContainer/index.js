@@ -7,6 +7,7 @@
 import React, { useState, Fragment, memo } from 'react';
 import PropTypes from 'prop-types';
 import { uid } from 'react-uid';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
@@ -23,6 +24,15 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const locale = 'en';
 
+const useStyles = makeStyles(theme => ({
+  question: {
+    width: '50%',
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
+  },
+}));
+
 function CrosstabHeatmapIndividualContainer({
   chartData,
   loading,
@@ -31,6 +41,8 @@ function CrosstabHeatmapIndividualContainer({
   surveyArea,
   researchArea,
 }) {
+  const classes = useStyles();
+
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
 
   const getTotalResponses = question =>
@@ -67,7 +79,7 @@ function CrosstabHeatmapIndividualContainer({
         <Typography variant="body2" color="primary">
           QUESTION
         </Typography>
-        <Typography variant="h6" gutterBottom style={{ width: '50%' }}>
+        <Typography variant="h6" gutterBottom className={classes.question}>
           {element.ques[locale]}
         </Typography>
         {

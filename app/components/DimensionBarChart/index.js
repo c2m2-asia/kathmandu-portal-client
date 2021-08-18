@@ -8,6 +8,8 @@ import React, { Fragment, memo } from 'react';
 import { uid } from 'react-uid';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { scaleBand, scaleLinear, max, range } from 'd3';
 import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
@@ -22,6 +24,8 @@ const padding = 15;
 const locale = 'en';
 
 function DimensionBarChart({ chartData, isShowPercentage }) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const data = chartData;
   const width = data.length * barWidth + data.length * padding;
 
@@ -64,7 +68,7 @@ function DimensionBarChart({ chartData, isShowPercentage }) {
 
   return (
     <Fragment>
-      <svg viewBox={`0 0 ${width + 700} ${height}`}>
+      <svg viewBox={`0 0 ${matches ? width : width + 700} ${height}`}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           {data.map((datum, index) => (
             <g key={uid(datum, index)}>

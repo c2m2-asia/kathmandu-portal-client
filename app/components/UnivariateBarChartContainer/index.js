@@ -8,6 +8,7 @@ import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 import { uid } from 'react-uid';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 // import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import GetAppIcon from '@material-ui/icons/GetApp';
@@ -21,12 +22,23 @@ import UnivariateBarChart from 'components/UnivariateBarChart/Loadable';
 
 const locale = 'en';
 
+const useStyles = makeStyles(theme => ({
+  question: {
+    width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+  },
+}));
+
 function UnivariateBarChartContainer({
   chartData,
   viewType,
   surveyArea,
   researchArea,
 }) {
+  const classes = useStyles();
+
   const [isShowPercentage, setIsShowPercentagesChecked] = useState(true);
 
   const getTotalResponses = question =>
@@ -43,7 +55,11 @@ function UnivariateBarChartContainer({
     );
 
   return (
-    <Paper elevation={1} style={{ marginBottom: '2rem', position: 'relative' }} className="first-univariate-chart-step">
+    <Paper
+      elevation={1}
+      style={{ marginBottom: '2rem', position: 'relative' }}
+      className="first-univariate-chart-step"
+    >
       <div
         style={{
           position: 'absolute',
@@ -63,7 +79,7 @@ function UnivariateBarChartContainer({
         <Typography
           variant="h6"
           gutterBottom
-          style={{ width: '50%' }}
+          className={classes.question}
           color="textPrimary"
         >
           {chartData.ques[locale]}
@@ -129,6 +145,8 @@ function UnivariateBarChartContainer({
 UnivariateBarChartContainer.propTypes = {
   chartData: PropTypes.object.isRequired,
   viewType: PropTypes.string.isRequired,
+  surveyArea: PropTypes.string.isRequired,
+  researchArea: PropTypes.string.isRequired,
 };
 
 export default memo(UnivariateBarChartContainer);

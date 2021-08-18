@@ -22,8 +22,8 @@ import Button from '@material-ui/core/Button';
 import MuiAlert from '@material-ui/lab/Alert';
 import Typography from '@material-ui/core/Typography';
 import MetaTable from 'components/MetaTable/Loadable';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+// import { FormattedMessage } from 'react-intl';
+// import messages from './messages';
 import './styles.css';
 
 function Alert(props) {
@@ -34,6 +34,12 @@ const useStyles = makeStyles(theme => ({
   formLabel: {
     alignItems: 'flex-start',
   },
+  paper: {
+    padding: '3rem',
+    [theme.breakpoints.down('md')]: {
+      padding: '1rem'
+    },
+  }
 }));
 
 function DownloadView() {
@@ -219,8 +225,8 @@ function DownloadView() {
   return (
     <NavBar>
       <div className="container py-5">
-        <Paper elevation={3} style={{ padding: '3rem' }}>
-          <div className="d-flex justify-content-between align-items-center">
+        <Paper elevation={3} className={classes.paper}>
+          <div className="d-flex justify-content-between align-items-center flex-wrap">
             <Typography variant="h5">Select dataset(s)</Typography>
             <Button
               variant="contained"
