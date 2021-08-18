@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -8,6 +8,8 @@ import Box from '@material-ui/core/Box';
 import ExecutiveSummary from './ExecutiveSummary';
 import AboutProject from './AboutProject';
 import Survey from './Survey';
+
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,13 +50,17 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
     height: 224,
+    [theme.breakpoints.down('sm')]: {
+      // height: 100,
+      flexDirection: 'column',
+    },
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
     overflow: 'visible',
   },
   tab: {
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   },
   selectedTab: {
     fontWeight: '600',
@@ -64,15 +70,21 @@ const useStyles = makeStyles(theme => ({
 export default function VerticalTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
+  console.log("matches", matches);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  console.log(`${matches ? 'vertical' : 'horizontal'}`);
+
   return (
     <div className={classes.root}>
       <Tabs
-        orientation="vertical"
+        orientation={`${matches ? 'horizontal' : 'vertical'}`}
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
