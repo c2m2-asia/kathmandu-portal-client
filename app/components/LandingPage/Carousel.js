@@ -105,7 +105,7 @@ function Carousel() {
       arrows={false}
       slidesToShow={2}
       centerMode={false}
-      centerPadding="50px"
+      centerPadding="60px"
       autoplay={false}
       responsive={responsive}
     >
