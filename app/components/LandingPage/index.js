@@ -4,7 +4,7 @@
  *
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import NavBar from 'components/NavBar';
@@ -15,12 +15,10 @@ import { primary } from 'theme';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 // import heroImg from 'images/rickshaw.jpg';
-import heroImg from 'images/before-after.png';
-
-import './styles.css';
 import Blog from 'components/blog/Blog';
 import stories from 'components/dummy_data/stories';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import heroImg from 'images/before-after.png';
 import questionnaire from 'images/questionnaire.svg';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import BusinessIcon from '@material-ui/icons/Business';
@@ -29,8 +27,9 @@ import PersonIcon from '@material-ui/icons/Person';
 import Partners from './Partners';
 import StoryMap from './StoryMap';
 import Footer from './Footer';
-
 import Carousel from './Carousel';
+
+import './styles.css';
 
 function LandingPage() {
   return (
