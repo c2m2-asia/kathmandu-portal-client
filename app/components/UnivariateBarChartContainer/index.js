@@ -44,8 +44,6 @@ function UnivariateBarChartContainer({
   const getTotalResponses = question =>
     question.chart_data.reduce((a, b) => a + b.total, 0);
 
-  console.log('chartData', chartData);
-
   const onDownload = variable =>
     window.open(
       `http://178.128.59.143:4000/api/v1/download/chart/?type=univariate&survey=${
@@ -68,7 +66,10 @@ function UnivariateBarChartContainer({
           background: '#E9C46A',
         }}
       >
-        <Typography variant="body2" style={{ color: 'white' }}>
+        <Typography
+          variant="body2"
+          style={{ color: 'white', fontWeight: '600' }}
+        >
           Updated 28 June, 2021
         </Typography>
       </div>

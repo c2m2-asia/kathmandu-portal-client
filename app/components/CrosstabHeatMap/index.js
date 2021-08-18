@@ -51,8 +51,6 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
       (chartData.chart_data[0].dist.length + 1) * innerPadding +
       300);
 
-  // console.log(maxBarWidth, chartData.chart_data[0].dist.length);
-
   const height =
     chartData.chart_data.length * innerRectWidth +
     chartData.chart_data.length * 20 +

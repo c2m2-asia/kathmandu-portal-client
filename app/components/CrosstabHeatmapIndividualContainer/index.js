@@ -70,7 +70,10 @@ function CrosstabHeatmapIndividualContainer({
           background: '#E9C46A',
         }}
       >
-        <Typography variant="body2" style={{ color: 'white' }}>
+        <Typography
+          variant="body2"
+          style={{ color: 'white', fontWeight: '600' }}
+        >
           Updated July 21, 2021
         </Typography>
       </div>

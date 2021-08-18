@@ -19,7 +19,6 @@ const downloadTable = props => {
   }
   return (
     <div>
-      {/* {console.log(checkedState)} */}
       {checkedState.length > 0 ? (
         <div className="float">
           <i className="fa fa-download my-float" />

@@ -73,13 +73,9 @@ export default function VerticalTabs() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
-  console.log("matches", matches);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  console.log(`${matches ? 'vertical' : 'horizontal'}`);
 
   return (
     <div className={classes.root}>

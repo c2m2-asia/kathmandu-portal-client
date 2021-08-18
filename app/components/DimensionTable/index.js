@@ -47,8 +47,6 @@ function DimensionTable({ chartData }) {
   // forcefully storing because couldn't find a better way to sort :(
   const data = JSON.parse(JSON.stringify(chartData));
 
-  console.log('<<', data);
-
   return (
     <TableContainer style={{ background: 'inherit' }}>
       <Table className={classes.table} aria-label="simple table">

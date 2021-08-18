@@ -38,8 +38,6 @@ function UnivariateChartView({
   // const getTotalResponses = () =>
   //   chartData.univariate[0].chart_data.reduce((a, b) => a + b.total, 0);
 
-  console.log('asdasdasd', univariateData);
-
   return (
     <Fragment>
       <div style={{ background: 'rgb(245, 247, 252)' }}>
