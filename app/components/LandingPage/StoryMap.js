@@ -16,7 +16,7 @@ function StoryMap() {
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-6">
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" gutterBottom style={{marginTop: '3rem'}}>
             Story Maps
           </Typography>
           <div className="title-shape mb-5 mt-2" />

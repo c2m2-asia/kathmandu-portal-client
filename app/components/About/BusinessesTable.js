@@ -70,6 +70,7 @@ export default function BusinessesTable() {
       return acc + obj.count;
     }, 0);
   };
+
   return (
     <TableContainer>
       <Table className={classes.table} aria-label="simple table">

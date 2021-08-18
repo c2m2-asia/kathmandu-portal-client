@@ -107,7 +107,7 @@
   font-weight: 500;
   display: flex;
   background: #f5f7fc;
-  bottom: 3rem;
+  bottom: 1rem;
   gap: 2rem;
   width: calc(100% - 450px);
   left: 2.5rem;
@@ -243,6 +243,8 @@
   .project-desc {
     padding: 2rem;
     width: 100% !important;
+    border-radius: 13px 13px 13px 13px;
+
   }
 
   .partners {

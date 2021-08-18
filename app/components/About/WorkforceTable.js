@@ -7,7 +7,6 @@ import MuiTableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   table: {
@@ -33,10 +32,6 @@ const workforceDistribution = [
     count: 53,
   },
   {
-    title: 'Rafting guide',
-    count: 11,
-  },
-  {
     title: 'Mountain guide',
     count: 29,
   },
@@ -46,6 +41,10 @@ const workforceDistribution = [
   },
   {
     title: 'Chef/ cook ',
+    count: 11,
+  },
+  {
+    title: 'Rafting guide',
     count: 11,
   },
   {
