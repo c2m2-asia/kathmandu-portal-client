@@ -74,10 +74,8 @@ function AboutProject() {
               marginBottom: '1.5rem',
             }}
           >
-            C2M2 Global is an international project to assess the second-order
-            impacts of COVID-19 on different aspects of livelihood. This project
-            is currently running in 12 cities across Latin America, Africa and
-            Asia.
+            Cities’ COVID Mitigation Mapping (C2M2) is a field-based program of
+            the Office of the Geographer at the U.S. Department of State.
           </Typography>
 
           <Typography
@@ -88,9 +86,26 @@ function AboutProject() {
               fontSize: '17px',
             }}
           >
-            This project is implemented by AAG (American Association of
-            Geographers), and supported by the U.S. Department of State's
-            MapGive initiative.
+            The Cities' COVID Mitigation Mapping (C2M2) program is part of the
+            MapGive Initiative in the Office of the Geographer at the U.S.
+            Department of State that builds partnerships to enhance geospatial
+            capacity, generate data, and share maps to support planning for
+            mitigating COVID-19 second order impacts. We acknowledge the many
+            partners who make this a successful program.
+          </Typography>
+          <Typography
+            paragraph
+            gutterBottom
+            style={{
+              color: '#333f57',
+              fontSize: '17px',
+            }}
+          >
+            The views and opinions expressed in this web portal are those of the
+            authors and do not necessarily reflect the official policy or
+            position of any agency of the U.S. government. Assumptions made
+            within the analysis are not a reflection of the position of any U.S.
+            government entity.
           </Typography>
         </div>
       </div>

@@ -56,9 +56,14 @@ function MapInsightsView({ getMapData, mapData }) {
         }}
       >
         <Paper elevation={1} style={{ padding: '1rem' }}>
-          {!mapData &&
-            <CircularProgress />
-          }
+          {!mapData && (
+            <div
+              className="d-flex align-items-center justify-content-center"
+              style={{ minHeight: '25rem' }}
+            >
+              <CircularProgress />
+            </div>
+          )}
           {mapData && (
             <Grid
               container
