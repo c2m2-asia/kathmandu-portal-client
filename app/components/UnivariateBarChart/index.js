@@ -63,6 +63,10 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
     return lines;
   };
 
+  const capitalize = str => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <Fragment>
       <svg viewBox={`0 0 ${matches ? width : width + 400} ${height + 90}`}>
@@ -166,9 +170,12 @@ function UnivariateBarChart({ chartData, isShowPercentage, locale }) {
             x={width - margin.left - margin.right}
             y={height + 50}
             textAnchor="end"
-            style={{ fontSize: '0.9rem', color: '#696969' }}
+            style={{
+              fontSize: '0.9rem',
+              color: '#696969',
+            }}
           >
-            {chartData.chartInfo}
+            {capitalize(chartData.chartInfo)}
           </text>
           {chartData.inputType === 'multi-select' && (
             <text

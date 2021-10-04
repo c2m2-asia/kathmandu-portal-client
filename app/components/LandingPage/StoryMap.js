@@ -16,7 +16,7 @@ function StoryMap() {
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-6">
-          <Typography variant="h5" gutterBottom style={{marginTop: '3rem'}}>
+          <Typography variant="h5" gutterBottom style={{ marginTop: '3rem' }}>
             Story Maps
           </Typography>
           <div className="title-shape mb-5 mt-2" />
@@ -31,8 +31,8 @@ function StoryMap() {
               marginBottom: '1.5rem',
             }}
           >
-            View our story map where we tell remarkable COVID-19 story in Nepal
-            with maps
+            {`View our story map where we tell remarkable COVID-19 story in Nepal
+            with maps.`}
           </Typography>
           <a
             href="https://storymaps.arcgis.com/stories/e5727482aa3c431e8c001b97a5c81934"

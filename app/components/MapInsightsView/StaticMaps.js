@@ -29,6 +29,12 @@ const staticMaps = [
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum.',
   },
   {
+    fileName: 'geo-distribution.png',
+    title: 'Geographical Distribution of Tourism Workers by Their Occupation',
+    description:
+      'This map is a standard univariate product that shows district-wise distribution of our respondents, or how reported tourism occupations vary across districts. Turns out 20% of our respondents are from Solukhumbu district, where the highest peak of the world, Mount Everest is located. Most of the respondents here are Mountain and trekking guides.',
+  },
+  {
     fileName: 'migration-kathmandu.png',
     title: 'Flow of Tourism Workers to Kathmandu with Different Skills',
     description:
@@ -40,12 +46,6 @@ const staticMaps = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum.',
   },
-  {
-    fileName: 'geo-distribution.png',
-    title: 'Geographical Distribution of Tourism Workers by Their Occupation',
-    description:
-      'This map is a standard univariate product that shows district-wise distribution of our respondents, or how reported tourism occupations vary across districts. Turns out 20% of our respondents are from Solukhumbu district, where the highest peak of the world, Mount Everest is located. Most of the respondents here are Mountain and trekking guides.',
-  },
 ];
 
 function StaticMaps() {
@@ -55,7 +55,7 @@ function StaticMaps() {
         return (
           <>
             <Typography paragraph>
-              this map identifies the major tourism hubs and destinations of the
+              This map identifies the major tourism hubs and destinations of the
               country by looking into the movement of the respondents during
               their work.
             </Typography>
@@ -75,6 +75,22 @@ function StaticMaps() {
         );
       }
       case 2: {
+        return (
+          <>
+            <Typography paragraph>
+              This map is a standard univariate product that shows district-wise
+              distribution of our respondents, or how reported tourism
+              occupations vary across districts.
+            </Typography>
+            <Typography paragraph>
+              Turns out 20% of our respondents are from Solukhumbu district,
+              where the highest peak of the world, Mount Everest is located.
+              Most of the respondents here are Mountain and trekking guides.
+            </Typography>
+          </>
+        );
+      }
+      case 3: {
         return (
           <>
             <Typography paragraph>
@@ -99,7 +115,7 @@ function StaticMaps() {
           </>
         );
       }
-      case 3: {
+      case 4: {
         return (
           <>
             <Typography paragraph>
@@ -114,22 +130,7 @@ function StaticMaps() {
           </>
         );
       }
-      case 4: {
-        return (
-          <>
-            <Typography paragraph>
-              This map is a standard univariate product that shows district-wise
-              distribution of our respondents, or how reported tourism
-              occupations vary across districts.
-            </Typography>
-            <Typography paragraph>
-              Turns out 20% of our respondents are from Solukhumbu district,
-              where the highest peak of the world, Mount Everest is located.
-              Most of the respondents here are Mountain and trekking guides.
-            </Typography>
-          </>
-        );
-      }
+
       default: {
         return '';
       }

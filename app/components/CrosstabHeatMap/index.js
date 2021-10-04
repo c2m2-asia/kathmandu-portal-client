@@ -148,6 +148,10 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
     tooltip.style.display = 'none';
   }
 
+  const capitalize = str => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <Fragment>
       <div
@@ -157,7 +161,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${matches ? width : width + 180} ${height + 30 }`}
+        viewBox={`0 0 ${matches ? width : width + 180} ${height + 30}`}
       >
         <g transform={`translate(${margin.left},${margin.top})`}>
           {chartData.chart_data.map((d, index) => (
@@ -296,7 +300,7 @@ const CrosstabHeatMap = ({ chartData, isShowPercentage }) => {
               textAnchor="end"
               style={{ fontSize: '0.9rem', color: '#696969' }}
             >
-              {chartData.chartInfo}
+              {capitalize(chartData.chartInfo)}
             </tspan>
             {chartData.inputType === 'multi-select' && (
               <tspan

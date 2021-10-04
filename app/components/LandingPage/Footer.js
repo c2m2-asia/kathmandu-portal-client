@@ -41,21 +41,21 @@ function Footer() {
                   align="left"
                   style={{ fontSize: '14px', color: '#f4f4f4' }}
                 >
-                  This portal was produced as part of the Cities COVID
+                  {`This portal was produced as part of the Cities' COVID
                   Mitigation Mapping Program. The Cities&apos; COVID Mitigation
                   Mapping (C2M2) program is part of the MapGive Initiative in
                   the Office of the Geographer at the U.S. Department of State
                   that builds partnerships to enhance geospatial capacity,
                   generate data, and share maps to support planning for
                   mitigating COVID-19 second order impacts. We acknowledge the
-                  many partners who make this a successful program.
+                  many partners who make this a successful program.`}
                 </Typography>
               </div>
               <div className="col-2 offset-md-2">
                 <Typography variant="h6" gutterBottom align="left">
                   Portal Links
                 </Typography>
-                <Link to="/" className="footer-link">
+                <Link to="/stories" className="footer-link">
                   <Typography style={{ fontSize: '14px' }} gutterBottom>
                     Stories
                   </Typography>
@@ -98,11 +98,15 @@ function Footer() {
                     Data
                   </Typography>
                 </a>
-                <Link to="/" className="footer-link">
+                <a
+                  href="https://storymaps.arcgis.com/stories/e5727482aa3c431e8c001b97a5c81934"
+                  className="footer-link"
+                  target="_blank"
+                >
                   <Typography style={{ fontSize: '14px' }} gutterBottom>
                     Story Map
                   </Typography>
-                </Link>
+                </a>
               </div>
             </div>
           </Hidden>
